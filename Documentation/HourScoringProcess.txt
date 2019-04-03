@@ -1,0 +1,20 @@
+Hours and their Stages
+Discovery
+-IsActive NULL
+-IsCompleted 0
+=QoS_WorkspaceAnalysisManager (inserts into CasesToAudit, updates IsActive)
+
+Analysis
+-IsActive 1
+-IsCompleted 0
+="VARSCAT"/WorkspaceAnalysis (updates IsCompleted)
+
+Scoring
+-IsActive 1
+-IsCompleted 1
+=QoS_LookingGlass > QualityDataGenerator > BuildAndRateSample (inserts into QoS_Ratings)
+	- Known issue, if Uptime is having an issue (doesn't exist), skips scoring and tries again later?
+
+Scored
+-IsActive 1
+-IsCompleted 1

@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{861F15B9-AFB8-4FA0-B6A0-291BFF0C1A92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Service.Tests</RootNamespace>
+    <AssemblyName>kCura.PDB.Service.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Data.RowDataGateway">
+      <HintPath>..\..\Vendor\binaries\kCura.Data.RowDataGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.5.292.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Rsapi.9.5.292.12\lib\kCura.Relativity.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.Data.RowDataGateway">
+      <HintPath>..\..\Vendor\binaries\kCura.Data.RowDataGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.5.292.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Rsapi.9.5.292.12\lib\kCura.Relativity.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.5.28.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.ChildKernel, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.ChildKernel.3.2.0.0\lib\net45-full\Ninject.Extensions.ChildKernel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.API">
+      <HintPath>..\..\vendor\binaries\Relativity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Kepler, Version=1.0.1.423, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.1.0.1.423\lib\net462\Relativity.Kepler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.4.398.22\lib\net45\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.5.315.50\lib\net45\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces.Private, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.Private.9.4.398.22\lib\net45\Relativity.Services.Interfaces.Private.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.APM, Version=9.4.152.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.APM.9.4.152\lib\net462\Relativity.Telemetry.APM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.Services.Interface, Version=9.4.378.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.Services.Interface.9.4.378.21\lib\net45\Relativity.Telemetry.Services.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Toggles.1.0.0.64\lib\net45\Relativity.Toggles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RoundHouseDependencies">
+      <HintPath>..\..\vendor\RoundHouseDependencies.dll</HintPath>
+    </Reference>
+    <Reference Include="Sodium">
+      <HintPath>..\..\vendor\SolutionReferences\libsodium-net\Sodium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseDeployment\DatabaseMigratorTests.cs" />
+    <Compile Include="DatabaseDeployment\DeploymentServiceFactoryTests.cs" />
+    <Compile Include="DatabaseDeployment\QosDatabaseDeployerTests.cs" />
+    <Compile Include="DatabaseDeployment\RoundHouseFileServiceTests.cs" />
+    <Compile Include="DatabaseDeployment\RoundhouseLoggerTests.cs" />
+    <Compile Include="InstallationTests\ApplicationInstallationServiceTests.cs" />
+    <Compile Include="InstallationTests\SingletonDatabaseInstallationServiceTests.cs" />
+    <Compile Include="InstallationTests\PostInstallServiceIntegrationTests.cs" />
+    <Compile Include="InstallationTests\PreInstallServiceIntegrationTests.cs" />
+    <Compile Include="InstallationTests\DefaultDatabaseInstallationServiceTests.cs" />
+    <Compile Include="Logic\Audits\DataGridSettingsServiceTests.cs" />
+    <Compile Include="Logic\Audits\SearchAuditReporterTests.cs" />
+    <Compile Include="Logic\Audits\ServerAuditReporterTests.cs" />
+    <Compile Include="Logic\Audits\WorkspaceAuditApmReporterTests.cs" />
+    <Compile Include="Logic\Audits\WorkspaceAuditReporterTests.cs" />
+    <Compile Include="Logic\CategoryScoring\CategoryCompleteTaskTests.cs" />
+    <Compile Include="Logic\CategoryScoring\CategoryServiceTests.cs" />
+    <Compile Include="Logic\CategoryScoring\InfrastructurePerformance\InfrastructurePerformanceScoringLogicTests.cs" />
+    <Compile Include="Logic\CategoryScoring\RecoverabilityIntegrityScoringLogicTests.cs" />
+    <Compile Include="Logic\CategoryScoring\UserExperience\UserExperienceSampleServiceTests.cs" />
+    <Compile Include="Logic\CategoryScoring\UserExperience\UserExperienceScoringLogicTests.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseDeploymentServiceTests.cs" />
+    <Compile Include="DatabaseDeployment\ErrorOnlyMigrationResultHandlerTests.cs" />
+    <Compile Include="DatabaseDeployment\ExceptionMigrationResultHandlerTests.cs" />
+    <Compile Include="Logic\Hours\HourCleanupLogicTests.cs" />
+    <Compile Include="Logic\Hours\HourMigrationServiceTests.cs" />
+    <Compile Include="Logic\Hours\HourPrerequisitesServiceTests.cs" />
+    <Compile Include="Logic\Metrics\InfrastructurePerformance\WaitsMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\InfrastructurePerformance\VirtualLogFileCountMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\InfrastructurePerformance\RamMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\MetricServiceTests.cs" />
+    <Compile Include="Logic\Metrics\RecoverabilityIntegrity\BackupGapMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\RecoverabilityIntegrity\RpoMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\RecoverabilityIntegrity\RtoMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditBatchAnalyzerTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditBatchProcessorTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditParsingServiceTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditServerBatcherTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditServiceTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditWorkspaceBatcherTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\DataGridConditionBuilderTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\UserExperienceServiceTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\WorkspaceAuditServiceFactoryTests.cs" />
+    <Compile Include="Logic\Notifications\PdbNotificationServiceTests.cs" />
+    <Compile Include="ProcessControls\AnalyticsCheckMemoryCheckTests.cs" />
+    <Compile Include="ProcessControls\AnalyticsCheckProcessorCheckTest.cs" />
+    <Compile Include="ProcessControls\ApplicationPerformanceTaskTests.cs" />
+    <Compile Include="ProcessControls\EnvironmentCheckServerInfoTaskTests.cs" />
+    <Compile Include="ProcessControls\EnvironmentCheckSqlConfigTaskTests.cs" />
+    <Compile Include="ProcessControls\FileLevelLatencyTaskTests.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\DiskHealthPerformanceTaskTests.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\LoadServerHealthSummaryTaskTests.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\RamHealthPerformanceTaskTests.cs" />
+    <Compile Include="ProcessControls\LoadApplicationSummaryTaskTests.cs" />
+    <Compile Include="ProcessControls\MonitorVirtualLogFilesTaskTests.cs" />
+    <Compile Include="ProcessControls\ProcessControlTaskManagerTests.cs" />
+    <Compile Include="ProcessControls\ReadErrorLogTaskTests.cs" />
+    <Compile Include="ProcessControls\RunServerDataRefreshTaskTests.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Queuing\CheckEventTaskTests.cs" />
+    <Compile Include="Queuing\EventChildKernelFactoryTests.cs" />
+    <Compile Include="Queuing\EventHandlerTests.cs" />
+    <Compile Include="Queuing\EventOrphanServiceTests.cs" />
+    <Compile Include="Queuing\EventRouterTests.cs" />
+    <Compile Include="Queuing\EventRunnerTests.cs" />
+    <Compile Include="Queuing\EventSourceServiceTests.cs" />
+    <Compile Include="Queuing\EventTaskFactoryTests.cs" />
+    <Compile Include="Queuing\EventTaskTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\AuditAnalysisMetricLogicTests.cs" />
+    <Compile Include="Logic\Agent\AgentLoggerTests.cs" />
+    <Compile Include="Logic\Agent\DatabaseLoggerTests.cs" />
+    <Compile Include="Logic\Agent\MetricSystemManagerAgentLogicTests.cs" />
+    <Compile Include="Logic\Agent\MetricSystemWorkerAgentLogicTests.cs" />
+    <Compile Include="Logic\CategoryScoring\CategoryScoringTaskTests.cs" />
+    <Compile Include="Logic\Hours\HourlyScoringLogicTests.cs" />
+    <Compile Include="Logic\Hours\HourServiceTests.cs" />
+    <Compile Include="Logic\Hours\HourTaskTests.cs" />
+    <Compile Include="Logic\Metrics\MetricDataServiceTests.cs" />
+    <Compile Include="Logic\Metrics\Uptime\AgentUptimeMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\Uptime\WebUptimeMetricLogicTests.cs" />
+    <Compile Include="Logic\Metrics\UserExperience\SearchAnalysisServiceTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\DatabaseBackupProcessorTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsCollectionVerifierTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsCoverageAnalyzerTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsFrequencyAnalyzerTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerBackupProcessorTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerDbccProcessorTests.cs" />
+    <Compile Include="Servers\DatabaseServiceTests.cs" />
+    <Compile Include="Services\AttributeServiceFactoryTests.cs" />
+    <Compile Include="Logic\Metrics\MetricTaskTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queuing\EventWorkerServiceTests.cs" />
+    <Compile Include="Queuing\JobServerTests.cs" />
+    <Compile Include="Queuing\QueuingConfigurationTests.cs" />
+    <Compile Include="Queuing\QueuingServiceTests.cs" />
+    <Compile Include="Logic\CategoryScoring\Uptime\UptimeScoringLogicTests.cs" />
+    <Compile Include="ServiceBindingsTests.cs" />
+    <Compile Include="Services\AdministrationInstallationServiceTests.cs" />
+    <Compile Include="Services\AgentManagerServicePlatformTests.cs" />
+    <Compile Include="Services\AgentManagerServiceTests.cs" />
+    <Compile Include="Services\EmailNotificationServiceUnitTests.cs" />
+    <Compile Include="Services\GapReporterTests.cs" />
+    <Compile Include="Services\PostInstallServiceTests.cs" />
+    <Compile Include="Services\PreInstallServiceTests.cs" />
+    <Compile Include="Services\RecoverabilityIntegritySummaryReporterTests.cs" />
+    <Compile Include="Services\RecoveryObjectivesReporterTests.cs" />
+    <Compile Include="Services\AppSettingsConfigurationServiceTests.cs" />
+    <Compile Include="Services\DatabaseDeployerTests.cs" />
+    <Compile Include="Services\EmailNotificationServiceTests.cs" />
+    <Compile Include="Services\EnvironmentCheckServiceTests.cs" />
+    <Compile Include="Services\FileLatencyServiceTests.cs" />
+    <Compile Include="Services\KernelFactoryTests.cs" />
+    <Compile Include="Services\LoggingServiceTests.cs" />
+    <Compile Include="Services\PrimarySqlServerServiceTests.cs" />
+    <Compile Include="Services\QualityIndicatorServiceTests.cs" />
+    <Compile Include="Services\RefreshServerServiceTests.cs" />
+    <Compile Include="Services\RelativityServerServiceTests.cs" />
+    <Compile Include="Services\ReportServiceTests.cs" />
+    <Compile Include="Services\ServerTypeMapperTests.cs" />
+    <Compile Include="Services\SqlScriptTokenServiceTests.cs" />
+    <Compile Include="Services\SqlScriptTokenValueProviderTests.cs" />
+    <Compile Include="Services\TabServiceTests.cs" />
+    <Compile Include="Services\TimeoutTests.cs" />
+    <Compile Include="Services\PdbConfigurationServiceTests.cs" />
+    <Compile Include="Services\VersionCheckServiceTests.cs" />
+    <Compile Include="Testing\IntegrationTestEventSourceServiceTests.cs" />
+    <Compile Include="Testing\IntegrationTestMetricManagerLogicTests.cs" />
+    <Compile Include="Testing\NewBackupDbccServiceExecutionTests.cs" />
+    <Compile Include="Testing\NoOpTaskTesting.cs" />
+    <Compile Include="Testing\OldBackupDbccServiceExecutionTests.cs" />
+    <Compile Include="Testing\ReportCleanupServiceTests.cs" />
+    <Compile Include="Testing\TestAgentRunnerTests.cs" />
+    <Compile Include="Testing\TestDataSetupServiceTests.cs" />
+    <Compile Include="Testing\TestEventPrimerTests.cs" />
+    <Compile Include="Testing\TestPollingServiceTests.cs" />
+    <Compile Include="UserExperienceSamplingTests.cs" />
+    <Compile Include="Workspace\WorkspaceServiceTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\AppSettings.Override.config">
+      <Link>AppSettings.Override.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\RelativityConnection.Override.config">
+      <Link>RelativityConnection.Override.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExampleZip.zip" />
+    <None Include="TestDirectory.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{b72f5674-7d0d-469c-ad9d-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data.Tests\kCura.PDB.Data.Tests.csproj">
+      <Project>{01ca6d9d-e758-4e0d-92f7-56a70a724229}</Project>
+      <Name>kCura.PDB.Data.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data\kCura.PDB.Data.csproj">
+      <Project>{2ed961c8-45d1-4ebd-8e77-2bbd04fb9237}</Project>
+      <Name>kCura.PDB.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.DependencyInjection\kCura.PDB.DependencyInjection.csproj">
+      <Project>{B2A83931-843E-4DE4-9FC3-8A6C93D9569F}</Project>
+      <Name>kCura.PDB.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service.DataGrid\kCura.PDB.Service.DataGrid.csproj">
+      <Project>{CD44CD93-9DB0-4A6D-8655-A352B03FD9CC}</Project>
+      <Name>kCura.PDB.Service.DataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service\kCura.PDB.Service.csproj">
+      <Project>{613bfc9c-050b-4d42-bbc0-fae722e1b37b}</Project>
+      <Name>kCura.PDB.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Tests.Common\kCura.PDB.Tests.Common.csproj">
+      <Project>{d4fe0b89-7c15-41be-aa9f-5a94a1ff5999}</Project>
+      <Name>kCura.PDB.Tests.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataProviders\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+Score-affecting conditions were detected on {0}. If user activity is high, these conditions may impact scores. To improve the score, review the servers listed below. The scores given below are estimates based on current data and may differ from the final score for the hour.
+
+{1}
+
+This is an alert from Performance Dashboard. Automatic notifications can be disabled via Performance Dashboard's configuration page.

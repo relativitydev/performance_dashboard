@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<script type="text/javascript" src="~/Script/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="~/Script/polyfill.min.js"></script>
+	<script type="text/javascript" src="~/Script/vue.min.js"></script>
+    <script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Script/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/Components.css">
+    <link rel="stylesheet" type="text/css" href="~/Style/AdministrationInstall.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap-spinner.css" />
+    <style>
+
+
+        input[type=number] {
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="notifications">
+        <form id="NotificationSettings">
+            <div class="action-bar">
+                <div class="right" style="text-align: center">
+                    <a href="javascript:history.go(-1)" class="btn">Back</a>
+                    <a href="#" id="scriptInstallationSubmitButton" v-on:click="saveSettings()" class="btn">Save</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="row logo-box-a">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 centerContent">
+                        <h4 class="logo-m">
+                            <img src="~/Images/rsz_relativitylogo.png" />
+                            Performance Dashboard: <span class="pdb-step">Email Notifications</span>
+                        </h4>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+                <transition name="fade">
+                    <div v-if="isSuccess" style="margin: 15px" id="displaySuccessMessage" visible="false" class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Performance Dashboard</h3>
+                        </div>
+                        <div id="successMessage" class="panel-body">
+                            {{isSuccess}}
+                        </div>
+                    </div>
+                </transition>
+                <transition name="fade">
+                    <div v-if="isError" style="margin: 15px" id="displayErrorMessage" visible="false" class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Performance Dashboard</h3>
+                        </div>
+                        <div class="panel-body">
+                            Your notification settings could not be saved. {{isError}}
+                        </div>
+                    </div>
+                </transition>
+                <div class="row logo-box-b">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-13 centerContent">
+                        <div id="SettingsPane" class="well pdb-well">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <legend class="legend-transform-a">Notification Settings</legend>
+                                    <div class="form-group">
+                                        <div class="col-lg-4">
+                                            <label class="control-label" style="font-weight: bold">Alert Type</label>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <label style="font-weight: bold">Frequency (Minutes)</label>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <label style="font-weight: bold">Threshold</label>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label style="font-weight: bold">
+                                                Recipients
+                                                <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                     title="Enter one or more email addresses to receive each notification type below, separating addresses with a comma or semicolon. To enable a notification, you must specify at least one recipient." />
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label style="font-weight: bold">Enabled</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Weekly Score Alerts
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="When the overall weekly score falls below the threshold specified here, this will trigger a recurring alert." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner">
+                                            <input v-model="configuration.NotificationSettings.WeeklyScoreAlert.Frequency" id="weeklyScoreAlertFrequency" type="number" step="15" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1 input-append spinner">
+                                            <input v-model="configuration.NotificationSettings.WeeklyScoreAlert.Threshold" id="hourlyThreshold" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.WeeklyScoreAlert.Recipients" id="hourlyRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.WeeklyScoreAlert.Enabled" type="checkbox" id="WeeklyScoreAlert" class="checkbox" data-size="small" placeholder="SendHourlyNotifications" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Infrastructure Performance Forecast
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Infrastructure performance data is checked periodically for high utilization. If the effective score falls below this threshold, this will trigger an alert." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.SystemLoadForecast.Frequency" id="systemLoadForecastFrequency" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.SystemLoadForecast.Threshold" id="systemLoadThreshold" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.SystemLoadForecast.Recipients" id="systemLoadRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.SystemLoadForecast.Enabled" type="checkbox" id="SystemLoadForecast" class="checkbox" data-size="small" placeholder="SendSystemLoadForecast" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            User Experience Forecast
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Search audit metadata is checked periodically. If a high percentage of long-running queries is detected, this will generate an alert." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.UserExperienceForecast.Frequency" id="userExperienceForecastFrequency" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.UserExperienceForecast.Threshold" id="userExperienceThreshold" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.UserExperienceForecast.Recipients" id="userExperienceRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.UserExperienceForecast.Enabled" type="checkbox" id="UserExperienceForecast" class="checkbox" data-size="small" placeholder="SendUserExperienceForecast" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Quarterly Score Alerts
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="When the overall quarterly score falls below the threshold specified here, this will trigger a recurring alert." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreAlert.Frequency" id="quarterlyScoreAlertFrequency" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreAlert.Threshold" id="dailyThreshold" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreAlert.Recipients" id="quarterlyScoreRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreAlert.Enabled" type="checkbox" id="QuarterlyScoreAlert" class="checkbox" data-size="small" placeholder="SendDailyNotifications" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Quarterly Score Status
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="On a regular schedule, Performance Dashboard will send a report of the current quarterly and weekly scores." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreStatus.Frequency" id="scoreStatusFrequency" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreStatus.Recipients" ID="quarterlyStatusRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.QuarterlyScoreStatus.Enabled" type="checkbox" id="QuarterlyScoreStatus" class="checkbox" data-size="small" placeholder="SendWeeklyNotifications" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Recoverability/Integrity Alerts
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="On a regular schedule, Performance Dashboard will send a warning email if monitoring suggests backups or consistency checks have been missed for at least seven days." />
+                                        </label>
+                                        <div class="col-lg-1 input-append spinner" data-trigger="spinner">
+                                            <input v-model="configuration.NotificationSettings.BackupDBCCAlert.Frequency" id="backDbccAlertFrequency" type="number" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.BackupDBCCAlert.Recipients" id="backupDbccRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.BackupDBCCAlert.Enabled" type="checkbox" id="BackupDBCCAlert" class="checkbox" data-size="small" placeholder="SendBackupDBCCNotifications" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4" style="text-align: left;">
+                                            Configuration Change Alerts
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="When Performance Dashboard configuration settings change, this will trigger an email auditing all changes." />
+                                        </label>
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-4">
+                                            <input v-model="configuration.NotificationSettings.ConfigurationChangeAlert.Recipients" ID="configChangeRecipients" type="text" class="form-control" placeholder="N/A" />
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <input v-model="configuration.NotificationSettings.ConfigurationChangeAlert.Enabled" type="checkbox" id="ConfigurationChangeAlert" class="checkbox" data-size="small" placeholder="SendConfigurationNotifications" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="~/Script/Notifications/notificationsApp.js"></script>
+</body>
+</html>

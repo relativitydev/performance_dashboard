@@ -1,0 +1,54 @@
+QoS_BuildandRateSample.sql
+	- QoS_LogAppend
+	- eddsdbo.ValidateIntegrityTrail (EXEC)
+	
+	- IF (@fcmValid = 0) 
+		eddsdbo.DisableLookingGlass (EXEC)
+		
+	- IF (@lastRatedHour IS NOT NULL)
+		eddsdbo.VerifyIntegritySnapshot (EXEC)
+		
+	- IF (@fcmValid = 0) 
+		eddsdbo.DisableLookingGlass (EXEC)
+		
+	- eddsdbo.QoS_HasSystemVersionChanged (EXEC)
+	- EDDSDBO.QoS_SampleHistory (DELETE WHERE SummaryDayHour < DATEADD(dd, -180, getUTCdate()))
+	- EDDSDBO.QoS_SystemLoadSummary (DELETE WHERE SummaryDayHour < DATEADD(dd, -180, getUTCdate()))
+	- EDDSDBO.QoS_FCM (DELETE WHERE SummaryDayHour < DATEADD(dd, -180, getUTCdate()))
+
+	== Gather system load data
+	- EDDSDBO.QoS_SystemLoadSummary (Inserting)
+        eddsdbo.QoS_GetServerHourID(x.ArtifactID, x.MeasureDate)
+	- EDDSQoS.eddsdbo.GetPrimarySqlServer (EXEC)
+	- eddsdbo.QoS_SystemLoadSummary (Updating PoisonWaits)
+
+	== Scoring
+	- eddsdbo.QoS_SystemLoadSummary (Updating)
+	- EDDSDBO.QoS_SampleHistory (Updating/'Destroy the current sample')
+	- EDDSDBO.QoS_Ratings (Inserting)	
+	- eddsdbo.GenerateIntegritySnapshot (EXEC)	
+	
+ValidateIntegrityTrail
+	- forwards to [kCura.PDB.Integrity].[kCura.PDB.Integrity.StoredProcedures].[ValidateIntegrityTrail] (C#)
+	- forwards to kCura.PDB.Integrity.Resources.ValidateIntegrityTrail (set @fcmValid = 0 after checking)
+
+DisableLookingGlass
+	- forwards to [kCura.PDB.Integrity].[kCura.PDB.Integrity.StoredProcedures].[DisableLookingGlass] (C#)
+	- Commands.SetIntegrityStatus
+
+VerifyIntegritySnapshot
+	- forwards to [kCura.PDB.Integrity].[kCura.PDB.Integrity.StoredProcedures].[VerifyIntegritySnapshot] (C#)
+	- Commands.ValidateStoredProcedureDefinitions
+	- Commands.CompareSnapshots
+	- Commands.WriteGlassLogEntry
+
+QoS_HasSystemVersionChanged
+	- EDDSQoS.eddsdbo.GetPrimarySqlServer (EXEC)
+	- eddsdbo.SystemVersionHistory (Inserting)
+
+GenerateIntegritySnapshot
+	- forwards to [kCura.PDB.Integrity].[kCura.PDB.Integrity.StoredProcedures].[GenerateIntegritySnapshot] (C#)
+	- Commands.ValidateStoredProcedureDefinitions
+	- Commands.CreateSnapshot
+	- Resources.HashRowHashes
+	- Resources.InsertIntegritySnapshot

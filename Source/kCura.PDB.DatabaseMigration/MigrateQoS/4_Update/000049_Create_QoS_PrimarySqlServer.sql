@@ -1,0 +1,11 @@
+USE [EDDSQoS]
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'QoS_PrimarySqlServer')
+BEGIN
+CREATE TABLE [EDDSQoS].eddsdbo.[QoS_PrimarySqlServer]
+(
+    [ArtifactID] INT,
+    [Name] NVARCHAR(50),
+    [URL] nvarchar(max) 
+)
+END

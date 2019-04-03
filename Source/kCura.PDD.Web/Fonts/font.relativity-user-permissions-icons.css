@@ -1,0 +1,141 @@
+﻿@charset "UTF-8";
+
+@font-face {
+  font-family: "user-permissions";
+  src:url("user-permissions.eot");
+  src:url("user-permissions.eot?#iefix") format("embedded-opentype"),
+    url("user-permissions.woff") format("woff"),
+    url("user-permissions.ttf") format("truetype"),
+    url("user-permissions.svg#user-permissions") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "user-permissions" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "user-permissions" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tab-indent:before {
+  content: "c";
+}
+.icon-users2:before {
+  content: "d";
+}
+.icon-trash:before {
+  content: "e";
+}
+.icon-search:before {
+  content: "f";
+}
+.icon-remove-arrow:before {
+  content: "g";
+	vertical-align: middle;
+}
+.icon-add-arrow:before {
+  content: "h";
+	vertical-align: middle;
+	float: right;
+	padding-left: 5px;
+	padding-top: 9px;
+}
+.icon-none2:before {
+  content: "a";
+}
+.icon-checkmark:before {
+  content: "b";
+}
+.icon-copy:before {
+  content: "i";
+}
+.icon-eye:before {
+  content: "j";
+}
+.icon-left-arrow:before {
+  content: "k";
+}
+.icon-lock:before {
+  content: "l";
+}
+.icon-pencil2:before {
+  content: "m";
+}
+.icon-circle-plus:before {
+  content: "n";
+}
+
+.atm-glyph,
+.indicator {
+	height: 18px;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	width: 18px;
+}
+
+.atm-glyph {
+	height: 1.5em;
+	line-height: 1.5em;
+	opacity: 0.9;
+	text-indent: 0;
+	width: 1em;
+    text-align: center;
+    display: block;
+}
+
+a.atm-glyph {
+    color: #595959;
+}
+
+.atm-glyph,
+.inherited-security .list-item .atm:hover .atm-glyph,
+.inherited-security .list-item .atm:focus .atm-glyph,
+.inherited-security .atm-glyph,
+.list-item .atm:hover .atm-glyph,
+.list-item .atm:focus .atm-glyph
+{
+	font-size: 1em;
+	top: .5em;
+}
+
+.inherited-security .list-item .atm:hover .atm-glyph,
+.inherited-security .list-item .atm:focus .atm-glyph,
+.inherited-security .atm-glyph,
+.list-item .atm:hover .atm-glyph,
+.list-item .atm:focus .atm-glyph
+{
+	opacity: 1;
+}
+
+.disabled {
+    opacity: 0.3;
+}
+
+.inherited-security .list-item .atm.active .atm-glyph,
+.list-item .atm:hover .atm-glyph,
+.list-item .atm:focus .atm-glyph {
+	font-size: 1.125em;
+	top: 0.3889em;
+}

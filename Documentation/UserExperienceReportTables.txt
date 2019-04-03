@@ -1,0 +1,38 @@
+Server Report - [QoS_UserExperienceServerReport]
+	Tables: { QoS_UserExperienceServerSummary, QoS_SampleHistory }
+	Hour = SummaryDayHour
+	Server = { Server, ServerArtifactId }
+	Score = Score
+	Workspace = { Workspace, CaseArtifactId }
+	Long-Running Queries = TotalLongRunning
+	Total Users = TotalUsers
+	Total Search Audits = TotalSearchAudits
+	Total Non-Search Audits = TotalNonSearchAudits
+	Total Audits = TotalAudits
+	Total Execution Time = Total Execution Time
+	Weekly Sample = IsActiveWeeklySample from QoS_SampleHistory ON SS.QoSHourID = SH.QoSHourID
+	
+Workspace Report - [QoS_UserExperienceWorkspaceReport]
+	Tables: { QoS_VarscatOutputCumulative, QoS_VarscatOutputDetailCumulative, QoS_SampleHistory }
+	Hour = SummaryDayHour
+	Database = { DatabaseName } (note WorksaceId is parsed from database name)
+	Search = { SearchName, SearchArtifactId } OR {Wo}
+	Complex / Simple = QoS_VarscatOutputDetailCumulative.IsComplex
+	Total Run Time = QoS_VarscatOutputCumulative.TotalLRQRunTime
+	Average Run Time = QoS_VarscatOutputCumulative.TotalLRQRunTime / QoS_VarscatOutputCumulative.TotalRuns
+	Total Search Audits = QoS_VarscatOutputCumulative.TotalRuns
+	Weekly Sample = IsActiveWeeklySample from QoS_SampleHistory AS sh ON sh.QoSHourID = qsvodc2.QoSHourID
+	
+	
+Search Report - [QoS_UserExperienceSearchReport]
+	Tables: { QoS_UserExperienceSearchSummary, QoS_SampleHistory }
+	Hour = SummaryDayHour
+	Search = { Search, SearchArtifactId } OR { CaseArtifactId, LastAuditID (aka AuditId), Search, SearchArtifactId }
+	User = { User, UserArtifactId }
+	Percent Long-Running = PercentLongRunning
+	Complex / Simple = IsComplex
+	Total Run Time = TotalRunTime
+	Average Run Time = AverageRunTime
+	Total Runs = TotalRuns
+	Qos Hour ID = QoSHourID
+	Weekly Sample = IsActiveWeeklySample from QoS_SampleHistory ON SS.QoSHourID = SH.QoSHourID

@@ -1,0 +1,16 @@
+﻿.table-container{
+	display: none;
+}
+
+.btnResetTuningFork{
+	float: right; margin-left: 200px;
+}
+
+.list-toggle-icons{
+	position: absolute; width: 25%; left: 45%;
+}
+
+.list-toggle-item{
+	display: inline-block; margin-left: 8px; text-align: center;
+}
+

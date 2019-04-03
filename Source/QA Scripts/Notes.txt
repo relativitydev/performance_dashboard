@@ -1,0 +1,118 @@
+*** Contents ***
+
+CleanWorkspaces.sql
+* Goes through every workspace on the server and removes everything we deployed to it
+
+DowngradeEDDSPerformance.sql
+* Removes RoundhousE tables
+* Reverses RoundhousE-deployed changes to EDDSPerformance
+* Reverts some stored procedures
+* Note: also clears agent claims to the rollup and individual servers
+
+DropEDDSQoS.sql
+* Removes the EDDSQoS database from the server
+
+ForgetEventHandlerRunHistory.sql
+* Removes the key for PDB's run-once event handler from all workspaces on the server
+* The post install event will run again when the application is imported
+
+FullRemoval_DropEDDSPerformance.sql
+* Should only be used if you need to completely remove PDB
+* Drops the EDDSPerformance database
+
+DropEDDSResourceTables.sql
+* Drops tables in EDDSResource created by Backup/DBCC monitor procedure
+
+InsertTestRatings.sql
+* Used to populate QoS tables with dummy data
+* Need to set parameter values before running (server/workspace IDs)
+* The scores defined in the configuration section will be used to generate the ratings
+* You can uncomment the truncate statements at the top to clear the QoS tables
+
+InsertTestAudits.sql
+* Used to insert dummy edit audits into a given workspace
+* Need to change the use statement at the top to the intended workspace
+* Allows user-defined number of hours to audit
+* Allows skipping hours (forward or backward in time) to shift the set of hours
+
+LookingGlassDebugMode.sql
+* Cleans out tables managed by Looking Glass and rebuilds the sample
+
+CheckVarscatExists.sql
+* Runs against all workspace databases on the current server
+* Returns whether or not VARSCAT and Bullfrog are installed on each workspace
+
+CheckRHScriptRunErrors.sql
+* Runs against all databases on the current server
+* Return any errors in RHScriptsRunErrors. Change the cutoff date to exclude old stuff.
+
+SampleDataGenerator.sql
+* Destroys some existing data and creates new test data.
+* Disables automatic Looking Glass calls until another script is run.
+* You can set the start time, the number of days to generate, and a seed for arrival rate.
+* To append onto an existing test data set, change @clearDate to 0 and change the date.
+
+7DayQoSDataScenarios.sql
+* Provides various scenarios for testing the weekly sample - run only the scenario you want.
+* Run SampleDataGenerator first!
+
+GenerateRatingsFromSampleData.sql
+* Calls BuildandRateSample to populate SampleHistory and Ratings
+* Run SampleDataGenerator first, then a scenario in 7DayQoSDataScenarios, then this script.
+
+EnableAutomaticLookingGlassCalls.sql
+* Reenables automatic Looking Glass calls via the agent if they've been disabled.
+
+VerifyQuarterlyWeeklyScores.sql
+* Contains various queries that are useful in verifying score calculations.
+
+ResetQoSExtendedProperty.sql
+* If you've flagged the fraud countermeasures, you can clear the property that's set with this.
+* Does not fix fraudulent data -- subsequent scoring of active hours will trigger FCM again
+
+HappyTrigger.sql
+* Provides a template for creating triggers on QoS tables.
+* If the trigger fires, it creates a TriggerLog table in EDDSQoS that says when the trigger ran.
+* NOTE: You can have triggers on multiple tables at the same time, but you should give them different names.
+
+TheFraudmaker.sql
+* Provides scenarios for tripping fraud countermeasures.
+* The "reset" section assumes your environment has the FCMReset procedure. Talk to Joseph if you need it.
+
+
+*** To downgrade databases from BiS 3.0 to the previous version of PDB: ***
+
+1. Disable any PDB agents, as these will redeploy missing databases when scheduled
+
+2. Run CleanWorkspace.sql against each database server
+
+3. Run DropEDDSQoS.sql against each database server
+
+4. Run DowngradeEDDSPerformance.sql on the primary database server
+
+5. Run DropEDDSResourceTables.sql on the primary database server
+
+
+*** To allow the run-once post install event handler to execute again: ***
+
+1. Run ForgetEventHandlerRunHistory.sql on each database server
+
+
+
+*** To remove PDB completely for a fresh start: ***
+
+1. Delete the application from any workspaces where it is installed
+
+2. Delete PDB from the application library
+
+3. Remove any lingering agents
+
+4. Run CleanWorkspace.sql against each database server
+
+5. Run DropEDDSQoS.sql against each database server
+
+6. Run FullRemoval_DropEDDSPerformance.sql on the primary database server
+
+7. Run DropEDDSResourceTables.sql on the primary database server
+
+8. Run ForgetEventHandlerRunHistory.sql on each database server

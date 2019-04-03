@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+kCura.Data.RowDataGateway
+</name>
+</assembly>
+<members>
+<member name="M:kCura.Data.RowDataGateway.Helper.FillDataAdapterWaitForDeadlocks(System.Data.SqlClient.SqlDataAdapter,System.Data.DataTable)">
+	<summary>
+ Attempts to execute the specified command to fill the provided
+ <paramref name="dataTable"/> with the provided <paramref name="dataAdapter"/>
+ and retries up to <see cref="P:kCura.Data.RowDataGateway.Config.NumberOfTriesOnDeadlock"/>
+ times if the command errors out with a deadlock error. Note that this
+ data adapter should not be used for any command used in the scope of a transaction
+ as the transaction is abandoned after a deadlock is encountered.
+ </summary>
+	<param name="dataAdapter">The data adapter to fill. This adapter's
+ command should not be in the scope of a transaction.</param>
+	<param name="dataTable">The data table to fill with the results from
+ the data adapter.</param>
+	<remarks>
+ TODO: This should throw an exception if given a data adapter that
+ has a transaction.
+ </remarks>
+</member><member name="M:kCura.Data.RowDataGateway.Helper.FillDataAdapterWaitForDeadlocks(System.Data.SqlClient.SqlDataAdapter,System.Data.DataSet)">
+	<summary>
+ Attempts to execute the specified command to fill the provided
+ <paramref name="dataSet"/> with the provided <paramref name="dataAdapter"/>
+ and retries up to <see cref="P:kCura.Data.RowDataGateway.Config.NumberOfTriesOnDeadlock"/>
+ times if the command errors out with a deadlock error. Note that this
+ data adapter should not be used for any command used in the scope of a transaction
+ as the transaction is abandoned after a deadlock is encountered.
+ </summary>
+	<param name="dataAdapter">The data adapter to fill. This adapter's
+ command should not be in the scope of a transaction.</param>
+	<param name="dataSet">The data set to fill with the results from
+ the data adapter</param>
+	<remarks>
+ TODO: This should throw an exception if given a data adapter that
+ has a transaction.
+ </remarks>
+</member><member name="M:kCura.Data.RowDataGateway.Helper.ExecuteNonQueryWaitForDeadlocks(System.Data.SqlClient.SqlCommand)">
+	<summary>
+ Attempts to execute the specified command and retries up to <see cref="P:kCura.Data.RowDataGateway.Config.NumberOfTriesOnDeadlock"/>
+ times if the command errors out with a deadlock error. Note that this
+ method should not be used for any command used in the scope of a transaction
+ as the transaction is abandoned after a deadlock is encountered.
+ </summary>
+	<param name="command">The command to run. This command should not
+ be in the scope of a transaction.</param>
+	<returns>The scalar result of the query</returns>
+	<remarks>
+ TODO: This should throw an exception if given a command that
+ has a transaction.
+ </remarks>
+</member>
+</members>
+</doc>

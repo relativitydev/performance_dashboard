@@ -1,0 +1,71 @@
+dtSearch notes
+
+dtSearchComplexity
++1 if dtSearch
++dtSearchTextLength
+
+(IsSQLSearch just looks for operators other than ('IN', 'CONTAINS'), so can feasilby be both if additional operators are added in addition to the dtSearch SearchText)
+IsSQLSearch & IsDTSearch
+IsSQLSearch
+IsDTSearch
+0 -- FullTextSearch
+
+Search Text is taken from the View table.  Not sure where that's from in a dtSearch.
++ Also from the View table, just SearchText has a different 'SearchProvider' attribute
+(Other providers parsed: ContentAnalystSearchProvider [KeywordsText] {ConceptsText exists in WorkspaceAnalysis, but can never be hit})
+
+
+<!-- This is an example of a dtSearch's audit (formatted for readability) -->
+<auditElement>
+<QueryText>/* &lt;Comments&gt;    &lt;ArtifactID&gt;1042131&lt;/ArtifactID&gt;    &lt;ArtifactTypeID&gt;10&lt;/ArtifactTypeID&gt;    &lt;UserID&gt;1000000003&lt;/UserID&gt;    &lt;WorkspaceID&gt;1048543&lt;/WorkspaceID&gt;    &lt;QueryType&gt;Full&lt;/QueryType&gt;    &lt;QueryID&gt;f9a56a3e-f531-4f93-9b0c-acdd77791cd8&lt;/QueryID&gt;    &lt;QuerySource&gt;View or Search&lt;/QuerySource&gt;  &lt;/Comments&gt; */    
+SET NOCOUNT ON   
+SELECT    
+	[Edit] = CASE WHEN [Document].[AccessControlListID_D] IN (1,1001024) THEN 'Edit' 
+		ELSE '' 
+		END,   
+	[HasPermissionToEdit] = CASE WHEN [Document].[AccessControlListID_D] IN (1,1001024) THEN 1 
+		ELSE 0 
+		END,   
+	[FileIcon] = [Document].[FileIcon],   
+	[ControlNumber] = [Document].[ControlNumber],   
+	[ArtifactID] = [Document].[ArtifactID]  
+FROM   [Document] (NOLOCK)  
+WHERE  [Document].[ArtifactID] IN (1037325,1037326,1037369,1037370,1037371,1037372,1037373,1037380,1037387,1037393,1037398,1037664,1037665,1037666,1037966,1037971,1037976,1037985,1037990,1038005,1038006,1038007,1038008,1038494,1038495,1038577,1038592,1038641,1038642,1038643,1038709,1038710,1038792,1038809,1038901,1039050,1039147,1039246,1039250,1039251,1039261,1039272,1039327,1039334,1039338,1039341,1039347,1039379,1039396,1039397,1039415,1039422,1039429,1039438,1039441,1039443,1039451,1039452,1039456,1039462,1039469,1039472,1039473,1039479,1039514,1039517,1039529,1039595,1039638,1039693,1039717,1039765,1039766)  </QueryText>
+<Milliseconds>15</Milliseconds>
+<searchTableReplacements>
+<R1>ZSR_7033C768BA4558E582F0C9274D3810D17A7B0D93 = EXEC EDDSResource.eddsdbo.dtSearch @SearchRequest, @FuzzinessLevel, @EnableStemming, @ResultsTable, @IndexID, @AppID, @Timeout, @ServicePortNumber, @MasterDatabasePrependString </R1>
+</searchTableReplacements>
+</auditElement>
+
+<auditElement>
+<QueryText>/* &lt;Comments&gt;    &lt;ArtifactID&gt;1042131&lt;/ArtifactID&gt;    &lt;ArtifactTypeID&gt;10&lt;/ArtifactTypeID&gt;    &lt;UserID&gt;1000000003&lt;/UserID&gt;    &lt;WorkspaceID&gt;1048543&lt;/WorkspaceID&gt;    &lt;QueryType&gt;IdList&lt;/QueryType&gt;    &lt;QueryID&gt;f9a56a3e-f531-4f93-9b0c-acdd77791cd8&lt;/QueryID&gt;    &lt;QuerySource&gt;View or Search&lt;/QuerySource&gt;  &lt;/Comments&gt; */    
+SET NOCOUNT ON   
+;WITH  [SEARCHTABLE_1] AS (
+	SELECT [Key], [RANK] FROM ZSR_7033C768BA4558E582F0C9274D3810D17A7B0D93
+)  
+SELECT TOP 1000   
+	[Document].[ArtifactID],   
+	CAST([SEARCHTABLE_1].[Rank] AS FLOAT) / 1 AS [Rank]    
+FROM   [Document] (NOLOCK)  
+LEFT JOIN [SEARCHTABLE_1] ON    [SEARCHTABLE_1].[Key] = [Document].[ArtifactID]  
+WHERE  [SEARCHTABLE_1].[RANK] &gt;= 0  
+	AND  [Document].[AccessControlListID_D] IN (1,1001024)  
+	AND  [Document].[ArtifactID] &gt; 1234 
+ORDER BY    [Document].[ArtifactID]       
+-------------------  -- records returned: 73  -------------------  </QueryText>
+<Milliseconds>32</Milliseconds>
+<searchTableReplacements>
+<R1>ZSR_7033C768BA4558E582F0C9274D3810D17A7B0D93 = EXEC EDDSResource.eddsdbo.dtSearch @SearchRequest, @FuzzinessLevel, @EnableStemming, @ResultsTable, @IndexID, @AppID, @Timeout, @ServicePortNumber, @MasterDatabasePrependString </R1>
+</searchTableReplacements>
+</auditElement>
+
+<!-- This is what exists in the View table's SearchText -->
+<?xml version="1.0" encoding="utf-16"?>  
+<InputData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    
+<SortByRank xmlns="kCura.EDDS.DTSearchSearchProvider">false</SortByRank>    
+<SearchText xmlns="kCura.EDDS.DTSearchSearchProvider">test</SearchText>    
+<FuzzinessLevel xmlns="kCura.EDDS.DTSearchSearchProvider">2</FuzzinessLevel>    
+<EnableStemming xmlns="kCura.EDDS.DTSearchSearchProvider">false</EnableStemming>  
+</InputData>
+
+<!-- If additional operators are added to the dtSearch, they will be found on the View, ViewCriteria table -->

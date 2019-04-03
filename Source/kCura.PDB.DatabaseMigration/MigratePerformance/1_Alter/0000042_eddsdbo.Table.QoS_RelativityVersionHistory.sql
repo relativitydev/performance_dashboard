@@ -1,0 +1,13 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'QoS_RelativityVersionHistory' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE [eddsdbo].[QoS_RelativityVersionHistory] (
+		[Version] NVARCHAR(200) NOT NULL,
+		[SummaryDayHour] DATETIME NOT NULL,
+		[RowHash] BINARY(20),
+		CONSTRAINT [PK_RelativityVersionHistory] PRIMARY KEY CLUSTERED ([Version] ASC)
+	)
+END
+GO

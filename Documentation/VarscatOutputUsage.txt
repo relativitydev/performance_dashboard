@@ -1,0 +1,20 @@
+Where is VarscatOutput being used?
+
+EDDSPerformance.eddsdbo.[LoadApplicationHealthSummary]
+	-- Depends on VarscatOutputDetailCumulative --
+	(WorkspaceId, SummaryDayHour, LRQCount)
+	
+EDDSPerformance.eddsdbo.[QoS_UserExperienceWorkspaceReport]
+	-- Depends on VarscatOutputDetailCumulative --
+	(Count, SummaryDayHour, isComplex)
+	
+EDDSPerformance.eddsdbo.[QoS_BuildandRateSample]
+	-- Depends on VarscatOutputDetailCumulative for UX Server Report data, UX Search Report Data --
+	[Output Report Data]
+	Line 1002 - Create UX Server report data [Report data per server]
+		(ServerArtifactId, ServerName, WorkspaceArtifactId, WorkspaceName, Score, TotalLongRunning, TotalUsers, TotalSearchAudits, TotalNonSearchAudits, TotalAudits, TotalExecutionTime, SummaryDayHour, QoSHourId)
+	Line 1067 - Create UX Search report data [Report data per search id]
+		(WorkspaceArtifactId, SearchArtifactId, SearchName, LastAuditId, UserArtifactId, UserName, TotalSearchExecutionTime, AverageSearchExecutionTime, TotalRuns (COUNT(QueryID)), PercentLongRunning, IsComplex, SummaryDayHour, QoSHourId)
+	
+EDDSQoS.eddsdbo.[QoS_ConcurrencyServer]
+	-- Depends on VarscatOutputDetail for key user experience dimensions (active users, total execution time, avg concurrency, arrival rate, total simple query, total simple long running query).  Inserts into VarscatOutputDetailCumulative.

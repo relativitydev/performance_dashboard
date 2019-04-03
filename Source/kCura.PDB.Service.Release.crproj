@@ -1,0 +1,10 @@
+<project outputDir="Confused" baseDir="." debug="false" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" inherit="false" />
+  <module path="kCura.PDB.Service\bin\Release\kCura.PDB.Service.dll">
+	<rule pattern="true" inherit="false">
+		<protection id="constants" />
+		<protection id="resources" />
+	</rule>
+  </module>
+  <probePath>kCura.PDB.Service\bin\Release</probePath>
+</project>

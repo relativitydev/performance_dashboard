@@ -1,0 +1,289 @@
+﻿/**********************************************
+ ** Table
+ **********************************************/
+
+#jobQueuePanel,
+#jobHistoryPanel {
+    height: 100%;
+}
+
+#jobHistoryPanel {
+    display: none;
+}
+
+table {
+    margin-right: 1px;
+    -moz-min-width: 1170px;
+    -ms-min-width: 1170px;
+    -o-min-width: 1170px;
+    -webkit-min-width: 1170px;
+    min-width: 1170px;
+    width: 100%;
+}
+
+.xdsoft_calendar table {
+    -moz-min-width: 0 !important;
+    -ms-min-width: 0 !important;
+    -o-min-width: 0 !important;
+    -webkit-min-width: 0 !important;
+    min-width: 0 !important;
+}
+
+table thead {
+        height: 32px;
+        background: whitesmoke;
+        border: 1px solid #c1c1c1;
+        color: #4771b0;
+        font-weight: 700;
+        padding: 5px;
+        text-align: left;
+    }
+
+        table thead tr th {
+            border: 1px solid #c1c1c1;
+            text-align: left;
+        }
+
+    table th {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    table td {
+        padding: 5px;
+        font-size: 9pt;
+    }
+
+    table tbody tr {
+        background-color: white;
+        border: 1px solid #c1c1c1;
+        padding: 0 8px;
+        color: #595959;
+        min-height: 31px;
+    }
+
+        table tbody tr:hover {
+            border: 1px double #5d99df;
+            -webkit-box-shadow: 0 0 0 4px #d1e2f6;
+            -moz-box-shadow: 0 0 0 4px #d1e2f6;
+            box-shadow: 0 0 0 4px #d1e2f6;
+        }
+
+.dataTables_wrapper {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px; 
+}
+
+.scrollable-table {
+    width: 100%;
+    overflow: auto;
+}
+/**********************************************
+ ** Pagination
+ **********************************************/
+
+.table-controls {
+    background-color: white;
+    height: 32px;
+    padding: 4px;
+    margin-right: 6px;
+}
+
+    .table-controls > div {
+        float: right;
+        margin-right: 4px;
+    }
+
+.dataTables_paginate {
+    float: right;
+    padding: 0;
+    height: 24px;
+    padding: 4px 0;
+}
+
+    .dataTables_paginate a.paginate_button {
+        display: block;
+        height: 16px;
+        width: 16px;
+        margin-left: 4px;
+        float: left;
+        text-decoration: none;
+    }
+
+        .dataTables_paginate a.paginate_button:hover {
+            cursor: pointer;
+        }
+
+.paginate_button.first {
+    background: url("../Images/move_first.png");
+}
+
+.paginate_button.previous {
+    background: url("../Images/move_previous.png");
+}
+
+.paginate_button.next {
+    background: url("../Images/move_next.png");
+}
+
+.paginate_button.last {
+    background: url("../Images/move_last.png");
+}
+/**********************************************
+ ** Table info (Number of items)
+ **********************************************/
+
+.dataTables_info {
+    color: #102d4f;
+    display: inline-block;
+    top: 2px;
+    font-size: 9pt;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+/**********************************************
+ ** Table sorting
+ **********************************************/
+
+.sorting {
+    background: none;
+}
+
+.sorting_asc {
+    background: url("../Images/sort_asc.gif") no-repeat right;
+}
+
+.sorting_desc {
+    background: url("../Images/sort_desc.gif") no-repeat right;
+}
+/**********************************************
+ ** Page Length
+ **********************************************/
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 500;
+    height: 32px;
+    padding: 2px;
+    display: inline-block;
+    background: #f7f7f7;
+    width: 100%;
+    border-top: 1px solid #c1c1c1;
+}
+
+    .bottom .dataTables_length {
+        float: right;
+        margin-right: 10px;
+    }
+
+        .bottom .dataTables_length label {
+            font-size: 9pt;
+            font-weight: 400;
+            position: relative;
+            top: 2px;
+        }
+
+            .bottom .dataTables_length label .btn-group {
+                margin-left: 5px;
+                width: 55px;
+            }
+
+                .bottom .dataTables_length label .btn-group ul,
+                .bottom .dataTables_length label .btn-group li {
+                    width: 55px;
+                    -moz-min-width: 55px;
+                    -ms-min-width: 55px;
+                    -o-min-width: 55px;
+                    -webkit-min-width: 55px;
+                    min-width: 55px;
+                }
+
+/**********************************************
+ ** Page Filtering
+ **********************************************/
+
+.clear-filters {
+    background: url("../Images/clear_filters.png");
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+    .clear-filters.disabled {
+        background: url("../Images/clear_filters_disabled.png");
+        height: 16px;
+        width: 16px;
+        margin-top: 4px;
+        cursor: none;
+    }
+
+.hide-filters {
+    background: url("../Images/itemList_filter_active.png");
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.show-filters {
+    background: url("../Images/itemList_filter.png");
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.divider {
+    background: #c1c1c1;
+    width: 1px;
+    height: 24px;
+    margin-right: 4px;
+    margin-left: 4px;
+    float: right;
+}
+
+.export-excel {
+    background: url("../Images/export_excel.png");
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.searchRow {
+    height: 24px;
+}
+
+    .searchRow th {
+        border-bottom: 1px solid #c1c1c1;
+        border-top: 1px solid #c1c1c1;
+        border-left: none;
+        border-right: none;
+        background-color: #f1f2f2;
+        background: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#f1f2f2));
+        background: -webkit-linear-gradient(top, #e2e2e2, #f1f2f2);
+        background: -moz-linear-gradient(top, #e2e2e2, #f1f2f2);
+        background: -ms-linear-gradient(top, #e2e2e2, #f1f2f2);
+        background: -o-linear-gradient(top, #e2e2e2, #f1f2f2);
+        background: linear-gradient(#e2e2e2, #f1f2f2);
+    }
+
+    .searchRow input {
+        width: 100%;
+        padding: 2px 2px 2px 4px;
+        color: #102d4f;
+        font-weight: 400;
+        line-height: 16px;
+        height: 24px;
+    }
+
+    .searchRow select,
+    .searchRow .multiselect,
+    .searchRow .btn-group {
+        width: 100%;
+    }

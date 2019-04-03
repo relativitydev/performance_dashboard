@@ -1,0 +1,11 @@
+<project outputDir="Confused" baseDir="." debug="true" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" inherit="false" />
+  <module path="kCura.PDD.Web\bin\kCura.PDD.Web.dll">
+  	<rule pattern="true" inherit="false">
+		<protection id="anti tamper" />
+		<protection id="constants" />
+		<protection id="resources" />
+	</rule>
+  </module>
+  <probePath>kCura.PDD.Web\bin</probePath>
+</project>

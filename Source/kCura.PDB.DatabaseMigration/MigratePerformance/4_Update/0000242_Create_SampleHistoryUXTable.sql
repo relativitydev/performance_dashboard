@@ -1,0 +1,16 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'QoS_SampleHistoryUX' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE EDDSDBO.QoS_SampleHistoryUX
+	(
+		Id INT IDENTITY ( 1 , 1 ),PRIMARY KEY (Id)
+		,ServerId INT NOT NULL
+		,HourId INT NOT NULL
+		,SummaryDayHour datetime NOT NULL
+		,IsActiveArrivalRateSample bit NOT NULL
+		,IsActiveConcurrencySample bit NOT NULL
+	)
+END
+GO

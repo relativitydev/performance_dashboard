@@ -1,0 +1,5 @@
+The latest weekly scores for {0} {1}
+
+{2}
+
+This is an hourly alert from Performance Dashboard. Automatic notifications can be disabled via Performance Dashboard's configuration page.

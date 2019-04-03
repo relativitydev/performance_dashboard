@@ -1,0 +1,40 @@
+{
+  "name": "performance-dashboard-angular",
+  "version": "0.0.1",
+  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\"",
+    "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
+    "lint": "tslint ./app/**/*.ts -t verbose",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "~2.3.0",
+    "@angular/compiler": "~2.3.0",
+    "@angular/core": "~2.3.0",
+    "@angular/forms": "~2.3.0",
+    "@angular/http": "~2.3.0",
+    "@angular/platform-browser": "~2.3.0",
+    "@angular/platform-browser-dynamic": "~2.3.0",
+    "@angular/router": "~3.3.0",
+    "angular-in-memory-web-api": "~0.2.1",
+    "systemjs": "0.19.40",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-rc.4",
+    "zone.js": "^0.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "typescript": "~2.1.0",
+    "canonical-path": "0.0.2",
+    "tslint": "^3.15.1",
+    "lodash": "^4.16.4",
+    "rimraf": "^2.5.4"
+  },
+  "repository": {}
+}

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Performance Dashboard - Configuration</title>
+	<script type="text/javascript" src="~/Script/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+	<script type="text/javascript" src="~/Script/polyfill.min.js"></script>
+	<script type="text/javascript" src="~/Script/vue.min.js"></script>
+    <script type="text/javascript" src="~/Script/bootstrap-switch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/Components.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/AdministrationInstall.css" />
+</head>
+<body>
+    <div id="configuration">
+        <form id="DatabaseCredentialForm" defaultfocus="x">
+            <div class="action-bar">
+                <div class="right" style="text-align: center">
+                    <a href="javascript:history.go(-1)" type="button" class="btn">Back</a>
+                    <a href="/Relativity/CustomPages/60a1d0a3-2797-4fb3-a260-614cbfd3fa0d/mvc/notifications" class="btn">Manage Alerts</a>
+                    <a href="/Relativity/CustomPages/60a1d0a3-2797-4fb3-a260-614cbfd3fa0d/DbccTarget.aspx" class="btn">Manage DBCC Targets</a>
+                    <a href="#" id="scriptInstallationSubmitButton" v-on:click="saveSettings()" class="btn">Save</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="row logo-box-a">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 centerContent">
+                        <h4 class="logo-m relativity-size-adjust">
+                            <img src="~/Images/rsz_relativitylogo.png" />
+                            Performance Dashboard: <span class="pdb-step">Configuration</span>
+                        </h4>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+                <div id="errorsContainer" class="vue-wait">
+                    <transition name="fade">
+                        <div v-if="configSuccess" id="displaySuccessMessage" class="panel panel-success relativity-size-adjust">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Performance Dashboard</h3>
+                            </div>
+                            <div id="successMessage" class="panel-body">
+                                {{configSuccess}}
+                            </div>
+                        </div>
+                    </transition>
+                    <div v-if="configError" id="displayErrorMessage" class="panel panel-danger relativity-size-adjust">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Performance Dashboard</h3>
+                        </div>
+                        <div id="errorMessage" class="panel-body">
+                            Your settings could not be saved. <span v-html="configError"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row logo-box-b">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 centerContent">
+                        <div id="DbccPane" class="well pdb-well relativity-size-adjust">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <legend class="legend-transform-a">
+                                        Backup/DBCC Settings
+                                    </legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-7 control-label" style="text-align: left;">Enable DBCC Monitoring</label>
+                                        <div class="col-lg-5 control-label containsMonitoringToggle" style="text-align: right">
+                                            <input type="checkbox" id="enableDbccMonitoring" class="checkbox" data-size="small" placeholder="EnableDbccMonitoring" />
+                                        </div>
+                                    </div>
+                                    <div v-show="!configuration.BackupDbccSettings.EnableDbccMonitoring" class="form-group containsMonitoringWarning">
+                                        <div class="col-lg-12">
+                                            <span>Automated DBCC monitoring is disabled. Periodic manual inspection of your maintenance plan may be required.</span>
+                                        </div>
+                                    </div>
+                                    <div v-show="configuration.BackupDbccSettings.EnableDbccMonitoring" class="form-group containsDbccMonitoring">
+                                        <label class="col-lg-7 control-label" style="text-align: left;">
+                                            View-Based Monitoring
+                                            <a href="/Relativity/CustomPages/60a1d0a3-2797-4fb3-a260-614cbfd3fa0d/DbccTarget.aspx">
+                                                <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                     title="Performance Dashboard will look for DBCC history in views deployed to linked SQL servers. Click here to configure monitoring targets." />
+                                            </a>
+                                        </label>
+                                        <div class="col-lg-5 control-label" style="text-align: right">
+                                            <input type="checkbox" id="useDbccViewMonitoring" class="checkbox" data-size="small" placeholder="UseDbccViewMonitoring" />
+                                        </div>
+                                    </div>
+                                    <div v-show="configuration.BackupDbccSettings.EnableDbccMonitoring" class="form-group containsDbccMonitoring">
+                                        <label class="col-lg-7 control-label" style="text-align: left;">
+                                            Command-Based Monitoring
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Performance Dashboard will monitor DBCC history using built-in SQL commands. Elevated credentials will be required to enable this method." />
+                                        </label>
+                                        <div class="col-lg-5 control-label" style="text-align: right">
+                                            <input type="checkbox" id="useDbccCommandMonitoring" class="checkbox" data-size="small" placeholder="UseDbccCommandMonitoring" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-7 control-label" style="text-align: left;">
+                                            Show Invariant History
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Performance Dashboard will report backup/DBCC history for the Invariant database. This is purely informational and does not impact scores." />
+                                        </label>
+                                        <div class="col-lg-5 control-label" style="text-align: right">
+                                            <input type="checkbox" id="showInvariantHistory" class="checkbox" data-size="small" placeholder="MonitorInvariant" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="~/Script/Configuration/configurationApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Maintenance Window Scheduler</title>
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/jquery.datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/Components.css">
+    <link rel="stylesheet" type="text/css" href="~/Style/AdministrationInstall.css" />
+    <style>
+
+        #commentBox {
+            min-height: 100px !important;
+        }
+    </style>
+    <script type="text/javascript" src="~/Script/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Script/jquery.datetimepicker.js"></script>
+	<script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+	<script type="text/javascript" src="~/Script/polyfill.min.js"></script>
+	<script type="text/javascript" src="~/Script/vue.min.js"></script>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <div id="scheduler">
+        <div>
+            <div class="action-bar">
+                <div class="right" style="text-align: center">
+                    <a href="javascript:history.go(-1)" type="button" class="btn">Back</a>
+                    <a href="#" id="saveBtn" class="btn" v-on:click="createMaintenanceWindow()" :disable="isSaving">Save</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="row logo-box-a">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 centerContent">
+                        <h4 class="logo-m relativity-size-adjust">
+                            <img src="~/Images/rsz_relativitylogo.png" />
+                            Performance Dashboard: <span class="pdb-step">Maintenance Windows</span>
+                        </h4>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+                <div class="row" ID="alertMessageRow" runat="server" v-if="hasWarnings">
+                    <div class="col-lg-12">
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Warning</strong>
+
+                            <div v-html="error"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row logo-box-b">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 centerContent">
+                        <div id="SettingsPane" class="well pdb-well relativity-size-adjust">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <legend class="legend-transform-a">
+                                        Create New Maintenance Window
+                                    </legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-4">Current Time:</label>
+                                        <label class="col-lg-8">{{currentTime}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label" style="text-align: left;">Start Period</label>
+                                        <div class="col-lg-8">
+                                            <input id="startTimePicker" class="form-control" type="text" placeholder="Start Time (UTC)">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label" style="text-align: left;">End Period</label>
+                                        <div class="col-lg-8">
+                                            <input id="endTimePicker" class="form-control" type="text" placeholder="End Time (UTC)">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label" style="text-align: left;">Reason</label>
+                                        <div class="col-lg-8">
+                                            <select v-model="mwModel.reason" class="form-control">
+                                                <option value="-1" disabled>Select a reason</option>
+                                                <option v-for="reason in reasons" :value="reason.Value">{{reason.Text}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label" style="text-align: left;">Comments</label>
+                                        <div class="col-lg-8">
+                                            <textarea v-model="mwModel.comments" placeholder="" maxLength="5000" id="commentBox" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Script/MaintenanceScheduler/maintenanceSchedulerApp.js"></script>
+</body>
+</html>

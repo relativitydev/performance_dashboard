@@ -1,0 +1,15 @@
+USE EDDSQoS
+GO
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'VirtualLogFileDW')
+BEGIN
+	CREATE TABLE eddsdbo.VirtualLogFileDW
+	(
+		DatabaseName NVARCHAR(150),
+		VirtualLogFiles INT
+	)
+	CREATE UNIQUE CLUSTERED INDEX UCI_DatabaseName ON eddsdbo.VirtualLogFileDW
+	(
+		DatabaseName
+	) WITH (IGNORE_DUP_KEY = ON)
+END

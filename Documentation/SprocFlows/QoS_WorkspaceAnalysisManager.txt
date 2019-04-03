@@ -1,0 +1,24 @@
+Qos_WorkspaceAnalysisManager
+	- EDDS.EDDSDBO.Configuration (Update)
+		Make sure Relativity.Core | AuditCountQueries/AuditFullQueries/AuditIdQueries is set to True	
+	- eddsdbo.QoS_LookingGlassDateSource (EXEC)
+		Populate QoS_SourceDatetime with its date dimension
+		
+	- EDDSDBO.QoS_CasesToAudit (Insert)
+		Initialize QoS_CasesToAudit using the date dimension
+		Join with ExtendedCase table to get ArtifactId, DBLocation, ServerId, and Name, and to ensure that the case is not being restored/deleted.
+	
+	Determine which hours are relevant to the VARSCAT workers
+	Iterate over each hour
+		- eddsdbo.QoS_ActiveHours (Truncate, Insert)
+			Find hours between our begin date and end date that were active	
+		- EDDSPerformance.eddsdbo.QoS_CasesToAudit (Update)
+			Set IsActive = 1 for all active hours we found
+			Anything that is still not set to active within our working range is automatically inactive
+	- EDDSDBO.QoS_CasesToAudit (Update if failed)
+		Set Retry/IsFailedThisRun
+	
+QoS_LookingGlassDateSource
+	- EDDSDBO.QoS_SourceDatetime (DELETE WHERE quotidian < DateADD(d,-180,GETUTCDATE()))
+	- eddsdbo.QoS_SourceDatetime (Insert)
+		Inserts a new DateTime into the table, which is used for populating CasesToAudit

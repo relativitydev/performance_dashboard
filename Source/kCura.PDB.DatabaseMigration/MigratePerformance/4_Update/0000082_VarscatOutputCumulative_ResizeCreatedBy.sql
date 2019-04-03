@@ -1,0 +1,5 @@
+USE EDDSPerformance
+GO
+
+IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'QoS_VarscatOutputCumulative' AND TABLE_SCHEMA = 'EDDSDBO') 
+	ALTER TABLE eddsdbo.QoS_VarscatOutputCumulative ALTER COLUMN CreatedBy nvarchar(200);

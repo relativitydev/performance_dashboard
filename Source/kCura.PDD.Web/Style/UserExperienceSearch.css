@@ -1,0 +1,183 @@
+﻿.scoreContainer {
+    float: left;
+    vertical-align: middle;
+    height: 35px;
+    max-height: 35px;
+    margin: 2px 8px 5px 8px;
+    text-align: center;
+    line-height: 34px;
+}
+
+.scoreContainer > a {
+    display: inline-block;
+    width: 38px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    padding: 2px 3px 2px 2px;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+a.passed {
+    color: #FFFFFF;
+    padding-left: 6px;
+    text-decoration: none;
+}
+
+a.probation {
+    color: #000000;
+    padding-left: 6px;
+    text-decoration: none;
+}
+
+a.failed {
+    color: #FFFFFF;
+    padding-left: 6px;
+    text-decoration: none;
+}
+
+.tooltip {
+    background-color: transparent !important;
+    border: none !important;
+    width: auto !important;
+}
+
+.container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+th img {
+    float: right;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+.legend {
+    padding-bottom: 15px;
+    margin: 0px auto 0px auto;
+    width: 80%
+}
+
+.legend-item {
+    float: left;
+    margin-right: 10px;
+}
+
+.legend-item div {
+    margin-right: 3px;
+    margin-top: 5px;
+    width: 5px;
+    height: 5px;
+    float: left;
+}
+
+.containsScoreChart {
+    margin: 10px auto 5px auto;
+    width: 90%;
+}
+
+.containsScoreChart canvas {
+    max-height: 250px;
+}
+
+.pivot-controls {
+    float: right;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.pivot-toggle-icons {
+    position: absolute;
+    text-align: right;
+    width: 50%;
+}
+
+.pivot-controls img,
+.pivot-toggle-icons img {
+    cursor: pointer;
+}
+
+.pivot-bar {
+    top: 30px;
+    height: 60px;
+    z-index: 1000;
+}
+
+.chart-bar {
+    padding-top: 30px;
+    display: inline-block;
+    position: relative;
+}
+
+.page-date-filters {
+    float: right;
+    width: 260px;
+    margin-right: 10px;
+}
+
+.page-date-filters div label {
+    width: 65px;
+}
+
+.datepicker {
+    width: 110px;
+    height: 24px !important;
+}
+
+.page-server-filters {
+    float: right;
+    width: 280px;
+}
+
+.page-server-filters label {
+    width: 50px
+}
+
+.page-server-filters select {
+    width: 200px;
+}
+
+.varscat-report-header {
+    float: left;
+    width: 650px;
+}
+
+.resetPageLevelFilters,
+.updatePageLevelFilters {
+    width: 70px;
+}
+
+input.supports-operands {
+    width: 70%;
+}
+
+select.operand {
+    width: 25%;
+}
+
+ul.dropdown-menu {
+    max-height: 235px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.grid-item-healthy {
+    color: rgb(10, 170, 75);
+}
+
+.grid-item-warning {
+    color: rgb(245, 157, 31);
+}
+
+.grid-item-critical {
+    color: rgb(219, 33, 38);
+}
+
+#varscat-table thead tr th {
+    min-width: 125px;
+}

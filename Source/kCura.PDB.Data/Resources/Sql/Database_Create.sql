@@ -1,0 +1,24 @@
+INSERT INTO [eddsdbo].[Databases]
+			([Name]
+			,[ServerId]
+			,[WorkspaceId]
+			,[Type]
+			,[LastDbccDate]
+			,[LastBackupLogDate]
+			,[LastBackupDiffDate]
+			,[LastBackupFullDate]
+			,[LastBackupFullDuration]
+			,[LastBackupDiffDuration]
+			,[LogBackupsDuration])
+     VALUES
+			(@name
+			,@serverId
+			,@workspaceId
+			,@type
+			,@lastDbccDate
+			,@lastBackupLogDate
+			,@lastBackupDiffDate
+			,@lastBackupFullDate
+			,@lastBackupFullDuration
+			,@lastBackupDiffDuration
+			,@logBackupsDuration)

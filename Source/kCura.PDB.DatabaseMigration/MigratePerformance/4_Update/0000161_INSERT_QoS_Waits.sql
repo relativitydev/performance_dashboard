@@ -1,0 +1,56 @@
+USE EDDSPerformance
+GO
+
+IF EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'QoS_Waits' and TABLE_SCHEMA = 'EDDSDBO')
+BEGIN
+	INSERT INTO eddsdbo.QoS_Waits (WaitType, IsPoisonWait)
+	SELECT 
+		wait_type,
+		CASE WHEN (wait_type LIKE 'RESOURCE%' OR wait_type = 'THREADPOOL' OR wait_type LIKE 'LCK_M_R%') THEN 1
+			ELSE 0
+		END
+	FROM sys.dm_os_wait_stats ows
+	WHERE wait_type IN 
+	(
+		 'CXPACKET'
+		,'PAGEIOLATCH_DT'
+		,'PAGEIOLATCH_EX'
+		,'PAGEIOLATCH_KP'
+		,'PAGEIOLATCH_SH'
+		,'PAGEIOLATCH_UP'
+		,'SOS_SCHEDULER_YIELD'
+		,'ASYNC_NETWORK_IO'
+		,'ASYNC_IO_COMPLETION'
+		,'WRITELOG'
+		,'BACKUPIO'
+		,'LCK_M_BU'
+		,'LCK_M_IS'
+		,'LCK_M_IU'
+		,'LCK_M_IX'
+		,'LCK_M_RIn_S'
+		,'LCK_M_RIn_U'
+		,'LCK_M_RIn_X'
+		,'LCK_M_RS_S'
+		,'LCK_M_RS_U'
+		,'LCK_M_RX_S'
+		,'LCK_M_RX_U'
+		,'LCK_M_RX_X'
+		,'LCK_M_S'
+		,'LCK_M_SCH_M'
+		,'LCK_M_SCH_S'
+		,'LCK_M_SIU'
+		,'LCK_M_SIX'
+		,'LCK_M_U'
+		,'LCK_M_UIX'
+		,'LCK_M_X'
+		,'IO_COMPLETION'
+		,'RESOURCE_SEMAPHORE'
+		,'RESOURCE_SEMAPHORE_QUERY_COMPILE'
+		,'CMEMTHREAD'
+		,'THREADPOOL'
+	) AND NOT EXISTS (
+		SELECT TOP 1 1
+		FROM eddsdbo.QoS_Waits WITH(NOLOCK)
+		WHERE wait_type = ows.wait_type
+	)
+END
