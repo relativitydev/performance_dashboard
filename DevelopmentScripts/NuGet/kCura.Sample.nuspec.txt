@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>kCura.Sample</id>
+    <version>1.3.3.7</version>
+    <authors>kCura LLC</authors>
+    <owners>kCura LLC</owners>
+    <licenseUrl>https://www.kcura.com/terms-of-use/</licenseUrl>
+    <projectUrl>https://platform.kcura.com/index.html</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>kCura.Sample</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>kCura Sample</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\Source\kCura.Sample\bin\kCura.Sample.exe" target="lib\" />
+  </files>
+</package>

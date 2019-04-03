@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20FACAC3-5367-4E9E-8E1E-0D226BAB8DCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Service.Integration.Tests</RootNamespace>
+    <AssemblyName>kCura.PDB.Service.Integration.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|x64'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelMapper, Version=1.0.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelMapper.1.0.15\lib\net40\ExcelMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.9.5.341.30\lib\net462\kCura.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.AuditUI2.Data.Contracts, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\kCura.AuditUI2.Data.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.AuditUI2.Services.Interface, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\kCura.AuditUI2.Services.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Injection, Version=1.0.8.0, Culture=neutral, PublicKeyToken=318fc9f898ce154d, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.Injection.9.5.341.30\lib\net462\kCura.Injection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.PDB.Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.PDB.Dapper.1.50.2\lib\net451\kCura.PDB.Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.5.292.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Rsapi.9.5.292.12\lib\kCura.Relativity.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.5.28.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.API, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.API.9.5.341.30\lib\net462\Relativity.API.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Audit.Elasticsearch, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\Relativity.Audit.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Authentication.Interfaces, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Authentication.Interfaces.9.5.341.30\lib\net462\Relativity.Authentication.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Kepler, Version=1.0.1.423, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.1.0.1.423\lib\net462\Relativity.Kepler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.SecretCatalog, Version=1.0.18.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.SecretCatalog.1.0.18\lib\Relativity.SecretCatalog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.ServiceBus, Version=2.1.12.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.ServiceBus.2.1.12\lib\net462\Relativity.ServiceBus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.ServiceBus.Providers.Configuration, Version=2.1.12.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.ServiceBus.2.1.12\lib\net462\Relativity.ServiceBus.Providers.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts, Version=9.6.46.136, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.6.46.136\lib\net462\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces, Version=9.6.46.136, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.6.46.136\lib\net462\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces.Private, Version=9.5.300.74, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.Private.9.5.300.74\lib\net462\Relativity.Services.Interfaces.Private.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.ServiceProxy, Version=1.0.1.423, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.Client.1.0.1.423\lib\net462\Relativity.Services.ServiceProxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.APM, Version=9.4.152.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.APM.9.4.152\lib\net462\Relativity.Telemetry.APM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.DataContracts.Shared, Version=9.4.74.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.DataContracts.Shared.9.4.74\lib\net45\Relativity.Telemetry.DataContracts.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Toggles.1.0.0.64\lib\net45\Relativity.Toggles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.4.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseServiceIntegrationTest.cs" />
+    <Compile Include="Bindings\TestExecutionBindings.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseMigratorTests_TestSuite.cs" />
+    <Compile Include="HourTests\HourMetricAndCategoryDataCreated.cs" />
+    <Compile Include="Installation\AdministrationInstallationServiceTests.cs" />
+    <Compile Include="Installation\ApplicationInstallationServiceTests.cs" />
+    <Compile Include="IntegrationSetupFixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Queuing\EventHandlerTests.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerRecoverabilityProcessorTests.cs" />
+    <Compile Include="SpecFlow\Features\RPO.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPO.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories.cs" />
+    <Compile Include="Placeholder.cs" />
+    <Compile Include="Services\TabServiceIntegrationTests.cs" />
+    <Compile Include="SpecFlow\Steps\BackupDbccSteps.cs" />
+    <Compile Include="UserExperience\AuditServerBatcherTests.cs" />
+    <Compile Include="UserExperience\DataGridEndToEnd.cs" />
+    <Compile Include="UserExperience\MockAuditData.cs" />
+    <Compile Include="UserExperience\UserExperienceBaseTestFixture.cs" />
+    <Compile Include="UserExperience\UserExperienceDataGridEndToEnd.cs" />
+    <Compile Include="UserExperience\UserExperienceEndToEnd.cs" />
+    <Compile Include="UserExperience\UserExperienceSampleServiceTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Agent\kCura.PDB.Agent.csproj">
+      <Project>{907F3EF6-EC3A-4E37-B2C3-D6011AFE5776}</Project>
+      <Name>kCura.PDB.Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Automated.Testing\kCura.PDB.Automated.Testing.csproj">
+      <Project>{45048f93-1566-43a5-8281-7fbe3d68d385}</Project>
+      <Name>kCura.PDB.Automated.Testing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{b72f5674-7d0d-469c-ad9d-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data\kCura.PDB.Data.csproj">
+      <Project>{2ed961c8-45d1-4ebd-8e77-2bbd04fb9237}</Project>
+      <Name>kCura.PDB.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.DependencyInjection\kCura.PDB.DependencyInjection.csproj">
+      <Project>{B2A83931-843E-4DE4-9FC3-8A6C93D9569F}</Project>
+      <Name>kCura.PDB.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service.DataGrid\kCura.PDB.Service.DataGrid.csproj">
+      <Project>{CD44CD93-9DB0-4A6D-8655-A352B03FD9CC}</Project>
+      <Name>kCura.PDB.Service.DataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service\kCura.PDB.Service.csproj">
+      <Project>{613bfc9c-050b-4d42-bbc0-fae722e1b37b}</Project>
+      <Name>kCura.PDB.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Tests.Common\kCura.PDB.Tests.Common.csproj">
+      <Project>{d4fe0b89-7c15-41be-aa9f-5a94a1ff5999}</Project>
+      <Name>kCura.PDB.Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDD.Web\kCura.PDD.Web.csproj">
+      <Project>{E2FE3332-FC53-4FA0-9DF3-51766D4AEB23}</Project>
+      <Name>kCura.PDD.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\AppSettings.Override.config">
+      <Link>AppSettings.Override.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\kCura.PDB.DatabaseMigration\MigrateTesting.zip">
+      <Link>Resources\TestData\MigrateTesting.zip</Link>
+    </None>
+    <None Include="..\RelativityConnection.Override.config">
+      <Link>RelativityConnection.Override.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\TestData\MockDataSet-Test.xlsx" />
+    <None Include="Resources\TestData\RPO 100 score.xlsx" />
+    <None Include="SpecFlow\Features\RPO.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RPO.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SpecFlow.2.4.0\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.4.0\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
+  </Target>
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="$(MSBuildToolsVersion) &gt; 14 And Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.   $(MSBuildToolsVersion) > 14
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!-- <Target Name="AfterUpdateFeatureFilesInProject">
+    <Move SourceFiles="@(SpecFlowGeneratedFiles)" DestinationFolder="SpecFlow\Features\Generated" OverwriteReadOnlyFiles="true" />
+    <ItemGroup>
+      <Compile Include="**\*.feature.cs">
+        <Visible>true</Visible>
+      </Compile>
+    </ItemGroup>
+  </Target>
+  -->
+</Project>

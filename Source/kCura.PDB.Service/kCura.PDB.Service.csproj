@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{613BFC9C-050B-4D42-BBC0-FAE722E1B37B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Service</RootNamespace>
+    <AssemblyName>kCura.PDB.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'v4.6.2'">
+    <DefineConstants>NET462</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;NET462;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;NET462;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;NET462;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|x64'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;NET462;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelMapper, Version=1.0.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelMapper.1.0.15\lib\net40\ExcelMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Ninject, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vendor\SolutionReferences\Hangfire.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.20\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Notification">
+      <HintPath>..\..\vendor\binaries\kCura.Notification.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client">
+      <HintPath>..\..\vendor\binaries\kCura.Relativity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Extensions.ChildKernel, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.ChildKernel.3.2.0.0\lib\net45-full\Ninject.Extensions.ChildKernel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.API, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vendor\binaries\Relativity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.4.398.22\lib\net45\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.4.398.22\lib\net45\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces.Private, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.Private.9.4.398.22\lib\net45\Relativity.Services.Interfaces.Private.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.APM, Version=9.4.152.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.APM.9.4.152\lib\net462\Relativity.Telemetry.APM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.Services.Interface, Version=9.4.378.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.Services.Interface.9.4.378.21\lib\net45\Relativity.Telemetry.Services.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Toggles.1.0.0.64\lib\net45\Relativity.Toggles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RoundHouseDependencies">
+      <HintPath>..\..\vendor\RoundHouseDependencies.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Increment.cs">
+      <Link>Increment.cs</Link>
+    </Compile>
+    <Compile Include="Apm\ApmMetricsService.cs" />
+    <Compile Include="Apm\Recorders\CounterRecorder.cs" />
+    <Compile Include="Apm\Recorders\HealthCheckRecorder.cs" />
+    <Compile Include="Apm\Recorders\MeterRecorder.cs" />
+    <Compile Include="Apm\Recorders\TimedGaugeRecorder.cs" />
+    <Compile Include="Apm\Recorders\TimerRecorder.cs" />
+    <Compile Include="Audits\NoDataGridBindings.cs" />
+    <Compile Include="Audits\WorkspaceAuditApmReporter.cs" />
+    <Compile Include="Bindings\ProductionServiceBindings.cs" />
+    <Compile Include="Bindings\RelativityBindings.cs" />
+    <Compile Include="BISSummary\BackupDBCCService.cs" />
+    <Compile Include="BISSummary\BestInServiceReportingService.cs" />
+    <Compile Include="BISSummary\EnvironmentCheckService.cs" />
+    <Compile Include="BISSummary\FileLatencyService.cs" />
+    <Compile Include="BISSummary\GapReporter.cs" />
+    <Compile Include="BISSummary\QueryParamsParsingService.cs" />
+    <Compile Include="BISSummary\RecoverabilityIntegritySummaryReporter.cs" />
+    <Compile Include="BISSummary\RecoveryObjectivesReporter.cs" />
+    <Compile Include="BISSummary\SystemLoadService.cs" />
+    <Compile Include="BISSummary\UptimeService.cs" />
+    <Compile Include="BISSummary\UserExperienceService.cs" />
+    <Compile Include="CategoryScoring\InfrastructurePerformanceCategoryComplete.cs" />
+    <Compile Include="CategoryScoring\RecoverabilityIntegrityScoringLogic.cs" />
+    <Compile Include="CategoryScoring\UptimeCategoryComplete.cs" />
+    <Compile Include="CategoryScoring\UserExperienceCategoryComplete.cs" />
+    <Compile Include="DatabaseDeployment\ScriptInstaller.cs" />
+    <Compile Include="CategoryScoring\CategoryCompleteTask.cs" />
+    <Compile Include="CategoryScoring\RecoverabilityIntegrityCategoryComplete.cs" />
+    <Compile Include="Installation\PostInstallService.cs" />
+    <Compile Include="Installation\PreInstallService.cs" />
+    <Compile Include="DatabaseDeployment\QosDatabaseDeployer.cs" />
+    <Compile Include="Hours\HourMigrationService.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interfaces\IParallelizationInstallationService.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\BackupCoverageMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\BackupFrequencyMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\BackupGapMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\DbccCoverageMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\DbccFrequencyMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\DbccGapMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\RpoMetricLogic.cs" />
+    <Compile Include="Metrics\RecoverabilityIntegrity\RtoMetricLogic.cs" />
+    <Compile Include="Queuing\EventRouter.cs" />
+    <Compile Include="Agent\AgentManagerService.cs" />
+    <Compile Include="RecoverabilityIntegrity\DatabaseBackupProcessor.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsCoverageAnalyzer.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsCollectionVerifier.cs" />
+    <Compile Include="RecoverabilityIntegrity\GapsFrequencyAnalyzer.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerBackupProcessor.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerDbccProcessor.cs" />
+    <Compile Include="RecoverabilityIntegrity\ServerRecoverabilityProcessor.cs" />
+    <Compile Include="Servers\DatabaseService.cs" />
+    <Compile Include="Services\CancellationTokenSourceFactory.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseMigrator.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseMigratorFactory.cs" />
+    <Compile Include="DatabaseDeployment\RelativityRoundHouseLogger.cs" />
+    <Compile Include="DatabaseDeployment\RoundHouseFileService.cs" />
+    <Compile Include="DatabaseDeployment\RoundhouseManager.cs" />
+    <Compile Include="DatabaseDeployment\RoundHouseSettingsService.cs" />
+    <Compile Include="Audits\SqlWorkspaceAuditServiceProvider.cs" />
+    <Compile Include="Installation\SingletonDatabaseInstallationService.cs" />
+    <Compile Include="Installation\DefaultDatabaseInstallationService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Installation\ApplicationInstallationService.cs" />
+    <Compile Include="HealthChecks\HealthTask.cs" />
+    <Compile Include="HealthChecks\SqlHealthPresenter.cs" />
+    <Compile Include="Logging\GenericLogger.cs" />
+    <Compile Include="Logging\LogContext.cs" />
+    <Compile Include="Logging\TextLogger.cs" />
+    <Compile Include="Agent\AgentLogger.cs" />
+    <Compile Include="Agent\DatabaseLogger.cs" />
+    <Compile Include="Agent\MetricSystemWorkerAgentLogic.cs" />
+    <Compile Include="Audits\DataGridSettingsService.cs" />
+    <Compile Include="Audits\SearchAuditReporter.cs" />
+    <Compile Include="Audits\ServerAuditReporter.cs" />
+    <Compile Include="Audits\WorkspaceAuditReporter.cs" />
+    <Compile Include="Audits\WorkspaceAuditServiceFactory.cs" />
+    <Compile Include="CategoryScoring\CategoryScoringTask.cs" />
+    <Compile Include="CategoryScoring\InfrastructurePerformanceScoringLogic.cs" />
+    <Compile Include="CategoryScoring\UserExperienceSampleService.cs" />
+    <Compile Include="CategoryScoring\UserExperienceScoringLogic.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseDeploymentService.cs" />
+    <Compile Include="DatabaseDeployment\ErrorOnlyMigrationResultHandler.cs" />
+    <Compile Include="DatabaseDeployment\ExceptionMigrationResultHandler.cs" />
+    <Compile Include="Hours\HourCleanupLogic.cs" />
+    <Compile Include="Hours\HourPrerequisitesService.cs" />
+    <Compile Include="Metrics\InfrastructurePerformance\WaitsMetricLogic.cs" />
+    <Compile Include="Metrics\InfrastructurePerformance\VirtualLogFileCountMetricLogic.cs" />
+    <Compile Include="Metrics\InfrastructurePerformance\RamMetricLogic.cs" />
+    <Compile Include="Audits\AuditBatchAnalyzer.cs" />
+    <Compile Include="Audits\AuditBatchProcessor.cs" />
+    <Compile Include="Audits\AuditParsingService.cs" />
+    <Compile Include="Audits\AuditServerBatcher.cs" />
+    <Compile Include="Audits\AuditWorkspaceBatcher.cs" />
+    <Compile Include="Audits\DataGridConditionBuilder.cs" />
+    <Compile Include="Audits\SearchAnalysisService.cs" />
+    <Compile Include="CategoryScoring\CategoryService.cs" />
+    <Compile Include="Hours\HourlyScoringLogic.cs" />
+    <Compile Include="Hours\HourService.cs" />
+    <Compile Include="Agent\MetricSystemManagerAgentLogic.cs" />
+    <Compile Include="Metrics\MetricDataService.cs" />
+    <Compile Include="Metrics\MetricService.cs" />
+    <Compile Include="Services\AttributeServiceFactory.cs" />
+    <Compile Include="Services\HttpClientFactory.cs" />
+    <Compile Include="Metrics\MetricTask.cs" />
+    <Compile Include="Hours\HourTask.cs" />
+    <Compile Include="Metrics\UserExperience\AuditAnalysisMetricLogic.cs" />
+    <Compile Include="Audits\ServerAuditService.cs" />
+    <Compile Include="Audits\SqlWorkspaceAuditService.cs" />
+    <Compile Include="Audits\UserExperienceService.cs" />
+    <Compile Include="Notifications\PDBNotificationService.cs" />
+    <Compile Include="ProcessControls\AggregationTaskGroup.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\CPUHealthPerformanceTask.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\DiskHealthPerformanceTask.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\HealthPerformanceFactory.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\HealthPerformanceTask.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\RamHealthPerformanceTask.cs" />
+    <Compile Include="ProcessControls\HealthPerformance\SQLServerPerformanceTask.cs" />
+    <Compile Include="ProcessControls\LookingGlassTaskGroup.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\ApplicationPerformanceTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\BaseProcessControlTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\CollectWaitStatisticsTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\CycleErrorLogTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\DataTableCleanupTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\EnvironmentCheck\AnalyticsCheckMemoryCheck.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\EnvironmentCheck\AnalyticsCheckProcessorCheck.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\EnvironmentCheck\EnvironmentCheckRelativityTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\EnvironmentCheck\EnvironmentCheckServerInfoTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\EnvironmentCheck\EnvironmentCheckSqlConfigTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\FileLevelLatencyTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\LoadApplicationSummaryTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\LoadServerHealthSummaryTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\MonitorVirtualLogFilesTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\ProcessControlTaskManager.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\ReadErrorLogTask.cs" />
+    <Compile Include="ProcessControls\ProcessTasks\RunServerDataRefreshTask.cs" />
+    <Compile Include="ProcessControls\QoSTaskManager.cs" />
+    <Compile Include="ProcessControls\WMITaskManager.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Queuing\CheckEventTask.cs" />
+    <Compile Include="Queuing\EventHandler.cs" />
+    <Compile Include="Queuing\EventOrphanService.cs" />
+    <Compile Include="Queuing\EventSourceService.cs" />
+    <Compile Include="Queuing\EventTask.cs" />
+    <Compile Include="Queuing\EventTaskFactory.cs" />
+    <Compile Include="Queuing\EventRunner.cs" />
+    <Compile Include="Queuing\EventWorkerService.cs" />
+    <Compile Include="Queuing\JobServer.cs" />
+    <Compile Include="Queuing\JobServerOptionsFactory.cs" />
+    <Compile Include="Queuing\QueuingConfiguration.cs" />
+    <Compile Include="Metrics\Uptime\AgentUptimeMetricLogic.cs" />
+    <Compile Include="Metrics\Uptime\WebUptimeMetricLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CategoryScoring\UptimeScoringLogic.cs" />
+    <Compile Include="Queuing\QueuingService.cs" />
+    <Compile Include="Resources\DatabaseDeploymentConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDeploymentConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBindings.cs" />
+    <Compile Include="Installation\AdministrationInstallationService.cs" />
+    <Compile Include="Services\AppSettingsConfigurationService.cs" />
+    <Compile Include="DatabaseDeployment\DatabaseDeployer.cs" />
+    <Compile Include="Services\EmailNotificationService.cs" />
+    <Compile Include="Interfaces\IApplicationInstallationService.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="Services\LegacyHashConversionService.cs" />
+    <Compile Include="Services\PdbSqlToggleProvider.cs" />
+    <Compile Include="Services\ProcessControlWrapper.cs" />
+    <Compile Include="Logging\LogService.cs" />
+    <Compile Include="Services\QualityIndicatorService.cs" />
+    <Compile Include="Services\RefreshServerService.cs" />
+    <Compile Include="Services\RelativityOneService.cs" />
+    <Compile Include="Services\SendScoreAlertsService.cs" />
+    <Compile Include="Services\ServerTypeMapper.cs" />
+    <Compile Include="Services\SmtpClientFactory.cs" />
+    <Compile Include="Services\SqlScriptTokenService.cs" />
+    <Compile Include="Services\SqlScriptTokenValueProvider.cs" />
+    <Compile Include="Services\SqlServerCredentialInfoBuilder.cs" />
+    <Compile Include="Services\TabService.cs" />
+    <Compile Include="Testing\TestDataExcelParser.cs" />
+    <Compile Include="Services\Timeout.cs" />
+    <Compile Include="Services\PdbConfigurationService.cs" />
+    <Compile Include="Services\VersionCheckService.cs" />
+    <Compile Include="Services\WMIHelper.cs" />
+    <Compile Include="Testing\BackupDbccTestEventTypeProvider.cs" />
+    <Compile Include="Testing\IntegrationTestEventSourceService.cs" />
+    <Compile Include="Testing\IntegrationTestMetricManagerLogic.cs" />
+    <Compile Include="Testing\NewBackupDbccServiceExecution.cs" />
+    <Compile Include="Testing\NoOpTask.cs" />
+    <Compile Include="Testing\OldBackupDbccServiceExecution.cs" />
+    <Compile Include="Testing\ReportCleanupService.cs" />
+    <Compile Include="Testing\TestAgentRunner.cs" />
+    <Compile Include="Testing\TestDataSetupService.cs" />
+    <Compile Include="Testing\TestEventPrimer.cs" />
+    <Compile Include="Testing\TestPollingService.cs" />
+    <Compile Include="Workspace\WorkspaceService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DatabaseDeploymentConfiguration.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>DatabaseDeploymentConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectSettings.ruleset" />
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <None Include="Resources\architectNonce" />
+    <None Include="Resources\managerNonce" />
+    <None Include="Resources\private" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{b72f5674-7d0d-469c-ad9d-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data\kCura.PDB.Data.csproj">
+      <Project>{2ed961c8-45d1-4ebd-8e77-2bbd04fb9237}</Project>
+      <Name>kCura.PDB.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataProviders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MigratePerformance.zip" />
+    <None Include="MigrateQoS.zip" />
+    <None Include="MigrateResource.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\packages\Milyli.CodeAnalysis.2.0.1\tools\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\packages\Milyli.CodeAnalysis.2.0.1\tools\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libsodium-64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Notifications\Weekly.txt" />
+    <None Include="Resources\Notifications\Hourly_ScoreAlert.txt" />
+    <None Include="Resources\Notifications\Forecast.txt" />
+    <None Include="Resources\Notifications\Daily.txt" />
+    <None Include="Resources\Notifications\BackupDBCC.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <Message Text="TargetFrameworkVersion: $(TargetFrameworkVersion)" Importance="High" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+Your weekly score report for {0} is below.
+
+Quarterly: {1}
+User Experience: {2}
+Infrastructure Performance: {3}
+Recoverability/Integrity: {4}
+Uptime: {5}
+
+Weekly: {6}
+User Experience: {7}
+Infrastructure Performance: {8}
+Recoverability/Integrity: {9}
+Uptime: {10}
+
+This is a weekly score report from Performance Dashboard. Automatic notifications can be disabled via Performance Dashboard's configuration page.

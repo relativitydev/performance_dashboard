@@ -1,0 +1,73 @@
+﻿/**
+ * This file contains all of our form styles
+ * 
+ * Labels...............Default label style
+ *
+ * Inputs...............Input styles
+ */
+
+/**********************************************
+ ** Labels
+ **********************************************/
+
+form .field-label {
+    color: black;
+    margin-right: 10px;
+    padding-right: 6px;
+    margin-right: 2px;
+}
+
+    form .field-label.required {
+        border-right: 3px solid #f59d1f;
+        padding-right: 3px;
+    }
+/**********************************************
+ ** Inputs
+ **********************************************/
+
+form .multiselect {
+    height: 20px;
+    padding-top: 1px;
+}
+
+    form .multiselect .caret {
+        top: 8px;
+    }
+
+form input {
+    height: 20px;
+    width: 200px;
+}
+
+form .prettycheckbox.customCheckbox {
+    margin-bottom: -3px;
+}
+/**********************************************
+ ** Errors
+ **********************************************/
+
+.field-validation-error {
+    display: table;
+    margin-left: 157px;
+    color: #dd2622;
+}
+
+.validation-summary-errors {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 5px;
+    padding: 5px;
+    padding-left: 20px;
+    background-color: #ac3243;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 12px;
+    color: white;
+}
+
+.validation-summary-errors ul {
+        margin-bottom: 0;
+    }

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Unofficial.Microsoft.SQLServer.SMO</id>
+    <version>11.0.3000.0</version>
+    <title>Microsoft SQL Server 2012 Shared Management Objects</title>
+    <authors>Leon</authors>
+    <owners>Leon</owners>
+    <licenseUrl>http://www.microsoft.com/en-us/download/details.aspx?id=29065</licenseUrl>
+    <projectUrl>http://technet.microsoft.com/nl-NL/library/ms162189.aspx</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Some of the DLL's you'll need when working with SQL Server 2012 Shared Management Object (SMO). These files are taken from the SQL Server 2012 SDK and can be installed by installing the SQL Server Feature Pack.
+      Included files are: Microsoft.SqlServer.ConnectionInfo.dll, Microsoft.SqlServer.Management.Sdk.Sfc.dll, Microsoft.SqlServer.Smo.dll, Microsoft.SqlServer.SmoExtended.dll and Microsoft.SqlServer.SqlEnum.dll.</description>
+    <summary>Some of the DLL's you'll need when working with SQL Server 2012 Shared Management Object (SMO).</summary>
+    <releaseNotes />
+    <copyright>Copyright  2013 Microsoft Corporation</copyright>
+    <language>en-US</language>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+kCura.Notification
+</name>
+</assembly>
+<members>
+<member name="M:kCura.Notification.Config.#ctor(System.Collections.IDictionary)">
+ <summary>
+ Constructs a new configuration object that pulls its configuration values
+ from the provided dictionary.
+ </summary>
+ <param name="configDictionary">The dictionary to pull configuration values
+ from</param>
+ <remarks>This constructor is for tests that want to avoid pulling configuration
+ values from the database</remarks>
+</member>
+<member name="P:kCura.Notification.Config.Instance">
+ <summary>
+ Gets the singleton instance of the configuration class.
+ </summary>
+</member>
+<member name="M:kCura.Notification.Email.#ctor(kCura.Notification.Config,kCura.Notification.SmtpClientWrapperFactory)">
+ <summary>
+ Constructs a new email mailer that pulls its configuration values from
+ the provided <paramref name="configuration" /> instead of the default.
+ </summary>
+ <param name="configuration">The <see cref="T:kCura.Notification.Config" /> object to pull configuration
+ settings from</param>
+ <param name="smtpClientWrapperFactory">The <see cref="T:kCura.Notification.SmtpClientWrapperFactory" /> to use when creating new
+ <see cref="T:System.Net.Mail.SmtpClient">SmtpClients</see></param>
+</member>
+<member name="T:kCura.Notification.SmtpClientWrapper">
+ <summary>
+ Wraps <see cref="T:System.Net.Mail.SmtpClient" />
+ </summary>
+</member>
+</members>
+</doc>

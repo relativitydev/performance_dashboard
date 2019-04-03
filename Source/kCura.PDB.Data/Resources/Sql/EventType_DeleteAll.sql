@@ -1,0 +1,3 @@
+﻿
+
+truncate table [eddsdbo].[EventTypes]

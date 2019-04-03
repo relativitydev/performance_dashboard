@@ -1,0 +1,205 @@
+QoS_WorkspaceAnalysis_3.0.1 [Ran on the workspace database]
+
+VARSCAT - View and Recurring Search Complexity Analysis Tool
+
+eddsdbo.QoS_WorkspaceAnalysis (Create)
+ + Creates a run record entry (timestamp of start procedure) - eddsdbo.QoS_VarscatRunHistory (Insert)
+ + [Lines 107-1942] Attempt to run VARSCAT logic
+   - [Lines 115-1937] If there's records in [eddsdbo].[AuditRecord] 
+     + Clean up old data from this hour
+	 	- EDDSQoS.eddsdbo.QoS_VarscatOutput (DELETE WHERE QoSHourID = @QoSHourID AND DatabaseName = @workspace)
+		- EDDSQoS.eddsdbo.QoS_VarscatOutputDetail (DELETE WHERE QoSHourID = @QoSHourID AND DatabaseName = @workspace)
+	 + Get rootWorkspaceArtifiactID (MIN ArtifactID from eddsdbo.Artifact)
+	 + Gather initial data from the eddsdbo.AuditRecord table	
+		- eddsdbo.QoS_SearchAuditRows (Insert)
+	 + Iterate over this data for the given VSRunScope
+		- Get doc and AuditID
+		- export doc to idoc using sp_xml_preparedocument
+		- get parsed data from idoc using 
+			FROM OPENXML (@idoc, '/auditElement/QueryText',2)
+			WITH (QueryText NVARCHAR(MAX) '.')
+		- delete document with sp_xml_removedocument
+	 + Test for hash joins (What is this for?)
+		DetailsParsed LIKE '%hash join%' 
+	 + Get total runs for each search (QoS_RSSDOutput)
+	 + Get number of runs for each search-user pair (QoS_RSSDUserOutput)
+	 + Get the max runs by a single user (and the user)
+	 + [Lines 296-325] Determine QoS_SSComplexity 
+		- From Tables (Artifact a, QoS_RSSDOutput RSSO, View v, ViewCriteria vc, AuditUser au, ArtifactViewField avf)
+	 + Insert all subsearches??
+	 + Fix bogus "like" operator
+	 + Set @ItemsIniFTS from Field table (where field.IsIndexEnabled = 1).  Default to 1
+	 + Get distinct entries from QoS_SSComplexity (QoS_SSComplexityAnalysis)
+	 + Define @ouroboros = 912 (this is the maximum number of times the inner loop will run before deciding that there is a problem in the search that involves self-recursion (Ouroborus))
+	 + Get QoS_vScAT_examinedSearchz (from table SearchSavedSearch from SearchArtifactID present in QoS_SSComplexityAnalysis)
+		- load up the sub-searchinSearch counts table with a distinct list of all searches that have a sub search
+		- examinedSearchz is the list of root level searches, discovered in the audit record for this time range, that need to be examined.
+	 + [Lines 402-505] Iterate over the examinedSearchz (SubSearch Analysis)
+		- get all of the children of this particular search (QoS_thisSearchzSubSearches, QoS_ALLSearchzSubSearches)
+		- count all of the subsearches? 
+			+ grab the next set of searches to count
+			+ join to the searchSavedSearch table and insert into the QoS_ALLthisSearchzSubSearches
+			+ next, insert it into the tracking table for this node
+			+ delete the ones counted
+			+ reseed the seed table
+		- Update examinedSearchz with totalSearches and totalUniqueSearches (total subsearches for a given search)
+		- Remove it from thisSearchzSubSearches
+	 + Insert into examinedSearchz (and QoS_Round2AllSearchzSubSearches) from ALLSearchzSubSearches that are not in QoS_SSComplexity (the initial searches)
+	 + add in all the newly discovered subsearches to complexity and complexity analysis (Insert QoS_SSComplexity)
+	 + Now move search complexity items into the analysis table (Insert QoS_SSComplexityAnalysis)
+	 + If the search appears in the subsearches table, mark it as a child search (in QoS_SSComplexityAnalysis)
+	 + [Lines 611-704] Iterate over QoS_Round2AllSearchzSubSearches
+		- Step 1. SearchArtifactID Populate the analysis table with the IDs of the view and search artifactIDs (this should grow up and be a function someday)  ROUND 2 : this second iteration of this will only do the searches that were just added to complexity analysis.
+		- Cycle through each parent, then amass the total searches with a while loop that continually adds new sub-searches found to the list until it runs out. Then go on to the next search
+			+ Set the value of the Search to be examined, and insert into QoS_thisSearchzSubSearches
+			+ Iterate over QoS_thisSearchzSubSearches
+				- grab the next set of searches to count
+				- join to the searchSavedSearch table and insert into the QoS_ALLthisSearchzSubSearches
+				- next, insert it into the tracking table for this node
+				- reseed the seed table
+		- Update examinedSearchz with totalSearches and totalUniqueSearches (total subsearches for a given search)
+	 + TotalQTYSubSearches & TotalQTYUniqueSubSearches: Gather up the total number of subSearches in any given search. (This number is all inclusive and counts every subsearch beyond the node, downward. It also tells you if there are any searches that appear more than once in the tree.)
+	 + Insert the new, additional searches into the Complexity Analysis and Complexity tables
+	 + Steps 2-4 this will take several updates to do, so first take care of updating the values of all fields that will not be analyzed.
+		- Update SearchName, CreatedBy, DateCreated (QoS_SSComplexityAnalysis from QoS_SSComplexity)
+		- Update RelationalItemsIncluded (QoS_SSComplexityAnalysis from Field, View, QoS_SSComplexityAnalysis)
+	 + Step 5. ParsedSearchText  Update the searchText field by processing the XML in the searchtext field. This will contain any text that has been placed into the search text field.  There can be only one.
+		- Try to set the Search Provider to extract the SearchText to QoS_SSComplexityAnalysis.ParsedSearchText
+		- Catch (One of the searches has invalid characters... To figure out which one, we'll iterate through them one at a time)
+	 + Step 6. searchTextLength = eddsdbo.QoS_SSComplexityAnalysis len(ParsedSearchText) for information purposes only, and is not used in scoring.
+	 + Step 7. IsFullTextSearch : checks to see if any portion of the search is an iFTS search This is two items because if a search only uses the search text field, there will be no "contains" operator, but the searchText field wil be longer than normal and the operator field will be NULL (see second item).  
+	 + Step 8. searchConditioniFTCLength now get the sum lengths of the fielded searches, where they exist
+		- this is put here for informational purposes only and is not rolled into the complexity score at this time.
+	 + Step 9. QTYFullTextCatalogSearch:  if the search is against the entire catalog through the Search Text field, it is noted in a separate field. This only considers Conditions.
+	 + Step 10-12. IsDTSearch, IsSQLSearch, QTYLikeOperators
+		- searches done using the search text are treated separately, so this score only reflects the search CONDITIONs. 
+		- If there are any operators that are not "IN" or "CONTAINS", then it is a SQL search
+		- QTYLikeOperators analyze for LIKE searches.
+	 + Step 13. QTYConditionValueWords : this determines how many words are in the value field for a search condition.  It sums all conditions in a search.  this is separate from search text words.
+		- NOTE: Like searches are weighted with this variable.  If there are 4 words in a single like search, and the weight is set to four, then the final complexity score will be incremented by 16.  
+			You may reduce this to '1' to determine what the score would be without like searches. By default, it is set to "10."
+		- EXEC QoS_Bullfrog [QoS_SSComplexity Value ViewCriteriaID] (Jump to QoS_Bullfrog section)
+		- Parse data from QoS_SSComplexity, QoS_BullfrogIDCWords, QoS_BullfrogWork
+		  + Set QoS_SSComplexityAnalysis->QTYConditionValueWords, totalSearchComplexityScore, ConditionValue
+		- EXEC QoS_Bullfrog [QoS_SSComplexityAnalysis ParsedSearchText SearchArtifactID] (Jump to QoS_Bullfrog section)
+		- Parse data from QoS_SSComplexityAnalysis, QoS_BullfrogIDCWords, QoS_BullfrogWork
+		  + Set QoS_SSComplexityAnalysis QTYConditionValueWords (Again?)
+	 + Step 14 QTYItemsiniFTS Set the ComplexityAnalysis column to this value for use in scoring. (Passed in with procedure)
+	 + Step 15 QTYsearchTextWords : This parses the parsedSearchText and delimits it based on spaces and commas only.  From there, it determines how many words are in the searchtext field for a search.  this should be a bullfrog call...
+	 + Step 16. dtSearchTextLength sets this column to the length of the dtsearch text.
+	 + Step 17. Quantity folders selected to search. (TODO: look and see if the search is including subfolders or not.)
+	 + Step 18 is imaginary
+	 + Step 19: "Analyze and quantify search conditions" - get the types of fields that are being searched.
+		- Iterate over QoS_SSComplexity in order to gather a listing of all of the field search and order by types being used, drawing from the FieldType table to make the assessment.  
+		  + capture the order by field types into a single string.  This works one search at a time to coalesce all of a search's field names, types, and order by types into three separate fields. (Update QoS_SSComplexityAnalysis OrderByFieldTypes)
+		  + Add in the order by fields to the searchFields calculation. At the moment I am using DisplayName cuz I don't remember where the actual name is stored. Its not even in the extended field view. (Update QoS_SSComplexityAnalysis OrderByFields)
+		  + Update QoS_SSComplexityAnalysis QTYOrderBy, QtyOrderByIndexed, SearchFieldTypes, SearchFieldNames
+		  + Update QoS_SSComplexityAnalysis QTYIndexedSearchFields (TODO: Review execution plan and index/revise accordingly)
+		  + Update QoS_SSComplexityAnalysis QTYSearchFields
+	 + Begin updates for QTYSubSearches, LongestRunTime, ShortestRunTime, TotalLRQRunTime, LastQueryForm,LongestRunningQueryForm, NumCancelled, NumErrored, totalSearchComplexityScore
+		- Analyze total Search In Searches for the search that reside AT THE SEARCH NODE LEVEL.  This does not include sub searches in the sub searches. See Step 21 for that.
+		- get longest, shortest and total running LRQ times for each view/search. and the total runtime for the day of that search. 
+		- All of the results are added up together to come up with a total score for the search. (Review execution plan and optimize accordingly)
+	 + Tally SubSearches
+		- update the score to reflect the sum value of all the subsearches (Insert QoS_SubSearchCount)
+	 + aggregate and sum the complexity of the subsearches in a search, and then add them to the total complexity score.
+	 + capture all the adhoc queries and insert them here for later inclusion in the output. these are grouped by total adhoc queries per user.  Later, the one that ran the longest, and the most times, is captured. Since this is a primary grouping, and QoS_RSSDUserOutput is a secondary grouping, there is no need to enter these items to there. 
+	 + Insert all the data into the VarscatOutput table
+	 + insert all of the VARSCAT Outputs into VarscatOutputDetail.  
+	 + Available fields from QoS_VarscatOutput to be used for complexity analysis: TotalQTYSubSearches INT; [QTY Select folders] INT, > ?; SearchTextLength INT : Greater than 500; QTYOrderBy INT,SummaryDayHour Datetime,
+	 + Get all other audits that have execution times (Insert VarscatOutputDetail from AuditRecord, WHERE [Action] IN (1, 29, 32, 34, 35, 37))
+	 + Get all export audits that have execution times. (WHERE [Action] = 33)
+	 + Create the '456' audits which is a mash-up of the ( 4, 5, 6 ) audits actions.  Since they are being aggregated, by user ID per hour, they are assigned an arbitrary AuditID of 51773.  NOTE: Plan produces an index seek, even across an entire month in the test environment.  Separate indexing may be warranted for UserID and Action to optimize this query in the event that a particular hour may have enough audits to trip a scan. The existing index is rather fat.
+	 + Create the action 47 audits which is an RDC Overlay.  Since they are being aggregated by user ID per hour, they are assigned an arbitrary AuditID of 773.  The audits are estimated based on internal testing at kCura, halved.
+	 + For the time being, because action item 3s are also used by RDC during an overlay, this is bring aggregated to prevent swamping the system. (WHERE [Action] = 3)
+*	 + Second Pass, massage values (Set IsComplex when ComplexityScore > 9)
+*	 + SET IsLongRunning (WHEN ExecutionTime > 2000 AND IsComplex = 0 OR WHEN ExecutionTime > 8000 AND IsComplex = 1 WHERE  QoSAction IN ( 281, 282, 283 ))
+	 + Inserting detailed output to QoS_VarscatOutputDetail (EDDSQoS)
+	 + Finish Varscat by setting QoS_VarscatRunHistory.IsActive = 0
+ + [Lines 1964-2050 END] Attempt to cleanup after VARSCAT logic
+	- eddsdbo.QoS_VarscatRunHistory (DELETE WHERE VRHID != @VSRunScope
+			AND (IsActive = 0
+				 OR DATEADD(hh, 1, RunDateTimeUTC) < GETUTCDATE() --get rid of stale entries
+			))
+	- DELETE WHERE VRHID < @historyKeepThreshold;
+		eddsdbo.VarscatOutputDetail
+		eddsdbo.QoS_BullfrogIDCWords
+		eddsdbo.QoS_BullfrogWork
+		[EDDSDBO].QoS_BullfrogWords
+		eddsdbo.QoS_ALLSearchzSubSearches
+		eddsdbo.QoS_thisSearchzSubSearches
+		eddsdbo.QoS_thisSearchzSubSearchesTemp
+		eddsdbo.QoS_Round2AllSearchzSubSearches
+		eddsdbo.QoS_SearchAuditRows
+		eddsdbo.QoS_SearchAuditParsed
+		eddsdbo.QoS_RSSDOutput
+		eddsdbo.QoS_RSSDUserOutput
+		eddsdbo.QoS_SSComplexity
+		eddsdbo.QoS_SSComplexityAnalysis
+		eddsdbo.QoS_vScAT_examinedSearchz
+		eddsdbo.QoS_SubSearchCount
+	
+eddsdbo.QoS_Bullfrog
+ + This is a script designed to delimit fields and insert them as single words into a new table, will create the tables as needed.
+ + Requires: Field/Column to be consumed, a single (or multiple) delimiter, exclude/noise words, max word length, batch size for transaction size.
+ + This script is designed to work with Relativity's document table.  Manually alter to use a different table if desired
+
+ - How this Sproc is used for WorkspaceAnalysis
+ VRHID
+ [Table, Field, ID]
+ QoS_SSComplexity Value ViewCriteriaID
+ QoS_SSComplexityAnalysis ParsedSearchText SearchArtifactID
+ 
+ BULLFROG
+ ============================================
+ @VRHID = 4 (example)
+ i = current iteration
+ o = current max (batch size)
+ 
+ -- Insert --
+ INSERT INTO eddsdbo.QoS_BullfrogWork
+ SELECT [ID], 4
+ FROM [TABLE]
+ WHERE VRHID = 4 AND [FIELD] IS NOT NULL
+ ORDER BY [ID]
+ 
+(((Example)))
+ INSERT INTO eddsdbo.QoS_BullfrogWork
+ SELECT [ViewCriteriaID], 4
+ FROM [QoS_SSComplexity]
+ WHERE VRHID = 4 AND [Value] IS NOT NULL
+ ORDER BY [ViewCriteriaID]
+ 
+ Iterate over iMAX (top ID value in BullfrogWork)
+ 
+ INSERT INTO #BullfrogPreload (IDConsumable FieldConsumable)
+ SELECT [ID], REPLACE([FIELD], '''''''', '''')) -- What are the extra quotes for?
+ FROM [TABLE]
+ WHERE VRHID = 4
+ AND ID IN (
+	SELECT IDConsumable
+	FROM eddsdbo.BullfrogWork
+	WHERE VRHID = 4 AND KBWID BETWEEN i AND o	
+ ) OPTION (MAXDOP 2)
+ 
+(((Example)))
+ INSERT INTO #BullfrogPreload (IDConsumable FieldConsumable)
+ SELECT [ViewCriteriaID], REPLACE([Value], '''''''', '''')) -- What are the extra quotes for?
+ FROM [QoS_SSComplexity]
+ WHERE VRHID = 4
+ AND ViewCriteriaID IN (
+	SELECT IDConsumable
+	FROM eddsdbo.BullfrogWork
+	WHERE VRHID = 4 AND KBWID BETWEEN i AND o	
+ ) OPTION (MAXDOP 2)
+ 
+ -------- PARSE --------
+ Iterate over iMAX
+  --First, get the exceptions into a temp table (if there are any)
+  --Now, process this batch!
+	?-- Carving Text??
+	INSERT INTO EDDSDBO.[QoS_BullfrogIDCWords]
+		(IDConsumable, VRHID, KBWID, Word, Position)
+	VALUES
+		(@tableConsumableID, @VSRunID, @i, @CarvedText, @Position) 
+ 

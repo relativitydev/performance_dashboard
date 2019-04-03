@@ -1,0 +1,19 @@
+USE [EDDSPerformance]
+GO
+
+/****** Object:  Table [eddsdbo].[ServerDW]    Script Date: 03/14/2014 10:54:11 ******/
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'ServerDW' AND TABLE_SCHEMA = N'EDDSDBO')
+BEGIN
+	CREATE TABLE [eddsdbo].[ServerDW](
+		[ServerDWID] [int] IDENTITY(1,1) NOT NULL,
+		[CreatedOn] [datetime] NOT NULL,
+		[ServerID] [int] NOT NULL,
+		[RAMPagesPerSec] [decimal](10, 2) NULL,
+		[RAMPageFaultsPerSec] [decimal](10, 2) NULL,
+	 CONSTRAINT [PK_ServerDW] PRIMARY KEY CLUSTERED 
+	(
+		[ServerDWID] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
+GO

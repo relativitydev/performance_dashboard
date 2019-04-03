@@ -1,0 +1,12 @@
+USE [EDDSPerformance]
+
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'WebServerSummary')
+BEGIN
+	drop table eddsdbo.WebServerSummary
+END
+
+
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'WebServerDW')
+BEGIN
+	drop table eddsdbo.WebServerDW
+END

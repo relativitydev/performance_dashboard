@@ -1,0 +1,117 @@
+DECLARE @summaryDayHour datetime = getutcdate()
+DECLARE @pastHalfYear datetime = DATEADD(d, -180, @summaryDayHour)
+DECLARE @pastQuarter datetime = DATEADD(dd, -90, @summaryDayHour)
+DECLARE @pastWeek datetime = DATEADD(dd, -7, @summaryDayHour)
+DECLARE @batchSize int = 10000
+
+---From QoS_LookingGlass
+--Clear out old run logs (On EDDSPerformance)
+SELECT
+	@logRemovalThreshold = MIN(GlassRunID)
+FROM (
+	SELECT TOP 300 GlassRunID
+	FROM EDDSPerformance.eddsdbo.QoS_GlassRunHistory
+	ORDER BY GlassRunID DESC
+) rr
+
+WHILE EXISTS (
+	SELECT TOP 1 1
+	FROM EDDSDBO.QoS_GlassRunLog
+	WHERE (GlassRunID < 1 AND LogTimestampUTC < @pastWeek) -- Delete old non-glass run related logs a week in the past
+		OR (GlassRunID < @logRemovalThreshold AND GlassRunID > 0) -- Delete any glass runs over the past 300 of them
+)
+BEGIN
+	DELETE TOP(@batchSize)
+	FROM EDDSDBO.QoS_GlassRunLog
+	WHERE (GlassRunID < 1 AND LogTimestampUTC < @pastWeek) -- Delete old non-glass run related logs a week in the past
+		OR (GlassRunID < @logRemovalThreshold AND GlassRunID > 0) -- Delete any glass runs over the past 300 of them
+	OPTION (MAXDOP 2)
+END
+	
+--delete cases to audit when a server is decommissioned
+WHILE EXISTS (
+	SELECT TOP 1 1 
+	FROM eddsdbo.QoS_CasesToAudit AS ca
+	WHERE ca.ServerID NOT IN
+	(
+		SELECT s.ArtifactID 
+		FROM eddsdbo.[Server] AS s 
+		WHERE s.DeletedOn IS NULL
+			AND ISNULL(s.IgnoreServer, 0) = 0 
+			AND s.ServerTypeID = 3
+	)
+		AND ca.AuditStartDate >= @summaryDayHour
+)
+BEGIN
+	DELETE TOP (@batchSize) 
+	FROM eddsdbo.QoS_CasesToAudit
+	WHERE ServerID NOT IN
+	(
+		SELECT s.ArtifactID
+		FROM eddsdbo.[Server] AS s 
+		WHERE s.DeletedOn IS NULL 
+			AND ISNULL(s.IgnoreServer, 0) = 0 
+			AND s.ServerTypeID = 3
+	)
+		AND AuditStartDate >= @summaryDayHour	
+	OPTION (MAXDOP 2)
+END
+
+--- From QoS_LookingGlass_SourceDate
+DELETE FROM EDDSDBO.QoS_SourceDatetime 
+WHERE quotidian < @pastHalfYear
+
+	
+---From QoS_QualityDataGenerator (On EDDSPerformance)
+--Remove old cumulative varscat data
+WHILE EXISTS (
+	SELECT TOP 1 1
+	FROM EDDSDBO.QoS_VarscatOutputCumulative 
+	WHERE SummaryDayHour < @pastQuarter
+)
+BEGIN	
+	DELETE TOP (@batchSize)
+	FROM EDDSDBO.QoS_VarscatOutputCumulative 
+	WHERE SummaryDayHour < @pastQuarter
+	OPTION(MAXDOP 2)
+END
+
+WHILE EXISTS (
+	SELECT TOP 1 1
+	FROM EDDSDBO.QoS_VarscatOutputDetailCumulative 
+	WHERE SummaryDayHour < @pastQuarter
+)
+BEGIN	
+	DELETE TOP (@batchSize)
+	FROM EDDSDBO.QoS_VarscatOutputDetailCumulative 
+	WHERE SummaryDayHour < @pastQuarter
+	OPTION(MAXDOP 2)
+END
+	
+--From QoS_ConcurrencyServer  (On EDDSQoS)
+--Needs ServerArtifactID for QoSHourID
+DECLARE @removeQoSHourID bigint = EDDSDBO.QoS_GetServerHourID(@ServerArtifactID, DATEADD(hh, -6, @summaryDayHour))
+
+WHILE EXISTS (
+	SELECT TOP 1 1
+	FROM EDDSQoS.EDDSDBO.QoS_VarscatOutputDetail
+	WHERE QoSHourID < @removeQoSHourID
+)
+BEGIN	
+	DELETE TOP (@batchSize)
+	FROM EDDSQoS.EDDSDBO.QoS_VarscatOutputDetail
+	WHERE QoSHourID < @removeQoSHourID
+	OPTION(MAXDOP 2)
+END
+
+WHILE EXISTS (
+	SELECT TOP 1 1
+	FROM EDDSQoS.EDDSDBO.QoS_VarscatOutput
+	WHERE QoSHourID < @removeQoSHourID
+)
+BEGIN
+	DELETE TOP (@batchSize)
+	FROM EDDSQoS.EDDSDBO.QoS_VarscatOutput
+	WHERE QoSHourID < @removeQoSHourID
+	OPTION(MAXDOP 2)
+END

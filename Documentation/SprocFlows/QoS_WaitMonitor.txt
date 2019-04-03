@@ -1,0 +1,10 @@
+QoS_WaitMonitor
+- QoS_WaitSummary (updating)
+- QoS_WaitDetail (inserting)
+- QoS_FileStatsServerMonitor (EXEC)
+
+QoS_FileStatsServerMonitor
+- GetPrimarySqlServer (EXEC)
+- QoS_FileStats (deleting)
+- QoS_LogAppend (EXEC)
+- QoS_FileLatencySummary (inserting)

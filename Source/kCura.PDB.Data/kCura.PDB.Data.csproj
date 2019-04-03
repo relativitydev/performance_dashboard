@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2ED961C8-45D1-4EBD-8E77-2BBD04FB9237}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Data</RootNamespace>
+    <AssemblyName>kCura.PDB.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestDebug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TestDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;IntegrationTest</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|AnyCPU'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestRelease|x64'">
+    <OutputPath>bin\TestRelease\</OutputPath>
+    <DefineConstants>TRACE;IntegrationTest</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.PDB.Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.PDB.Dapper.1.50.2\lib\net451\kCura.PDB.Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.Data">
+      <HintPath>..\..\vendor\binaries\kCura.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Data.RowDataGateway">
+      <HintPath>..\..\vendor\binaries\kCura.Data.RowDataGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Injection">
+      <HintPath>..\..\vendor\binaries\kCura.Injection.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client">
+      <HintPath>..\..\vendor\binaries\kCura.Relativity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.API">
+      <HintPath>..\..\vendor\binaries\Relativity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.4.398.22\lib\net45\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.4.398.22\lib\net45\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces.Private, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.Private.9.4.398.22\lib\net45\Relativity.Services.Interfaces.Private.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Toggles.1.0.0.64\lib\net45\Relativity.Toggles.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Increment.cs">
+      <Link>Increment.cs</Link>
+    </Compile>
+    <Compile Include="DataSetup.cs" />
+    <Compile Include="DataConstants.cs" />
+    <Compile Include="Extensions\ResultSetExtensions.cs" />
+    <Compile Include="IPDDModelDataContext.cs" />
+    <Compile Include="PDDModel.cs">
+      <DependentUpon>PDDModel.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="PDDModel.designer.cs">
+      <DependentUpon>PDDModel.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\AdministrationInstallationRepository.cs" />
+    <Compile Include="Repositories\AgentHistoryRepository.cs" />
+    <Compile Include="Repositories\AgentRepository.cs" />
+    <Compile Include="Repositories\ArtifactRepository.cs" />
+    <Compile Include="Repositories\AuditAnalysisRepository.cs" />
+    <Compile Include="Repositories\AvailabilityGroupRepository.cs" />
+    <Compile Include="Repositories\BackfillRepository.cs" />
+    <Compile Include="Repositories\BackupRepository.cs" />
+    <Compile Include="Repositories\BaseDbRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\BISSummary\AnalyticsRepository.cs" />
+    <Compile Include="Repositories\BISSummary\EnvironmentCheckRepository.cs" />
+    <Compile Include="Repositories\BISSummary\FileLatencyRepository.cs" />
+    <Compile Include="Repositories\BISSummary\RecoverabilityIntegrityReportRepository.cs" />
+    <Compile Include="Repositories\BISSummary\LegacyRecoverabilityIntegrityReportRepository.cs" />
+    <Compile Include="Repositories\BISSummary\ReportRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CategoryScoreRepository.cs" />
+    <Compile Include="Repositories\CleanupTablesRepository.cs" />
+    <Compile Include="Repositories\ConfigurationAuditRepository.cs" />
+    <Compile Include="Repositories\ConfigurationRepository.cs" />
+    <Compile Include="Repositories\DatabaseGapsRepository.cs" />
+    <Compile Include="Repositories\DatabaseRepository.cs" />
+    <Compile Include="Repositories\DataGridCacheRepository.cs" />
+    <Compile Include="Repositories\DataIntegrityRepository.cs" />
+    <Compile Include="Repositories\DbccRepository.cs" />
+    <Compile Include="Repositories\DeploymentRepository.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\EventLockRepository.cs" />
+    <Compile Include="Repositories\EventRepository.cs" />
+    <Compile Include="Repositories\EventWorkerRepository.cs" />
+    <Compile Include="Repositories\FcmRepository.cs" />
+    <Compile Include="Repositories\GeneralSqlRepository.cs" />
+    <Compile Include="Repositories\HourRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
+    <Compile Include="Repositories\MaintenanceWindowRepository.cs" />
+    <Compile Include="Repositories\MetricDataRepository.cs" />
+    <Compile Include="Repositories\MetricManagerStatsRepository.cs" />
+    <Compile Include="Repositories\MetricRepository.cs" />
+    <Compile Include="Repositories\PDBNotificationRepository.cs" />
+    <Compile Include="Repositories\PdbVersionRepository.cs" />
+    <Compile Include="Repositories\PerformanceSummaryRepository.cs" />
+    <Compile Include="Repositories\PoisonWaitRepository.cs" />
+    <Compile Include="Repositories\PrimarySqlServerRepository.cs" />
+    <Compile Include="Repositories\ProcessControlRepository.cs" />
+    <Compile Include="Repositories\RatingsRepository.cs" />
+    <Compile Include="Repositories\RelativityApplicationRepository.cs" />
+    <Compile Include="Repositories\ResourceServerRepository.cs" />
+    <Compile Include="Repositories\SampleHistoryRepository.cs" />
+    <Compile Include="Repositories\SearchAuditBatchRepository.cs" />
+    <Compile Include="Repositories\SearchFolderRepository.cs" />
+    <Compile Include="Repositories\ServerCleanupRepository.cs" />
+    <Compile Include="Repositories\ServerRepository.cs" />
+    <Compile Include="Repositories\SqlAuditRepository.cs" />
+    <Compile Include="Repositories\SqlServerRepository.cs" />
+    <Compile Include="Repositories\TabRepository.cs" />
+    <Compile Include="Repositories\Testing\IntegrationTestBackupProvider.cs" />
+    <Compile Include="Repositories\Testing\IntegrationTestDbccProvider.cs" />
+    <Compile Include="Repositories\Testing\IntegrationTestNewDatabaseRepository.cs" />
+    <Compile Include="Repositories\Testing\IntegrationTestNewHourRepository.cs" />
+    <Compile Include="Repositories\Testing\IntegrationTestNewServerRepository.cs" />
+    <Compile Include="Repositories\UptimeRatingsRepository.cs" />
+    <Compile Include="Repositories\UserExperienceCacheRepository.cs" />
+    <Compile Include="Repositories\UserExperienceRatingsRepository.cs" />
+    <Compile Include="Repositories\UserExperienceReportRepository.cs" />
+    <Compile Include="Repositories\ViewCriteriaRepository.cs" />
+    <Compile Include="Repositories\ViewRepository.cs" />
+    <Compile Include="Repositories\WorkspaceRepository.cs" />
+    <Compile Include="Services\CachedConnectionStringFactory.cs" />
+    <Compile Include="Services\CachedWorkspaceServerFactory.cs" />
+    <Compile Include="Services\ConfiguredConnectionFactory.cs" />
+    <Compile Include="Services\ConfiguredWorkspaceServerProvider.cs" />
+    <Compile Include="Services\GenericConnectionFactory.cs" />
+    <Compile Include="Services\HelperConnectionFactory.cs" />
+    <Compile Include="Services\HelperWorkspaceServerProvider.cs" />
+    <Compile Include="Services\RecoverabilityIntegrityReportReaderFactory.cs" />
+    <Compile Include="Services\SqlHelper.cs" />
+    <Compile Include="Testing\BackupTestDataRepository.cs" />
+    <Compile Include="Testing\DatabasesCheckedTestDataRepository.cs" />
+    <Compile Include="Testing\DbccTestDataRepository.cs" />
+    <Compile Include="Testing\HourTestDataRepository.cs" />
+    <Compile Include="Testing\ReportCleanupRepository.cs" />
+    <Compile Include="Testing\ServerTestDataRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{b72f5674-7d0d-469c-ad9d-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PDDModel.dbml.layout">
+      <DependentUpon>PDDModel.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="PDDModel.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PDDModel.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Sql\Metric_ReadByID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Sql\AgentHistory_Create.sql" />
+    <Content Include="Resources\Sql\AgentHistory_Delete.sql" />
+    <Content Include="Resources\Sql\Agent_CheckWithTypeExists.sql" />
+    <Content Include="Resources\Sql\Agent_Enabled.sql" />
+    <None Include="Resources\Sql\Backup_ReadBackups.sql" />
+    <None Include="Resources\Sql\Backup_ReadBackupsBeforeHour.sql" />
+    <Content Include="Resources\Sql\CategoryScore_ReadByCategory.sql" />
+    <None Include="Resources\Sql\Database_ReadByNameAndServer.sql" />
+    <None Include="Resources\Sql\Database_GetByServer.sql" />
+    <None Include="Resources\Sql\Database_ReadByServer.sql" />
+    <None Include="Resources\Sql\Database_Create.sql" />
+    <None Include="Resources\Sql\Database_UpdateByNameAndServer.sql" />
+    <None Include="Resources\Sql\Database_Read.sql" />
+    <None Include="Resources\Sql\DatabaseGap_Create.sql" />
+    <None Include="Resources\Sql\DatabaseGap_Exists.sql" />
+    <None Include="Resources\Sql\DatabaseGap_ReadLargestGapsForHour.sql" />
+    <None Include="Resources\Sql\DatabaseGap_ReadGapsLargerThanForHour.sql" />
+    <None Include="Resources\Sql\Database_ReadMostOutOfDateDbccByServer.sql" />
+    <None Include="Resources\Sql\DatabaseGap_ReadLargestGapsForHourAllDatabase.sql" />
+    <None Include="Resources\Sql\Database_ReadMostOutOfDateBackupFullDiffByServer.sql" />
+    <None Include="Resources\Sql\Database_ReadOutOfDateDatabasesByBackups.sql" />
+    <None Include="Resources\Sql\Database_ReadOutOfDateDatabasesByDbccs.sql" />
+    <None Include="Resources\Sql\Database_ReadCountByServer.sql" />
+    <Content Include="Resources\Sql\DataGridCache_Delete.sql" />
+    <Content Include="Resources\Sql\DataGridCache_ReadUseDataGrid.sql" />
+    <Content Include="Resources\Sql\DataGridCache_UpdateOrCreate.sql" />
+    <None Include="Resources\Sql\HourSearchAuditBatch_UpdateByHourAndServer.sql" />
+    <None Include="Resources\Sql\SearchAuditBatch_Update.sql" />
+    <None Include="Resources\Sql\HourSearchAuditBatches_ReadByHourAndServer.sql" />
+    <None Include="Resources\Sql\HourSearchAuditBatches_Create.sql" />
+    <Content Include="Resources\Sql\EDDS\EddsPerformanceVersion_Create.sql" />
+    <Content Include="Resources\Sql\EDDS\EddsPerformanceVersion_Insert.sql" />
+    <Content Include="Resources\Sql\EDDS\EddsPerformanceVersion_Read.sql" />
+    <Content Include="Resources\Sql\Event_ExistsForHourTypeStatus.sql" />
+    <None Include="Resources\Sql\MetricData_ReadByHourAndMetricTypeAndServer.sql" />
+    <Content Include="Resources\Sql\Reports_RecoverabilityIntegrityRto_Create.sql" />
+    <Content Include="Resources\Sql\Reports_RecoverabilityIntegrityRpo_Create.sql" />
+    <Content Include="Resources\Sql\Reports_RecoverabilityIntegrity_Create.sql" />
+    <Content Include="Resources\Sql\Reports_Gap_Create.sql" />
+    <Content Include="Resources\Sql\Reports_RecoveryObjectives_Rto_Create.sql" />
+    <Content Include="Resources\Sql\Reports_RecoveryObjectives_Rpo_Create.sql" />
+    <Content Include="Resources\Sql\Reports_Gap_ClearUnresolvedActivityType.sql" />
+    <Content Include="Resources\Sql\Reports_RecoveryObjectives_Rpo_Update.sql" />
+    <Content Include="Resources\Sql\Reports_RecoveryObjectives_Rto_Update.sql" />
+    <None Include="Resources\Sql\RecoverabilityIntegrity_ReadWeeklyScore.sql" />
+    <None Include="Resources\Sql\Event_ReadTypesByTypeAndStatus.sql" />
+    <None Include="Resources\Sql\Event_ReadSingleByTypeAndStatus.sql" />
+    <None Include="Resources\Sql\Event_DeleteAllByType.sql" />
+    <None Include="Resources\Sql\MetricData_ReadWorstScoreInDateRange.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatchResult_DeleteByHourBatchId.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatch_DeleteByHourBatchId.sql" />
+    <Content Include="Resources\Sql\Test\BackupDbccReportData_Clear.sql" />
+    <Content Include="Resources\Sql\Test\BackupHistory_Clear.sql" />
+    <Content Include="Resources\Sql\Test\BackupTest_ReadFirstBeforeHour.sql" />
+    <Content Include="Resources\Sql\Test\BackupTest_ReadForHour.sql" />
+    <Content Include="Resources\Sql\Test\DatabaseTest_ReadAllByServer.sql" />
+    <Content Include="Resources\Sql\Test\DbccHistory_Clear.sql" />
+    <Content Include="Resources\Sql\Test\DbccTest_ReadLast.sql" />
+    <Content Include="Resources\Sql\Test\HourTest_ReadNextHourWithoutRatings.sql" />
+    <None Include="Resources\Sql\Test\MockBackup_Clear.sql" />
+    <None Include="Resources\Sql\Test\MockBackup_Create.sql" />
+    <None Include="Resources\Sql\Test\MockDatabasesChecked_Clear.sql" />
+    <None Include="Resources\Sql\Test\MockDatabasesChecked_Create.sql" />
+    <None Include="Resources\Sql\Test\MockDbcc_Clear.sql" />
+    <None Include="Resources\Sql\Test\MockDbcc_Create.sql" />
+    <None Include="Resources\Sql\Test\MockHours_Clear.sql" />
+    <None Include="Resources\Sql\Test\MockHours_Create.sql" />
+    <None Include="Resources\Sql\Test\MockHours_Read.sql" />
+    <Content Include="Resources\Sql\Test\MockHour_ReadNextHourWithoutRatings.sql" />
+    <None Include="Resources\Sql\Test\MockServer_Clear.sql" />
+    <None Include="Resources\Sql\Test\MockServer_Create.sql" />
+    <Content Include="Resources\Sql\Test\ServerTest_ReadAllActive.sql" />
+    <Content Include="Resources\Sql\Workspace_ReadStatus.sql" />
+    <None Include="Resources\Sql\Workspace\Read_CAATPopTables.sql" />
+    <None Include="Resources\Sql\Workspace\Read_CAATIndexSearchableDocumentCount.sql" />
+    <None Include="Resources\Sql\Event_ReadIdsByStatus.sql" />
+    <None Include="Resources\Sql\Event_ReadIdsByStatusAndType.sql" />
+    <None Include="Resources\Sql\Event_UpdateStatusById.sql" />
+    <None Include="Resources\Sql\Event_UpdateStatusAndRetriesById.sql" />
+    <None Include="Resources\Sql\Event_ReadCountByStatuses.sql" />
+    <None Include="Resources\Sql\EventWorker_Create.sql" />
+    <None Include="Resources\Sql\EventWorker_ReadAll.sql" />
+    <None Include="Resources\Sql\Agent_ReadAll.sql" />
+    <None Include="Resources\Sql\EventLock_ReleaseByWorker.sql" />
+    <None Include="Resources\Sql\EventWorker_Delete.sql" />
+    <None Include="Resources\Sql\EventWorker_Read.sql" />
+    <None Include="Resources\Sql\EventLock_ReadByWorker.sql" />
+    <None Include="Resources\Sql\Artifact_ReadByGuid.sql" />
+    <None Include="Resources\Sql\ArtifactAncestry_Create.sql" />
+    <None Include="Resources\Sql\Artifact_Create.sql" />
+    <None Include="Resources\Sql\Artifact_DeleteAll.sql" />
+    <None Include="Resources\Sql\ArtifactAncestry_DeleteAll.sql" />
+    <None Include="Resources\Sql\ArtifactAncestry_ReadByParent.sql" />
+    <None Include="Resources\Sql\AuditAnalysis_ReadByMetricDataAndUser.sql" />
+    <None Include="Resources\Sql\Agent_ReadAllEnabled.sql" />
+    <None Include="Resources\Sql\Artifact_TestDatabaseAccess.sql" />
+    <None Include="Resources\Sql\Choice_ReadByChoiceTypeId.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ApplyManualUpgrades.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\BackupsNearingViolation.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CheckAdminScriptsInstalled.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CheckLookingGlassHistory.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ClaimLookingGlass.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ClaimRollup.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ClaimServer.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CleanupDataTables.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CollectPageoutInformation.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ConsistencyChecksNearingViolation.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ConvertRH_MD5toSHA1.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CountMissedBackupsAndIntegrityChecks.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CreateEnvironmentCheckRecommendations.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CreateRHScriptsRunTableType.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\CreateRoundHouseTables.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\DBExists.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\DeleteServerEnvironmentCheckRecommendations.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\FailedMonitoringTargets.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\InsertEnvCheckRecommendations_ById.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\InsertEnvironmentCheckSeverDetails.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\InsertRHTimeoutConfig.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\IsPreRoundhousE.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ListDbccTargets.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ListMonitoringFailedDatabases.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ListMonitoringFailedServerNames.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\PurgeBackupDBCCTables.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\PurgeEDDSPerformanceTables.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadEnvironmentCheckDatabaseDetails.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadEnvironmentCheckRecommendation.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadEnvironmentCheckServerDetails.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadFaililngProcessControls.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadFileLatencyDetails.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadNumberOfEnabledAgents.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadQoSExtendedProperty.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadRHScriptInfo.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\ReadSecondsSinceLastAgentHistoryRecord.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\RefreshDbccTargets.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\Reset_RowHashes.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\SaveEnvironmentCheckServerDetails.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\SetProcessControlFrequency.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\StageReconfigNoticeDelivery.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\SystemLoadMonitoring_ScoreForecast.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\UnclaimServer.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\UpdateAdminScriptsInstalled.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\UpdateDbccTarget.sql" />
+    <None Include="Resources\Sql\EDDSPerformance\UpgradeToRHVersion.sql" />
+    <None Include="Resources\Sql\EDDSQoS\FileLevelLatency.sql" />
+    <None Include="Resources\Sql\EDDSQoS\ReadEnvironmentCheckServerDatabaseDetails.sql" />
+    <None Include="Resources\Sql\EDDSQoS\UserExMonitoring_ScoreForecast.sql" />
+    <None Include="Resources\Sql\EDDS\GetRegisteredSQLServers.sql" />
+    <None Include="Resources\Sql\EDDS\GetServerForWorkspace.sql" />
+    <None Include="Resources\Sql\EDDS\LookupWorkspaceName.sql" />
+    <None Include="Resources\Sql\EDDS\ReadDatabaseCollation.sql" />
+    <None Include="Resources\Sql\EDDS\ReadFileServers.sql" />
+    <None Include="Resources\Sql\EDDS\ReadInstanceName.sql" />
+    <None Include="Resources\Sql\EDDS\ReadMdfLdfDirectories.sql" />
+    <None Include="Resources\Sql\EDDS\ReadResourceServers.sql" />
+    <None Include="Resources\Sql\EDDS\SMTPSettings.sql" />
+    <None Include="Resources\Sql\DataIntegrity\DropAllTriggers.sql" />
+    <None Include="Resources\Sql\CreateDBCCLogView.sql" />
+    <None Include="Resources\Sql\Create_QoS_CollectAgentUptime.sql" />
+    <None Include="Resources\Sql\Category_ReadByCategoryScore.sql" />
+    <None Include="Resources\Sql\Category_CreateInsert.sql" />
+    <None Include="Resources\Sql\Category_CreateRead.sql" />
+    <None Include="Resources\Sql\CategoryScore_ReadByCategoryAndServer.sql" />
+    <None Include="Resources\Sql\Config_SetConfigValueInsert.sql" />
+    <None Include="Resources\Sql\Config_SetConfigValueUpdate.sql" />
+    <Content Include="Resources\Sql\CleanupTables_QosGlassRunLog.sql" />
+    <None Include="Resources\Sql\Config_ReadInfoBySectionAndName.sql" />
+    <None Include="Resources\Sql\Config_ReadInfo.sql" />
+    <Content Include="Resources\Sql\EDDSPerformance\ConfigurationAudit_Create.sql" />
+    <None Include="Resources\Sql\Event_ReadCountByHourStatusTypes.sql" />
+    <None Include="Resources\Sql\EventWorker_Update.sql" />
+    <None Include="Resources\Sql\Event_CancelEvents.sql" />
+    <Content Include="Resources\Sql\Event_ReadCountBySourceTypeAndNullId.sql" />
+    <Content Include="Resources\Sql\Event_ReadCountBySourceTypeAndId.sql" />
+    <None Include="Resources\Sql\Event_UpdateTimedOutEvents.sql" />
+    <None Include="Resources\Sql\Event_ReadLastByEventType.sql" />
+    <None Include="Resources\Sql\Event_ReadLastByEventTypeWithSourceId.sql" />
+    <Content Include="Resources\Sql\FCM_ApplySecondaryHashes.sql" />
+    <Content Include="Resources\Sql\FCM_ValidatePreBARS.sql" />
+    <None Include="Resources\Sql\Field_ReadChoiceTypeByGuid.sql" />
+    <None Include="Resources\Sql\GroupTab_ApplyGroupTabPermissions.sql" />
+    <None Include="Resources\Sql\InstallCleanup\CleanupAndDeleteOldAgent.sql" />
+    <None Include="Resources\Sql\InstallCleanup\RemoveOldAgentTypeFromWorkspace.sql" />
+    <None Include="Resources\Sql\InstallCleanup\RemoveOldResourceFiles.sql" />
+    <None Include="Resources\Sql\GlassRunLog_ReadLastByLogLevelWithEventInfo.sql" />
+    <None Include="Resources\Sql\GlassRunLog_ReadLastFullLogWithEventInfo.sql" />
+    <None Include="Resources\Sql\LogCategories_ReadAll.sql" />
+    <None Include="Resources\Sql\Metric_CreateInsert.sql" />
+    <None Include="Resources\Sql\Metric_CreateRead.sql" />
+    <None Include="Resources\Sql\MetricData_ReadByMetricAndServer.sql" />
+    <None Include="Resources\Sql\Hour_ReadIncompleteHours.sql" />
+    <None Include="Resources\Sql\Hour_ReadLastCompleted.sql" />
+    <None Include="Resources\Sql\MetricManagerExecutionStat_Create.sql" />
+    <Content Include="Resources\Sql\ProcessControl_HasRunSuccessfully.sql" />
+    <None Include="Resources\Sql\ProcessControl_ReadAll.sql" />
+    <Content Include="Resources\Sql\QoSRatings_Exist.sql" />
+    <None Include="Resources\Sql\ReadServerUtcTime.sql" />
+    <Content Include="Resources\Sql\RelativityArtifact_Exists.sql" />
+    <None Include="Resources\Sql\Agent_CheckForAgentsEnabled.sql" />
+    <None Include="Resources\Sql\Agent_CheckLegacyAgentsExist.sql" />
+    <None Include="Resources\Sql\AvailabilityGroup_Aoag_Enabled.sql" />
+    <None Include="Resources\Sql\AuditAnalysis_Create.sql" />
+    <None Include="Resources\Sql\AuditAnalysis_ReadByMetricData.sql" />
+    <None Include="Resources\Sql\Backfill_ReadHoursAwaitingAnalysis.sql" />
+    <None Include="Resources\Sql\Backfill_ReadHoursAwaitingDiscovery.sql" />
+    <None Include="Resources\Sql\Backfill_ReadHoursAwaitingScoring.sql" />
+    <None Include="Resources\Sql\Backfill_ReadHoursCompletedScoring.sql" />
+    <None Include="Resources\Sql\Event_ReadEventSystemState.sql" />
+    <None Include="Resources\Sql\Event_UpdateEventSystemState.sql" />
+    <Content Include="Resources\Sql\CleanupTables_CasesToAuditDecommission.sql" />
+    <Content Include="Resources\Sql\CleanupTables_QosHourIdDynamicDelete.sql" />
+    <Content Include="Resources\Sql\CleanupTables_DateTimeDynamicDelete.sql" />
+    <None Include="Resources\Sql\Event_ReadCountByStatus.sql" />
+    <None Include="Resources\Sql\Event_ReadLast.sql" />
+    <None Include="Resources\Sql\EventType_Create.sql" />
+    <None Include="Resources\Sql\EventType_DeleteAll.sql" />
+    <None Include="Resources\Sql\EventLog_Create.sql" />
+    <Content Include="Resources\Sql\EventLock_Release.sql" />
+    <Content Include="Resources\Sql\EventLock_Claim.sql" />
+    <Content Include="Resources\Sql\GlassRunLog_Insert.sql" />
+    <None Include="Resources\Sql\Hour_ReadHourReadyForScoring.sql" />
+    <None Include="Resources\Sql\MaintenanceWindow_IsHourScheduled.sql" />
+    <None Include="Resources\Sql\Hour_ReadHighestHourAfterMinHour.sql" />
+    <None Include="Resources\Sql\MetricData_ReadByCategoryTypeHour.sql" />
+    <None Include="Resources\Sql\PoisonWait_ReadPoisonWaitsForHour.sql" />
+    <None Include="Resources\Sql\Hour_ReadNextHourWithoutRatings.sql" />
+    <None Include="Resources\Sql\GlassRunLog_ReadLast.sql" />
+    <None Include="Resources\Sql\Hour_ReadCompleteHours.sql" />
+    <Content Include="Resources\Sql\ProcessControl_Update.sql" />
+    <Content Include="Resources\Sql\ProcessControl_ReadById.sql" />
+    <Content Include="Resources\Sql\RelativityApplication_ApplicationVersionOnWorkspace.sql" />
+    <Content Include="Resources\Sql\RelativityApplication_ApplicationIsInstalledOnEnvironment.sql" />
+    <None Include="Resources\Sql\Reports_SearchAudit_Create.sql" />
+    <None Include="Resources\Sql\Reports_WorkspaceSearchAudits_Create.sql" />
+    <None Include="Resources\Sql\Reports_ServerAudits_Create.sql" />
+    <None Include="Resources\Sql\Reports_WorkspaceSearchAudits_CreateVarscatOutput.sql" />
+    <None Include="Resources\Sql\Reports_WorkspaceSearchAudits_CreateVarscatOutputDetails.sql" />
+    <None Include="Resources\Sql\Reports_SearchAndWorkspace_Delete.sql" />
+    <None Include="Resources\Sql\Reports_SearchAudit_CreateSummaryRecord.sql" />
+    <Content Include="Resources\Sql\SampleHistory_Count.sql" />
+    <Content Include="Resources\Sql\SampleHistory_ReadCurrentArrivalRateSample.sql" />
+    <Content Include="Resources\Sql\SampleHistory_ReadCurrentConcurrencySample.sql" />
+    <None Include="Resources\Sql\SampleHistory_ReadSampleRange.sql" />
+    <None Include="Resources\Sql\SampleHistory_RemoveHourFromSample.sql" />
+    <Content Include="Resources\Sql\SampleHistory_ResetCurrentSample.sql" />
+    <Content Include="Resources\Sql\SampleHistory_AddCurrentSample.sql" />
+    <None Include="Resources\Sql\SampleHistory_Update.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatchResult_Create.sql" />
+    <None Include="Resources\Sql\SearchAuditBatchResult_ReadByHourAndServer.sql" />
+    <None Include="Resources\Sql\SearchAuditBatchResult_ExistByHourAndServer.sql" />
+    <None Include="Resources\Sql\SearchAuditBatchResult_CreateHourSearchAuditBatch.sql" />
+    <None Include="Resources\Sql\SearchAuditBatchResult_Update.sql" />
+    <None Include="Resources\Sql\SearchAuditBatchResult_ReadByBatchAndUser.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatch_Create.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatchResult_ReadByBatchId.sql" />
+    <Content Include="Resources\Sql\SearchAuditBatch_Read.sql" />
+    <None Include="Resources\Sql\SearchAuditBatch_ReadByHourAndServer.sql" />
+    <Content Include="Resources\Sql\SearchFolder_ReadTotalForSearchId.sql" />
+    <None Include="Resources\Sql\Server_ReadWorkspaceIds.sql" />
+    <None Include="Resources\Sql\Server_ReadServerPendingQosDeployment.sql" />
+    <None Include="Resources\Sql\Server_UpdateActiveServersPendingQosDeployment.sql" />
+    <Content Include="Resources\Sql\ServerCleanup_Update.sql" />
+    <Content Include="Resources\Sql\ServerCleanup_Create.sql" />
+    <Content Include="Resources\Sql\ServerCleanup_Read.sql" />
+    <Content Include="Resources\Sql\Server_ReadPrimaryStandalone.sql" />
+    <Content Include="Resources\Sql\SqlAudit_ReadAnyAudits.sql" />
+    <Content Include="Resources\Sql\SqlAudit_ReadTotalLongRunningAuditsForHour.sql" />
+    <Content Include="Resources\Sql\SqlAudit_ReadUniqueUsersForHourAudits.sql" />
+    <Content Include="Resources\Sql\SqlAudit_ReadTotalAuditsForHour.sql" />
+    <None Include="Resources\Sql\Tab_CreateOrUpdate.sql" />
+    <None Include="Resources\Sql\sys_LowMemorySignalState.sql" />
+    <None Include="Resources\Sql\Tab_Update.sql" />
+    <None Include="Resources\Sql\GroupTab_DeleteAll.sql" />
+    <Content Include="Resources\Sql\Tab_ReadAllByParent.sql" />
+    <Content Include="Resources\Sql\Tab_ReadByName.sql" />
+    <None Include="Resources\Sql\Tab_DeleteAll.sql" />
+    <Content Include="Resources\Sql\EDDSPerformance\ConfigurationAudit_ReadAll.sql" />
+    <None Include="Resources\Sql\UptimeRatings_ReadBySummaryDayHour.sql" />
+    <Content Include="Resources\Sql\UserExperienceCache_Create.sql" />
+    <None Include="Resources\Sql\UserExperienceCache_ReadByHourAndServer.sql" />
+    <Content Include="Resources\Sql\UserExperienceCache_ReadByServerIdDateRange.sql" />
+    <Content Include="Resources\Sql\UserExperienceRating_Create.sql" />
+    <None Include="Resources\Sql\UserExperienceRating_ReadByHourAndServer.sql" />
+    <Content Include="Resources\Sql\ViewCriteria_ReadBySearchId.sql" />
+    <None Include="Resources\Sql\View_ReadBySearchId.sql" />
+    <None Include="Resources\Sql\UptimeRatings_UpdateQuartlyScores.sql" />
+    <None Include="Resources\Sql\UptimeRatings_Create.sql" />
+    <None Include="Resources\Sql\UptimeRatings_UpdateWeeklyScores.sql" />
+    <None Include="Resources\Sql\AgentHistory_ReadByHour.sql" />
+    <Content Include="Resources\Sql\AgentHistory_ReadByID.sql" />
+    <None Include="Resources\Sql\AgentHistory_ReadEarliest.sql" />
+    <Content Include="Resources\Sql\AgentHistory_Update.sql" />
+    <None Include="Resources\Sql\AvailabilityGroup_SprocsExist.sql" />
+    <Content Include="Resources\Sql\CategoryScore_Create.sql" />
+    <Content Include="Resources\Sql\CategoryScore_Delete.sql" />
+    <None Include="Resources\Sql\CategoryScore_ReadByHour.sql" />
+    <Content Include="Resources\Sql\CategoryScore_ReadByID.sql" />
+    <Content Include="Resources\Sql\CategoryScore_Update.sql" />
+    <None Include="Resources\Sql\Category_Delete.sql" />
+    <None Include="Resources\Sql\Category_ReadByID.sql" />
+    <None Include="Resources\Sql\Category_Update.sql" />
+    <None Include="Resources\Sql\Event_ReadByID.sql" />
+    <None Include="Resources\Sql\Event_Create.sql" />
+    <None Include="Resources\Sql\Event_Update.sql" />
+    <None Include="Resources\Sql\Event_Delete.sql" />
+    <None Include="Resources\Sql\Event_CreateMany.sql" />
+    <None Include="Resources\Sql\Config_ReadValueBySectionAndName.sql" />
+    <Content Include="Resources\Sql\Hour_Create.sql" />
+    <Content Include="Resources\Sql\Hour_Delete.sql" />
+    <Content Include="Resources\Sql\Hour_ReadByID.sql" />
+    <None Include="Resources\Sql\Hour_ReadLast.sql" />
+    <None Include="Resources\Sql\Hour_Update.sql" />
+    <None Include="Resources\Sql\Hour_ReadLastnDays.sql" />
+    <None Include="Resources\Sql\Hour_ReadByIDs.sql" />
+    <Content Include="Resources\Sql\MaintenanceWindow_Delete.sql" />
+    <Content Include="Resources\Sql\MaintenanceWindow_ReadTable.sql" />
+    <Content Include="Resources\Sql\MaintenanceWindow_Update.sql" />
+    <Content Include="Resources\Sql\MaintenanceWindow_ReadByID.sql" />
+    <Content Include="Resources\Sql\MaintenanceWindow_Create.sql" />
+    <None Include="Resources\Sql\MetricData_Update.sql" />
+    <None Include="Resources\Sql\MetricData_Delete.sql" />
+    <None Include="Resources\Sql\MetricData_ReadByID.sql" />
+    <None Include="Resources\Sql\MetricData_Create.sql" />
+    <None Include="Resources\Sql\MetricData_ReadByCategoryScore.sql" />
+    <Content Include="Resources\Sql\Metric_Delete.sql" />
+    <None Include="Resources\Sql\Server_Create.sql" />
+    <None Include="Resources\Sql\Server_Delete.sql" />
+    <None Include="Resources\Sql\Server_ReadByID.sql" />
+    <None Include="Resources\Sql\Server_Update.sql" />
+    <None Include="Resources\Sql\Server_ReadAllActive.sql" />
+    <Content Include="Resources\Sql\PrimarySqlServer_Read.sql" />
+    <Content Include="Resources\Sql\Metric_Update.sql" />
+    <Content Include="Resources\Sql\SqlAudit_ReadAuditsForHour.sql" />
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

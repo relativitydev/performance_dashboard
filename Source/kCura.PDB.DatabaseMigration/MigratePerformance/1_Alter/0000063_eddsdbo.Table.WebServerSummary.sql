@@ -1,0 +1,19 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'WebServerSummary' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE eddsdbo.WebServerSummary
+	(
+		WebServerSummaryID INT IDENTITY(1,1),
+		CreatedOn DATETIME,
+		MeasureDate DATETIME,
+		ServerID INT,
+		UptimePct DECIMAL(7,4),
+		CONSTRAINT [PK_WebServerSummaryID] PRIMARY KEY CLUSTERED 
+		(
+			WebServerSummaryID ASC
+		)
+	)
+END
+GO

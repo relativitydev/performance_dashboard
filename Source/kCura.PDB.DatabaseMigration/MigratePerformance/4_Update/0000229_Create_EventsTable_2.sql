@@ -1,0 +1,23 @@
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'Events') 
+BEGIN
+
+	CREATE TABLE [eddsdbo].[Events](
+		[ID] [bigint] IDENTITY(1,1) NOT NULL,
+		[SourceTypeID] [int] NOT NULL,
+		[SourceID] [int] NULL,
+		[StatusID] [int] NOT NULL,
+		[TimeStamp] [datetime] NOT NULL,
+		[EventHash] [varchar](max) NULL,
+		[WeekID] [int] NULL,
+	 CONSTRAINT [PK_Events] PRIMARY KEY CLUSTERED 
+	(
+		[ID] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+	ALTER TABLE [eddsdbo].[Events]  WITH CHECK ADD  CONSTRAINT [FK_Events_TrustWeeks] FOREIGN KEY([WeekID])
+	REFERENCES [eddsdbo].[TrustWeeks] ([ID])
+
+	ALTER TABLE [eddsdbo].[Events] CHECK CONSTRAINT [FK_Events_TrustWeeks]
+
+END

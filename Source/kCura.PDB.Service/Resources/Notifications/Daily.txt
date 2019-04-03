@@ -1,0 +1,15 @@
+The current quarterly score for {0} {1}
+
+Quarterly: {2}
+User Experience: {3}
+Infrastructure Performance: {4}
+Recoverability/Integrity: {5}
+Uptime: {6}
+
+Weekly: {7}
+User Experience: {8}
+Infrastructure Performance: {9}
+Recoverability/Integrity: {10}
+Uptime: {11}
+
+This is a daily alert from Performance Dashboard. Automatic notifications can be disabled via Performance Dashboard's configuration page.

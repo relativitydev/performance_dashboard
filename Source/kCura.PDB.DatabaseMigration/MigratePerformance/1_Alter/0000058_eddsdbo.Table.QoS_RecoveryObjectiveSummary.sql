@@ -1,0 +1,17 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'QoS_RecoveryObjectiveSummary' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE eddsdbo.QoS_RecoveryObjectiveSummary (
+		ROSID INT IDENTITY (1,1),
+		CONSTRAINT PK_RecoveryObjectiveSummary PRIMARY KEY (ROSID),
+		ServerName NVARCHAR (255) NULL,
+		DBName NVARCHAR (255) NULL,
+		PotentialDataLossMinutes INT NULL,
+		EstimatedTimeToRecoverHours DECIMAL (6,2) NULL,
+		RPOScore DECIMAL (5, 2) NULL,
+		RTOScore DECIMAL (5, 2) NULL
+	)
+END
+GO

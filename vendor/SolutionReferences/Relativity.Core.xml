@@ -1,0 +1,101 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Relativity.Core
+</name>
+</assembly>
+<members>
+<member name="M:Relativity.Core.Service.ArtifactTypeManager.GetArtifactTypeID(Relativity.Core.ICoreContext,System.String)">
+	<summary>
+ Takes in a context and the SQL Friendly name of an artifact type, and returns the artifact type ID.
+ </summary>
+	<param name="context">the context</param>
+	<param name="artifactTypeName">The SQL Friendly name of an artifact type.</param>
+	<returns>Returns the artifact type ID for the artifact type ID passed in.</returns>
+</member><member name="P:My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="F:Relativity.Core.AllocMethod.HGobal">
+	<summary>
+ Allocates a block of memory using LocalAlloc.
+ </summary>
+	<remarks>Uses the <see cref="M:System.Runtime.InteropServices.Marshal.AllocHGlobal(System.IntPtr)"></see> method to allocate memory.</remarks>
+</member><member name="F:Relativity.Core.AllocMethod.CoTaskMem">
+	<summary>
+ Allocates a block of memory of specified size from the COM task memory allocator.
+ </summary>
+	<remarks>Uses the <see cref="M:System.Runtime.InteropServices.Marshal.AllocCoTaskMem(System.Int32)"></see> method to allocate memory.</remarks>
+</member><member name="T:Relativity.Core.AllocMethod">
+	<summary>
+ Defines the different ways unmanaged memory can be allocated. 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Relativity.Core.UnmanagedPointer.#ctor(System.Int32,Relativity.Core.AllocMethod)">
+	<summary>
+ Allocates a block of unmanaged memory.
+ </summary>
+	<param name="sizeInBytes">The number of bytes to be allocated.</param>
+	<param name="method">The <see cref="T:Relativity.Core.AllocMethod"></see> method to use.</param>
+	<remarks></remarks>
+</member><member name="M:Relativity.Core.UnmanagedPointer.#ctor(System.UInt32,Relativity.Core.AllocMethod)">
+	<summary>
+ Allocates a block of unmanaged memory. Overloaded to take an UInt32 for 
+ size parameter.
+ </summary>
+	<param name="sizeInBytes">The number of bytes to be allocated.</param>
+	<param name="method">The <see cref="T:Relativity.Core.AllocMethod"></see> method to use.</param>
+	<remarks></remarks>
+</member><member name="M:Relativity.Core.UnmanagedPointer.#ctor(System.Byte[],Relativity.Core.AllocMethod)">
+	<summary>
+ Allocates a block of unmanaged memory and copies the specified bytes into it.
+ </summary>
+	<param name="bytes">The bytes to be copied over.</param>
+	<param name="method">The <see cref="T:Relativity.Core.AllocMethod"></see> method to use.</param>
+	<remarks></remarks>
+</member><member name="M:Relativity.Core.UnmanagedPointer.Dispose">
+	<summary>
+ Frees the unmananged memory that this object hold.
+ </summary>
+	<remarks>This code added by Visual Basic to correctly implement the disposable pattern.</remarks>
+</member><member name="M:Relativity.Core.UnmanagedPointer.op_Implicit(Relativity.Core.UnmanagedPointer)~System.IntPtr">
+	<summary>
+ Allows this object to be used as a <see cref="T:System.IntPtr"></see> object.
+ </summary>
+	<param name="ptr">The internal <see cref="T:System.IntPtr"></see> object.</param>
+	<returns>An <see cref="T:System.IntPtr"></see> object.</returns>
+	<remarks></remarks>
+</member><member name="T:Relativity.Core.UnmanagedPointer">
+	<summary>
+ A helper class that allows you drop memory blocks into using statements in  
+ order to have them automatically cleaned up so you can avoid a memory leak.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Relativity.Core.Domain.Field.DetermineArtifactTypeFromExceptionMessage(Relativity.Core.ICoreContext,System.String)">
+	<summary>
+ Determines what the artifact type is from a foreign key contraint exception message.
+ </summary>
+	<param name="context">An instance of a ChicagoContext</param>
+	<param name="errorMessage">The innerMessage property of an Exception object.</param>
+	<returns>A string representing the artifact type if found, null otherwise.</returns>
+	<remarks>Sample error: "The DELETE statement conflicted with the REFERENCE constraint "FK_PArtifactType14_Field1035303_FArtifactType1000005". The conflict occurred in database "EDDS1015041", table "EDDSDBO.Transform", column 'DestinationField'."</remarks>
+</member><member name="M:Relativity.Core.Domain.Field.DetermineArtifactTypeFromException(Relativity.Core.ICoreContext,System.Data.SqlClient.SqlException)">
+	<summary>
+ Determines what the artifact type is from a <see cref="T:System.Data.SqlClient.SqlException"/> object.
+ </summary>
+	<param name="context">An instance of a ChicagoContext</param>
+	<param name="ex">The <see cref="T:System.Data.SqlClient.SqlException"/> object to parse.</param>
+	<returns>A string representing the artifact type if found, null otherwise.</returns>
+</member>
+</members>
+</doc>

@@ -1,0 +1,29 @@
+QoS_LookingGlass_3.0.1.sql
+
+EDDSDBO.QoS_LookingGlass (Create)
+	- EDDSDBO.QoS_GlassRunHistory (Inserting)
+		@GlassRunID = SCOPE_IDENTITY()
+	- EDDSDBO.QoS_GlassRunLog (Delete / 'clear out old run logs')
+	- EDDSQoS.eddsdbo.QoS_LogAppend (EXEC)
+	- EDDSDBO.QoS_GlassRunHistory (Updating)
+	- eddsdbo.QoS_QualityDataGenerator (EXEC / 'collects VARSCAT)
+	
+QoS_QualityDataGenerator
+	- QoS_LogAppend (EXEC)
+	- EDDSDBO.QoS_Servers (Drop/Recreate)
+	- EDDSDBO.QoS_VarscatOutputCumulative (DELETE WHERE SummaryDayHour < dateadd(dd, -90, @summaryDayHour))
+	- EDDSDBO.QoS_VarscatOutputDetailCumulative (DELETE WHERE SummaryDayHour < dateadd(dd, -90, @summaryDayHour))
+	- EDDSDBO.QoS_GetServerhourID(@ServerArtifactID,@summaryDayHour)
+	- @cServerName.EDDSQoS.eddsdbo.QoS_ConcurrencyServer (EXEC)
+	- eddsdbo.QoS_BuildandRateSample (EXEC)
+	
+QoS_ConcurrencyServer
+	- EDDSDBO.QoS_GetServerHourID(@ServerArtifactID, DATEADD(hh, -6, @summaryDayHour)) (EXEC)
+	- GetPrimarySqlServer (EXEC)
+	- eddsdbo.QoS_UserXServerSummary (Truncate)
+	- QoS_LogAppend (EXEC)
+	- eddsdbo.QoS_UserXServerSummary (Inserting, updating)
+	- @primaryServerName.eddsdbo.QoS_UserXServerSummary (Inserting, also declaring @QoSHourID inline dynamic sql)
+	- @primaryServerName.EDDSPerformance.EDDSDBO.QoS_VarscatOutputDetailCumulative (Insert if current QoSHourID does not exist)
+	- EDDSQoS.EDDSDBO.QoS_VarscatOutputDetail (Delete / 'old rows')
+	- EDDSQoS.EDDSDBO.QoS_VarscatOutput (DELETE)

@@ -1,0 +1,1 @@
+﻿select COUNT(*) from eddsdbo.QoS_SampleHistoryUX with(nolock)

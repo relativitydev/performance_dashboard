@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ArtifactViewFields />
+  <Assemblies>
+    <Assembly>
+      <ArtifactId>1017901</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Dapper.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017903</ArtifactId>
+      <Keywords />
+      <Name>Hangfire.Core.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017904</ArtifactId>
+      <Keywords />
+      <Name>Hangfire.Ninject.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017906</ArtifactId>
+      <Keywords />
+      <Name>Hangfire.SqlServer.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017907</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Core.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017908</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Data.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017909</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Service.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017911</ArtifactId>
+      <Keywords />
+      <Name>Ninject.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017912</ArtifactId>
+      <Keywords />
+      <Name>Owin.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017913</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Agent.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017914</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.EventHandler.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1017919</ArtifactId>
+      <Keywords />
+      <Name>RoundHouseDependencies.dll</Name>
+      <Notes />
+    </Assembly>
+	<Assembly>
+      <ArtifactId>1017920</ArtifactId>
+      <Keywords />
+      <Name>NSerio.Trust.Common.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1015738</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Agent.Package.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1015739</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Agent.Trust.dll</Name>
+      <Notes />
+    </Assembly>
+	<Assembly>
+      <ArtifactId>1015743</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.Service.DataGrid.dll</Name>
+      <Notes />
+    </Assembly>
+	<Assembly>
+      <ArtifactId>1015744</ArtifactId>
+      <Keywords />
+      <Name>kCura.AuditUI2.Services.Interface.dll</Name>
+      <Notes />
+    </Assembly>	
+	<Assembly>
+      <ArtifactId>1015745</ArtifactId>
+      <Keywords />
+      <Name>kCura.AuditUI2.Data.Contracts.dll</Name>
+      <Notes />
+    </Assembly>
+	<Assembly>
+      <ArtifactId>1015747</ArtifactId>
+      <Keywords />
+      <Name>Ninject.Extensions.ChildKernel.dll</Name>
+      <Notes />
+    </Assembly>
+	<Assembly>
+      <ArtifactId>1015748</ArtifactId>
+      <Keywords />
+      <Name>kCura.PDB.DependencyInjection.dll</Name>
+      <Notes />
+    </Assembly>	
+  </Assemblies>
+  <ResourceFiles />
+  <ExternalTabs />
+  <ExtractionDate>2017-04-21T19:43:24.4232346Z</ExtractionDate>
+  <Guid>60a1d0a3-2797-4fb3-a260-614cbfd3fa0d</Guid>
+  <Name>Performance Dashboard</Name>
+  <Objects />
+  <ParentTabs />
+  <RelativityVersion>9.3.549.1</RelativityVersion>
+  <Version>9.3.0.407</Version>
+  <TabDisplay>true</TabDisplay>
+  <OriginSignature>2b71354c-db67-4a4d-8985-b3ab4ff3c6c5</OriginSignature>
+  <MasterScripts />
+  <ApplicationScripts />
+  <CustomPages>
+    <CustomPage>
+      <ArtifactID>1038620</ArtifactID>
+      <Guid>7520b08a-a557-4ffe-9f47-789547540d9b</Guid>
+      <ApplicationVersion>9.2.0.141</ApplicationVersion>
+      <Name>Performance Dashboard</Name>
+      <FileName>Performance Dashboard.zip</FileName>
+      <Size>33191636</Size>
+      <Keywords />
+      <Notes />
+      <Hash />
+    </CustomPage>
+  </CustomPages>
+  <AgentTypes>
+    <AgentType>
+      <ArtifactId>1038619</ArtifactId>
+      <Guid>4e7dbf83-c74a-462f-bf9a-4b4360adbb42</Guid>
+      <ApplicationVersion>9.3.0.294</ApplicationVersion>
+      <AgentTypeName>Performance Dashboard - Trust [UNINSTALL]</AgentTypeName>
+      <FullNameSpace>kCura.PDB.Agent.TrustWorkerAgent</FullNameSpace>
+      <DefaultInterval>3600</DefaultInterval>
+      <DefaultLogging>1</DefaultLogging>
+      <MinInstanceEnvironment>0</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>0</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>1017913</AssemblyArtifactID>
+      <AgentDll>kCura.PDB.Agent.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+    <AgentType>
+      <ArtifactId>1038616</ArtifactId>
+      <Guid>d943f8e1-cb2f-40fd-ba66-3970d3ab17c0</Guid>
+      <ApplicationVersion>9.3.0.294</ApplicationVersion>
+      <AgentTypeName>Performance Dashboard - QoS Worker</AgentTypeName>
+      <FullNameSpace>kCura.PDB.Agent.QoSWorkerAgent</FullNameSpace>
+      <DefaultInterval>5</DefaultInterval>
+      <DefaultLogging>5</DefaultLogging>
+      <MinInstanceEnvironment>1</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>0</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>1017913</AssemblyArtifactID>
+      <AgentDll>kCura.PDB.Agent.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+    <AgentType>
+      <ArtifactId>1038617</ArtifactId>
+      <Guid>79f33c93-4fc3-4e92-8c75-9d6f4073f334</Guid>
+      <ApplicationVersion>9.3.0.294</ApplicationVersion>
+      <AgentTypeName>Performance Dashboard - QoS Manager</AgentTypeName>
+      <FullNameSpace>kCura.PDB.Agent.QoSManagerAgent</FullNameSpace>
+      <DefaultInterval>300</DefaultInterval>
+      <DefaultLogging>5</DefaultLogging>
+      <MinInstanceEnvironment>1</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>1</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>1017913</AssemblyArtifactID>
+      <AgentDll>kCura.PDB.Agent.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+    <AgentType>
+      <ArtifactId>1038618</ArtifactId>
+      <Guid>aa805282-5f1a-487e-aac9-17e3e9a5b4ba</Guid>
+      <ApplicationVersion>9.3.0.294</ApplicationVersion>
+      <AgentTypeName>Performance Dashboard - WMI Worker</AgentTypeName>
+      <FullNameSpace>kCura.PDB.Agent.WMIWorkerAgent</FullNameSpace>
+      <DefaultInterval>5</DefaultInterval>
+      <DefaultLogging>5</DefaultLogging>
+      <MinInstanceEnvironment>1</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>0</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>1017913</AssemblyArtifactID>
+      <AgentDll>kCura.PDB.Agent.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+	<AgentType>
+      <ArtifactId>1038620</ArtifactId>
+      <Guid>043E1D11-3161-4B44-B272-7D78D8F959E1</Guid>
+      <ApplicationVersion>9.3.1.157</ApplicationVersion>
+      <AgentTypeName>Performance Dashboard - Metric Manager</AgentTypeName>
+      <FullNameSpace>kCura.PDB.Agent.MetricManagerAgent</FullNameSpace>
+      <DefaultInterval>5</DefaultInterval>
+      <DefaultLogging>1</DefaultLogging>
+      <MinInstanceEnvironment>1</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>1</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>1017913</AssemblyArtifactID>
+      <AgentDll>kCura.PDB.Agent.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+  </AgentTypes>
+  <IsRelativityApplication>true</IsRelativityApplication>
+  <InstallEventHandlers>
+    <InstallEventHandler>
+      <ArtifactId>1042144</ArtifactId>
+      <AssemblyArtifactId>1017914</AssemblyArtifactId>
+      <Name>kCura.PDB.EventHandler.RunEveryTimePostInstallEventHandler</Name>
+      <Guid>11511440-116a-4f0d-b98b-fb35e82045e7</Guid>
+      <Guids>fb97ab0b-d339-4452-9bd1-e60a223d2fde</Guids>
+      <ExecutionType>8</ExecutionType>
+      <Order>10</Order>
+      <AssemblyName>kCura.PDB.EventHandler.dll</AssemblyName>
+      <ApplicationVersion>9.3.0.361</ApplicationVersion>
+      <RunTarget>2</RunTarget>
+    </InstallEventHandler>
+    <InstallEventHandler>
+      <ArtifactId>1042145</ArtifactId>
+      <AssemblyArtifactId>1017914</AssemblyArtifactId>
+      <Name>kCura.PDB.EventHandler.MigratePerformanceInstallEvent</Name>
+      <Guid>c26b5bbe-93dc-4b7a-b8ef-f82eec983313</Guid>
+      <Guids>80940752-dfc1-4318-ba9f-234caaac6b0c</Guids>
+      <ExecutionType>8</ExecutionType>
+      <Order>5</Order>
+      <AssemblyName>kCura.PDB.EventHandler.dll</AssemblyName>
+      <ApplicationVersion>9.3.0.361</ApplicationVersion>
+      <RunTarget>2</RunTarget>
+    </InstallEventHandler>
+    <InstallEventHandler>
+      <ArtifactId>1042146</ArtifactId>
+      <AssemblyArtifactId>1017914</AssemblyArtifactId>
+      <Name>kCura.PDB.EventHandler.InstallRequirementsPreInstallEvent</Name>
+      <Guid>0002ab93-832b-4ff0-b2f9-7a445a557496</Guid>
+      <Guids>44e18d55-8890-4ec7-a0d6-b77c91d66578</Guids>
+      <ExecutionType>7</ExecutionType>
+      <Order>5</Order>
+      <AssemblyName>kCura.PDB.EventHandler.dll</AssemblyName>
+      <ApplicationVersion>9.3.0.361</ApplicationVersion>
+      <RunTarget>2</RunTarget>
+    </InstallEventHandler>
+    <InstallEventHandler>
+      <ArtifactId>1041108</ArtifactId>
+      <AssemblyArtifactId>1017914</AssemblyArtifactId>
+      <Name>kCura.PDB.EventHandler.RemoveOldResourcesPostInstallEventHandler</Name>
+      <Guid>940ed540-da03-41b9-ac23-dfe13fb4ff50</Guid>
+      <Guids>950dbf66-23d1-4bd9-b0af-925c53dfe976</Guids>
+      <ExecutionType>8</ExecutionType>
+      <Order>30</Order>
+      <AssemblyName>kCura.PDB.EventHandler.dll</AssemblyName>
+      <ApplicationVersion>9.3.0.361</ApplicationVersion>
+      <RunTarget>2</RunTarget>
+    </InstallEventHandler>
+	<InstallEventHandler>
+      <ArtifactId>1038091</ArtifactId>
+      <AssemblyArtifactId>1017914</AssemblyArtifactId>
+      <Name>kCura.PDB.EventHandler.MigrateTrustPostInstall</Name>
+      <Guid>77c1c939-e5d3-4dee-8b6e-0c24abc4d822</Guid>
+      <Guids>30be21f9-5b83-420d-a435-adb7f0fd3bc5</Guids>
+      <ExecutionType>10</ExecutionType>
+      <Order>20</Order>
+      <AssemblyName>kCura.PDB.EventHandler.dll</AssemblyName>
+      <ApplicationVersion>9.6.1.0</ApplicationVersion>
+      <RunTarget>2</RunTarget>
+    </InstallEventHandler>
+  </InstallEventHandlers>
+  <SavedSearches />
+  <SearchContainers />
+  <SearchProviders />
+  <EnvironmentVariables>
+    <SearchAsConditionCriteriaID>1000471</SearchAsConditionCriteriaID>
+    <FullTextAll>1000182</FullTextAll>
+  </EnvironmentVariables>
+  <GlobalApplication>false</GlobalApplication>
+  <RelativityScriptIds />
+  <ViewIds />
+  <LayoutIds />
+  <FieldIds />
+  <ChoiceIds />
+  <ObjectTypeIds />
+  <TabIds />
+  <CustomPageIds>
+    <Id>1038620</Id>
+  </CustomPageIds>
+  <Locked>true</Locked>
+</Application>

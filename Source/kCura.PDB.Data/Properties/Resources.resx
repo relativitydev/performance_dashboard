@@ -1,0 +1,1114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AgentHistory_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AgentHistory_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AgentHistory_ReadByHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_ReadByHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AgentHistory_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AgentHistory_ReadEarliest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_ReadEarliest.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AgentHistory_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AgentHistory_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Agent_CheckForAgentsEnabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Agent_CheckForAgentsEnabled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Agent_CheckLegacyAgentsExist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Agent_CheckLegacyAgentsExist.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="AvailabilityGroup_Aoag_Enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AvailabilityGroup_Aoag_Enabled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AvailabilityGroup_SprocsExist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AvailabilityGroup_SprocsExist.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CategoryScore_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CategoryScore_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CategoryScore_ReadByHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_ReadByHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CategoryScore_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CategoryScore_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_CreateMany" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_CreateMany.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GlassRunLog_Insert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\GlassRunLog_Insert.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadByIDs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadByIDs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadHourReadyForScoring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadHourReadyForScoring.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadLast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadLast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadLastnDays" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadLastnDays.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hour_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_IsHourScheduled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_IsHourScheduled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_ReadTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_ReadTable.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MaintenanceWindow_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MaintenanceWindow_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_ReadByCategoryScore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_ReadByCategoryScore.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Metric_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Metric_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Metric_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Metric_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Metric_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Metric_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PrimarySqlServer_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\PrimarySqlServer_Read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RelativityApplication_ApplicationIsInstalledOnEnvironment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\RelativityApplication_ApplicationIsInstalledOnEnvironment.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_ReadByBatchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_ReadByBatchId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatch_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatch_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatch_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatch_Read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchFolder_ReadTotalForSearchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchFolder_ReadTotalForSearchId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Server_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Server_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Server_ReadAllActive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_ReadAllActive.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Server_ReadByID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_ReadByID.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Server_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SqlAudit_ReadAuditsForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SqlAudit_ReadAuditsForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SqlAudit_ReadTotalAuditsForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SqlAudit_ReadTotalAuditsForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SqlAudit_ReadTotalLongRunningAuditsForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SqlAudit_ReadTotalLongRunningAuditsForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UptimeRatings_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UptimeRatings_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UptimeRatings_UpdateQuartlyScores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UptimeRatings_UpdateQuartlyScores.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UptimeRatings_UpdateWeeklyScores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UptimeRatings_UpdateWeeklyScores.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ViewCriteria_ReadBySearchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\ViewCriteria_ReadBySearchId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_ExistByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_ExistByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_ReadByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_ReadByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatch_ReadByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatch_ReadByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AuditAnalysis_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AuditAnalysis_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AuditAnalysis_ReadByMetricData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AuditAnalysis_ReadByMetricData.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SampleHistory_AddCurrentSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\samplehistory_addcurrentsample.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SampleHistory_ReadCurrentArrivalRateSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\samplehistory_readcurrentarrivalratesample.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SampleHistory_ReadCurrentConcurrencySample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\samplehistory_readcurrentconcurrencysample.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SampleHistory_ResetCurrentSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\samplehistory_resetcurrentsample.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Server_ReadWorkspaceIds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\server_readworkspaceids.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserExperienceRating_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\userexperiencerating_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadHighestHourAfterMinHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadHighestHourAfterMinHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="View_ReadBySearchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\View_ReadBySearchId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_SearchAudit_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_SearchAudit_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Reports_ServerAudits_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_ServerAudits_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Reports_WorkspaceSearchAudits_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_WorkspaceSearchAudits_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Reports_WorkspaceSearchAudits_CreateVarscatOutput" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_WorkspaceSearchAudits_CreateVarscatOutput.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Reports_WorkspaceSearchAudits_CreateVarscatOutputDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_WorkspaceSearchAudits_CreateVarscatOutputDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Reports_SearchAndWorkspace_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_SearchAndWorkspace_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SqlAudit_ReadAnyAudits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\sqlaudit_readanyaudits.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SqlAudit_ReadUniqueUsersForHourAudits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\sqlaudit_readuniqueusersforhouraudits.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_ReadByCategoryTypeHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\metricdata_readbycategorytypehour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_SearchAudit_CreateSummaryRecord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Reports_SearchAudit_CreateSummaryRecord.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PoisonWait_ReadPoisonWaitsForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\PoisonWait_ReadPoisonWaitsForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SampleHistory_ReadSampleRange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SampleHistory_ReadSampleRange.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backfill_ReadHoursAwaitingAnalysis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backfill_ReadHoursAwaitingAnalysis.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backfill_ReadHoursAwaitingDiscovery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backfill_ReadHoursAwaitingDiscovery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backfill_ReadHoursAwaitingScoring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backfill_ReadHoursAwaitingScoring.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backfill_ReadHoursCompletedScoring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backfill_ReadHoursCompletedScoring.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ProcessControl_ReadById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\processcontrol_readbyid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ProcessControl_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\processcontrol_update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Server_ReadServerPendingQosDeployment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_ReadServerPendingQosDeployment.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Server_UpdateActiveServersPendingQosDeployment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Server_UpdateActiveServersPendingQosDeployment.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Event_ReadEventSystemState" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadEventSystemState.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_UpdateEventSystemState" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_UpdateEventSystemState.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CleanupTables_CasesToAuditDecommission" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\cleanuptables_casestoauditdecommission.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CleanupTables_DateTimeDynamicDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\cleanuptables_datetimedynamicdelete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CleanupTables_QosHourIdDynamicDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\cleanuptables_qoshouriddynamicdelete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ServerCleanup_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\servercleanup_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ServerCleanup_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\servercleanup_read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ServerCleanup_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\servercleanup_update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadCountByStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadCountByStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadLast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadLast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GlassRunLog_ReadLast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\GlassRunLog_ReadLast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventType_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventType_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventType_DeleteAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventType_DeleteAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadNextHourWithoutRatings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\hour_readnexthourwithoutratings.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Server_ReadPrimaryStandalone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\server_readprimarystandalone.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadCompleteHours" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadCompleteHours.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventLog_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventLog_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventLock_Claim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\eventlock_claim.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventLock_Release" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\eventlock_release.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RelativityArtifact_Exists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\relativityartifact_exists.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Agent_Enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\agent_enabled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RelativityApplication_ApplicationVersionOnWorkspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\relativityapplication_applicationversiononworkspace.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadCountByStatuses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_readcountbystatuses.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FCM_ApplySecondaryHashes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\fcm_applysecondaryhashes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FCM_ValidatePreBARS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\fcm_validateprebars.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="QoSRatings_Exist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\qosratings_exist.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadCountBySourceTypeAndId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_readcountbysourcetypeandid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadCountBySourceTypeAndNullId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_readcountbysourcetypeandnullid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventWorker_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventWorker_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventWorker_ReadAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventWorker_ReadAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Agent_ReadAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Agent_ReadAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventLock_ReleaseByWorker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventLock_ReleaseByWorker.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventWorker_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventWorker_Delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventWorker_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventWorker_Read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventLock_ReadByWorker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventLock_ReadByWorker.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_UpdateTimedOutEvents" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_UpdateTimedOutEvents.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ProcessControl_HasRunSuccessfully" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\processcontrol_hasrunsuccessfully.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadLastByEventType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadLastByEventType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadLastByEventTypeWithSourceId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadLastByEventTypeWithSourceId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Artifact_ReadByGuid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Artifact_ReadByGuid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Choice_ReadByChoiceTypeId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Choice_ReadByChoiceTypeId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Field_ReadChoiceTypeByGuid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Field_ReadChoiceTypeByGuid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserExperienceCache_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\userexperiencecache_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UserExperienceCache_ReadByServerIdDateRange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\userexperiencecache_readbyserveriddaterange.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ArtifactAncestry_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\ArtifactAncestry_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Artifact_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Artifact_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="GroupTab_ApplyGroupTabPermissions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\GroupTab_ApplyGroupTabPermissions.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Tab_CreateOrUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Tab_CreateOrUpdate.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ProcessControl_ReadAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\ProcessControl_ReadAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ApplyManualUpgrades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ApplyManualUpgrades.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BackupsNearingViolation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\BackupsNearingViolation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="CheckAdminScriptsInstalled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CheckAdminScriptsInstalled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CheckLookingGlassHistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CheckLookingGlassHistory.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="ClaimLookingGlass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ClaimLookingGlass.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ClaimRollup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ClaimRollup.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ClaimServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ClaimServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="CleanupAndDeleteOldAgent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\InstallCleanup\CleanupAndDeleteOldAgent.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CleanupDataTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CleanupDataTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CollectPageoutInformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CollectPageoutInformation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ConsistencyChecksNearingViolation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ConsistencyChecksNearingViolation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ConvertRH_MD5toSHA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ConvertRH_MD5toSHA1.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CountMissedBackupsAndIntegrityChecks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CountMissedBackupsAndIntegrityChecks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CreateEnvironmentCheckRecommendations" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CreateEnvironmentCheckRecommendations.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CreateRHScriptsRunTableType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CreateRHScriptsRunTableType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CreateRoundHouseTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\CreateRoundHouseTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DBExists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\DBExists.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="DeleteServerEnvironmentCheckRecommendations" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\DeleteServerEnvironmentCheckRecommendations.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DropAllTriggers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DataIntegrity\DropAllTriggers.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FailedMonitoringTargets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\FailedMonitoringTargets.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FileLevelLatency" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSQoS\FileLevelLatency.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="GetRegisteredSQLServers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\GetRegisteredSQLServers.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="GetServerForWorkspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\GetServerForWorkspace.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="InsertEnvCheckRecommendations_ById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\InsertEnvCheckRecommendations_ById.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="InsertEnvironmentCheckSeverDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\InsertEnvironmentCheckSeverDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="InsertRHTimeoutConfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\InsertRHTimeoutConfig.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="IsPreRoundhousE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\IsPreRoundhousE.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ListDbccTargets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ListDbccTargets.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="ListMonitoringFailedDatabases" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ListMonitoringFailedDatabases.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ListMonitoringFailedServerNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ListMonitoringFailedServerNames.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="LookupWorkspaceName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\LookupWorkspaceName.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PurgeBackupDBCCTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\PurgeBackupDBCCTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PurgeEDDSPerformanceTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\PurgeEDDSPerformanceTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadDatabaseCollation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\ReadDatabaseCollation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadEnvironmentCheckDatabaseDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadEnvironmentCheckDatabaseDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadEnvironmentCheckRecommendation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadEnvironmentCheckRecommendation.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadEnvironmentCheckServerDatabaseDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSQoS\ReadEnvironmentCheckServerDatabaseDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadEnvironmentCheckServerDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadEnvironmentCheckServerDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadFaililngProcessControls" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadFaililngProcessControls.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadFileLatencyDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadFileLatencyDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadFileServers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\ReadFileServers.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="ReadInstanceName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\ReadInstanceName.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadMdfLdfDirectories" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\ReadMdfLdfDirectories.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadNumberOfEnabledAgents" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadNumberOfEnabledAgents.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadQoSExtendedProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadQoSExtendedProperty.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadResourceServers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\ReadResourceServers.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="ReadRHScriptInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadRHScriptInfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadSecondsSinceLastAgentHistoryRecord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ReadSecondsSinceLastAgentHistoryRecord.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Read_CAATIndexSearchableDocumentCount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Workspace\Read_CAATIndexSearchableDocumentCount.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Read_CAATPopTables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Workspace\Read_CAATPopTables.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RefreshDbccTargets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\RefreshDbccTargets.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RemoveOldAgentTypeFromWorkspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\InstallCleanup\RemoveOldAgentTypeFromWorkspace.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RemoveOldResourceFiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\InstallCleanup\RemoveOldResourceFiles.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reset_RowHashes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\Reset_RowHashes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SaveEnvironmentCheckServerDetails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\SaveEnvironmentCheckServerDetails.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SetProcessControlFrequency" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\SetProcessControlFrequency.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SMTPSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDS\SMTPSettings.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="StageReconfigNoticeDelivery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\StageReconfigNoticeDelivery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="SystemLoadMonitoring_ScoreForecast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\SystemLoadMonitoring_ScoreForecast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UnclaimServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\UnclaimServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UpdateAdminScriptsInstalled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\UpdateAdminScriptsInstalled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UpdateDbccTarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\UpdateDbccTarget.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UpgradeToRHVersion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\UpgradeToRHVersion.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserExMonitoring_ScoreForecast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSQoS\UserExMonitoring_ScoreForecast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CreateDBCCLogView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CreateDBCCLogView.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Create_QoS_CollectAgentUptime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Create_QoS_CollectAgentUptime.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadServerUtcTime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\ReadServerUtcTime.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sys_LowMemorySignalState" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\sys_LowMemorySignalState.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Tab_ReadByName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\tab_readbyname.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Tab_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\tab_update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ArtifactAncestry_DeleteAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\artifactancestry_deleteall.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Artifact_DeleteAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\artifact_deleteall.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="GroupTab_DeleteAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\grouptab_deleteall.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Tab_DeleteAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\tab_deleteall.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Tab_ReadAllByParent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\tab_readallbyparent.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ArtifactAncestry_ReadByParent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\artifactancestry_readbyparent.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="LogCategories_ReadAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\LogCategories_ReadAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ConfigurationAudit_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ConfigurationAudit_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ConfigurationAudit_ReadAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EDDSPerformance\ConfigurationAudit_ReadAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadCountByHourStatusTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadCountByHourStatusTypes.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_ReadByCategoryScore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_ReadByCategoryScore.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GlassRunLog_ReadLastByLogLevelWithEventInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\GlassRunLog_ReadLastByLogLevelWithEventInfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GlassRunLog_ReadLastFullLogWithEventInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\GlassRunLog_ReadLastFullLogWithEventInfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_CreateInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_CreateInsert.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Category_CreateRead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Category_CreateRead.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Metric_CreateInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Metric_CreateInsert.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Metric_CreateRead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Metric_CreateRead.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AuditAnalysis_ReadByMetricDataAndUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\AuditAnalysis_ReadByMetricDataAndUser.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CategoryScore_ReadByCategoryAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\CategoryScore_ReadByCategoryAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EventWorker_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\EventWorker_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricData_ReadByMetricAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_ReadByMetricAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Config_SetConfigValueInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Config_SetConfigValueInsert.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Config_SetConfigValueUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Config_SetConfigValueUpdate.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SampleHistory_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SampleHistory_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_ReadByBatchAndUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_ReadByBatchAndUser.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatchResult_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UptimeRatings_ReadBySummaryDayHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UptimeRatings_ReadBySummaryDayHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UserExperienceCache_ReadByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UserExperienceCache_ReadByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadIncompleteHours" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadIncompleteHours.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Event_CancelEvents" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_CancelEvents.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Hour_ReadLastCompleted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Hour_ReadLastCompleted.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SampleHistory_RemoveHourFromSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SampleHistory_RemoveHourFromSample.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Agent_ReadAllEnabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\agent_readallenabled.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CleanupTables_QosGlassRunLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\cleanuptables_qosglassrunlog.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Artifact_TestDatabaseAccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Artifact_TestDatabaseAccess.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MetricManagerExecutionStat_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricManagerExecutionStat_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Agent_CheckWithTypeExists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\agent_checkwithtypeexists.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Config_ReadInfoBySectionAndName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\config_readinfobysectionandname.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Config_ReadValueBySectionAndName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\config_readvaluebysectionandname.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Config_ReadInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\config_readinfo.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="Workspace_ReadStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\workspace_readstatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DataGridCache_UpdateOrCreate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\datagridcache_updateorcreate.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DataGridCache_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\datagridcache_delete.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="HourSearchAuditBatch_UpdateByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\HourSearchAuditBatch_UpdateByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatch_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\SearchAuditBatch_Update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="HourSearchAuditBatches_ReadByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\HourSearchAuditBatches_ReadByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="HourSearchAuditBatches_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\HourSearchAuditBatches_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EddsPerformanceVersion_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\edds\eddsperformanceversion_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EddsPerformanceVersion_Insert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\edds\eddsperformanceversion_insert.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EddsPerformanceVersion_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\edds\eddsperformanceversion_read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CategoryScore_ReadByCategory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\categoryscore_readbycategory.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatchResult_DeleteByHourBatchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\searchauditbatchresult_deletebyhourbatchid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SearchAuditBatch_DeleteByHourBatchId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\searchauditbatch_deletebyhourbatchid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadIdsByStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_readidsbystatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadIdsByStatusAndType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_readidsbystatusandtype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_UpdateStatusAndRetriesById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_updatestatusandretriesbyid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_UpdateStatusById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\event_updatestatusbyid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Database_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_GetByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_GetByServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadByNameAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadByNameAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadByServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_UpdateByNameAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_UpdateByNameAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_Read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backup_ReadBackups" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backup_ReadBackups.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Backup_ReadBackupsBeforeHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Backup_ReadBackupsBeforeHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DatabaseGap_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DatabaseGap_Create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DatabaseGap_Exists" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DatabaseGap_Exists.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MetricData_ReadByHourAndMetricTypeAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_ReadByHourAndMetricTypeAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DatabaseGap_ReadLargestGapsForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DatabaseGap_ReadLargestGapsForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DatabaseGap_ReadGapsLargerThanForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DatabaseGap_ReadGapsLargerThanForHour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadMostOutOfDateDbccByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadMostOutOfDateDbccByServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RecoverabilityIntegrity_ReadWeeklyScore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\RecoverabilityIntegrity_ReadWeeklyScore.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MetricData_ReadWorstScoreInDateRange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\MetricData_ReadWorstScoreInDateRange.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadCountByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadCountByServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadMostOutOfDateBackupFullDiffByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadMostOutOfDateBackupFullDiffByServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadOutOfDateDatabasesByBackups" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadOutOfDateDatabasesByBackups.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Database_ReadOutOfDateDatabasesByDbccs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Database_ReadOutOfDateDatabasesByDbccs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Event_ReadTypesByTypeAndStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadTypesByTypeAndStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ReadSingleByTypeAndStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ReadSingleByTypeAndStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Event_DeleteAllByType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_DeleteAllByType.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoverabilityIntegrity_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoverabilityintegrity_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_Gap_ClearUnresolvedActivityType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_gap_clearunresolvedactivitytype.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_Gap_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_gap_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoverabilityIntegrityRpo_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoverabilityintegrityrpo_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoverabilityIntegrityRto_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoverabilityintegrityrto_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoveryObjectives_Rpo_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoveryobjectives_rpo_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoveryObjectives_Rpo_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoveryobjectives_rpo_update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoveryObjectives_Rto_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoveryobjectives_rto_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Reports_RecoveryObjectives_Rto_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\reports_recoveryobjectives_rto_update.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DatabaseGap_ReadLargestGapsForHourAllDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DatabaseGap_ReadLargestGapsForHourAllDatabase.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="HourTest_ReadNextHourWithoutRatings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\hourtest_readnexthourwithoutratings.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ServerTest_ReadAllActive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\servertest_readallactive.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DatabaseTest_ReadAllByServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\databasetest_readallbyserver.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BackupTest_ReadFirstBeforeHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\backuptest_readfirstbeforehour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BackupTest_ReadForHour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\backuptest_readforhour.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DbccTest_ReadLast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\dbcctest_readlast.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BackupDbccReportData_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\backupdbccreportdata_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BackupHistory_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\backuphistory_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockBackup_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockbackup_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockBackup_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockbackup_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockDatabasesChecked_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockdatabaseschecked_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockDatabasesChecked_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockdatabaseschecked_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockDbcc_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockdbcc_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockDbcc_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockdbcc_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockHours_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockhours_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockHours_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockhours_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockHours_Read" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockhours_read.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockHour_ReadNextHourWithoutRatings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockhour_readnexthourwithoutratings.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockServer_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockserver_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MockServer_Create" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\mockserver_create.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UserExperienceRating_ReadByHourAndServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\UserExperienceRating_ReadByHourAndServer.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DataGridCache_ReadUseDataGrid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\DataGridCache_ReadUseDataGrid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Event_ExistsForHourTypeStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sql\Event_ExistsForHourTypeStatus.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DbccHistory_Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sql\test\dbcchistory_clear.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+</root>

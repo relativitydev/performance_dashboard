@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Relativity.Data
+</name>
+</assembly>
+<members>
+<member name="M:Relativity.Data.TabQuery.RetrieveDefaultTabForAdmin(kCura.Data.RowDataGateway.Context)">
+	<summary>
+ Gets the default tab to display when going into the admin tab strip.
+ If no default is set, this returns the earliest tab by display
+ order.
+ </summary>
+	<param name="context">The context this method is being called in</param>
+	<returns>A <see cref="T:System.Data.DataView"/> that includes a single
+ row for the tab that should be shown.</returns>
+</member><member name="P:My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B72F5674-7D0D-469C-AD9D-877623285607}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Core</RootNamespace>
+    <AssemblyName>kCura.PDB.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ProjectSettings.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.3.242.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vendor\binaries\kCura.Relativity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.4.398.22\lib\net45\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.4.398.22\lib\net45\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces.Private, Version=9.4.398.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.Private.9.4.398.22\lib\net45\Relativity.Services.Interfaces.Private.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.APM, Version=9.4.152.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.APM.9.4.152\lib\net462\Relativity.Telemetry.APM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Telemetry.Services.Interface, Version=9.4.378.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Telemetry.Services.Interface.9.4.378.21\lib\net45\Relativity.Telemetry.Services.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Toggles.1.0.0.64\lib\net45\Relativity.Toggles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Increment.cs">
+      <Link>Increment.cs</Link>
+    </Compile>
+    <Compile Include="Attributes\MetricTypeAttribute.cs" />
+    <Compile Include="Attributes\CategoryTypeAttribute.cs" />
+    <Compile Include="Attributes\ServiceMappingAttribute.cs" />
+    <Compile Include="Constants\AgentConfiguration.cs" />
+    <Compile Include="Constants\AuditConstants.cs" />
+    <Compile Include="Constants\ConfigurationAuditFields.cs" />
+    <Compile Include="Constants\ConfigurationKeys.cs" />
+    <Compile Include="Constants\DatabaseConstants.cs" />
+    <Compile Include="Constants\DataGridResourceConstants.cs" />
+    <Compile Include="Constants\Defaults.cs" />
+    <Compile Include="Constants\DrillMode.cs" />
+    <Compile Include="Constants\EventConstants.cs" />
+    <Compile Include="Constants\FormattingConstants.cs" />
+    <Compile Include="Constants\Guids.cs" />
+    <Compile Include="Constants\Messages.cs" />
+    <Compile Include="Constants\MetricConstants.cs" />
+    <Compile Include="Constants\Names.cs" />
+    <Compile Include="Constants\DeploymentDirectoryStructureConstants.cs" />
+    <Compile Include="Constants\SqlScriptTokens.cs" />
+    <Compile Include="Enumerations\AuditActionId.cs" />
+    <Compile Include="Enumerations\ManagementField.cs" />
+    <Compile Include="Enumerations\ProcessControlId.cs" />
+    <Compile Include="Enumerations\QualityIndicator.cs" />
+    <Compile Include="Enumerations\QueryType.cs" />
+    <Compile Include="Enumerations\WorkspaceUpgradeStatus.cs" />
+    <Compile Include="Exception\RetryException.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\ChartColorExtensions.cs" />
+    <Compile Include="Extensions\DataRowExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ErrorExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\FilterOperandExtensions.cs" />
+    <Compile Include="Extensions\HourExtensions.cs" />
+    <Compile Include="Extensions\SqlConnectionExtensions.cs" />
+    <Compile Include="Extensions\LoggerExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\RegexExtensions.cs" />
+    <Compile Include="Extensions\StopwatchExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\PipingExtensions.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\AssemblyHelper.cs" />
+    <Compile Include="Helpers\AttributeHelper.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\SqlConnectionStringBuilderWrapper.cs" />
+    <Compile Include="Extensions\RetryExtensions.cs" />
+    <Compile Include="Helpers\ThrowOn.cs" />
+    <Compile Include="Interfaces\Audits\IDataGridCacheRepository.cs" />
+    <Compile Include="Interfaces\CategoryScoring\ICategoryCompleteLogic.cs" />
+    <Compile Include="Interfaces\CategoryScoring\ICategoryCompleteTask.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IAdministrationInstallationService.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IQosDatabaseDeployer.cs" />
+    <Compile Include="Interfaces\Apm\IApmMetricsService.cs" />
+    <Compile Include="Interfaces\Apm\Recorders\ICounterRecorder.cs" />
+    <Compile Include="Interfaces\Apm\Recorders\IHealthCheckRecorder.cs" />
+    <Compile Include="Interfaces\Apm\Recorders\IMeterRecorder.cs" />
+    <Compile Include="Interfaces\Apm\Recorders\ITimedGaugeRecorder.cs" />
+    <Compile Include="Interfaces\Apm\Recorders\ITimerRecorder.cs" />
+    <Compile Include="Interfaces\Audits\IWorkspaceAuditApmReporter.cs" />
+    <Compile Include="Interfaces\DataProviders\IBackupProvider.cs" />
+    <Compile Include="Interfaces\DataProviders\IDbccProvider.cs" />
+    <Compile Include="Interfaces\Data\IWorkspaceServerProvider.cs" />
+    <Compile Include="Interfaces\HealthChecks\IHealthTask.cs" />
+    <Compile Include="Interfaces\HealthChecks\IViewHealth.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IGapsCoverageAnalyzer.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IGapsCollectionVerifier.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IGapsFrequencyAnalyzer.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IServerBackupProcessor.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IServerDbccProcessor.cs" />
+    <Compile Include="Interfaces\Repositories\IDatabaseGapsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGeneralSqlRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILegacyRecoverabilityIntegrityRepository.cs" />
+    <Compile Include="Interfaces\Queuing\IMetricSystemManagerService.cs" />
+    <Compile Include="Interfaces\Queuing\IMetricSystemWorkerService.cs" />
+    <Compile Include="Interfaces\Repositories\IPdbVersionRepository.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IDatabaseBackupProcessor.cs" />
+    <Compile Include="Interfaces\RecoverabilityIntegrity\IServerRecoverabilityProcessor.cs" />
+    <Compile Include="Interfaces\Repositories\IDatabaseRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBackupRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDbccRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRecoverabilityIntegrityReportWriter.cs" />
+    <Compile Include="Interfaces\Repositories\IRecoverabilityIntegrityReportReader.cs" />
+    <Compile Include="Interfaces\Servers\IDatabaseService.cs" />
+    <Compile Include="Interfaces\Services\IGapReporter.cs" />
+    <Compile Include="Interfaces\Services\IRecoverabilityIntegrityReportRepositoryFactory.cs" />
+    <Compile Include="Interfaces\Services\ICancellationTokenSourceFactory.cs" />
+    <Compile Include="Interfaces\Services\IRecoverabilityIntegritySummaryReporter.cs" />
+    <Compile Include="Interfaces\Services\IRecoveryObjectivesReporter.cs" />
+    <Compile Include="Interfaces\Services\IServiceFactory.cs" />
+    <Compile Include="Interfaces\Services\IPostInstallService.cs" />
+    <Compile Include="Interfaces\Hours\IHourMigrationService.cs" />
+    <Compile Include="Interfaces\Audits\IWorkspaceAuditServiceProvider.cs" />
+    <Compile Include="Interfaces\ISmtpClient.cs" />
+    <Compile Include="Interfaces\ISmtpClientFactory.cs" />
+    <Compile Include="Interfaces\Agent\IAgentService.cs" />
+    <Compile Include="Interfaces\Audits\IAuditParsingService.cs" />
+    <Compile Include="Interfaces\Audits\ISearchAuditReporter.cs" />
+    <Compile Include="Interfaces\Audits\IAuditBatchAnalyzer.cs" />
+    <Compile Include="Interfaces\Audits\IAuditWorkspaceBatcher.cs" />
+    <Compile Include="Interfaces\Audits\IAuditServerBatcher.cs" />
+    <Compile Include="Interfaces\Audits\IAuditBatchProcessor.cs" />
+    <Compile Include="Interfaces\Audits\IDataGridService.cs" />
+    <Compile Include="Interfaces\Audits\IServerAuditService.cs" />
+    <Compile Include="Interfaces\Audits\ISqlWorkspaceAuditService.cs" />
+    <Compile Include="Interfaces\Audits\IWorkspaceAuditService.cs" />
+    <Compile Include="Interfaces\Audits\IWorkspaceAuditServiceFactory.cs" />
+    <Compile Include="Interfaces\Audits\IUserExperienceSampleService.cs" />
+    <Compile Include="Interfaces\Audits\IServerAuditReporter.cs" />
+    <Compile Include="Interfaces\Audits\IWorkspaceAuditReporter.cs" />
+    <Compile Include="Interfaces\CategoryScoring\ICategoryService.cs" />
+    <Compile Include="Interfaces\Audits\IUserExperienceService.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IMigrationResultHandler.cs" />
+    <Compile Include="Interfaces\Hours\IHourCleanupLogic.cs" />
+    <Compile Include="Interfaces\Hours\IHourPrerequisitesService.cs" />
+    <Compile Include="Interfaces\Metrics\IMetricReadyForDataCollectionLogic.cs" />
+    <Compile Include="Interfaces\ProcessControls\IPerformanceTask.cs" />
+    <Compile Include="Interfaces\ProcessControls\IProcessControlTask.cs" />
+    <Compile Include="Interfaces\Queuing\IEventChildKernelFactory.cs" />
+    <Compile Include="Interfaces\Queuing\IEventHandler.cs" />
+    <Compile Include="Interfaces\Queuing\IEventOrphanService.cs" />
+    <Compile Include="Interfaces\Queuing\IEventRouter.cs" />
+    <Compile Include="Interfaces\Queuing\IEventRunner.cs" />
+    <Compile Include="Interfaces\Queuing\IEventSourceService.cs" />
+    <Compile Include="Interfaces\Queuing\IEventTask.cs" />
+    <Compile Include="Interfaces\Queuing\IEventTaskFactory.cs" />
+    <Compile Include="Interfaces\Queuing\IEventWorkerService.cs" />
+    <Compile Include="Interfaces\Queuing\IJobServerOptionsFactory.cs" />
+    <Compile Include="Interfaces\Repositories\IAdministrationInstallationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAnalyticsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IArtifactRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBackfillRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICleanupTablesRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfigurationAuditRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDataIntegrityRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDeploymentRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEnvironmentCheckRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IErrorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEventLockRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEventWorkerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFcmRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IFileLatencyRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPDBNotificationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProcessControlRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRatingsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IReportRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IResourceServerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IServerCleanupRepository.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IDatabaseDeployer.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IDatabaseMigrator.cs" />
+    <Compile Include="Interfaces\Audits\IDataGridSettingsService.cs" />
+    <Compile Include="Interfaces\Repositories\IPoisonWaitRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAgentRepository.cs" />
+    <Compile Include="Interfaces\Metrics\IMetricService.cs" />
+    <Compile Include="Interfaces\Agent\IQoSTaskManager.cs" />
+    <Compile Include="Interfaces\Agent\IWMITaskManager.cs" />
+    <Compile Include="Interfaces\CategoryScoring\ICategoryScoringTask.cs" />
+    <Compile Include="Interfaces\Hours\IHourService.cs" />
+    <Compile Include="Interfaces\Audits\ISearchAnalysisService.cs" />
+    <Compile Include="Interfaces\Metrics\IMetricDataService.cs" />
+    <Compile Include="Interfaces\Metrics\IMetricLogic.cs" />
+    <Compile Include="Interfaces\Metrics\IMetricTask.cs" />
+    <Compile Include="Interfaces\Hours\IHourTask.cs" />
+    <Compile Include="Interfaces\Agent\IAgentManagerService.cs" />
+    <Compile Include="Interfaces\Repositories\IMetricManagerStatsRepository.cs" />
+    <Compile Include="Interfaces\Services\IDisposableStopwatch.cs" />
+    <Compile Include="Interfaces\Services\IKernelWrapper.cs" />
+    <Compile Include="Interfaces\Services\ILogContext.cs" />
+    <Compile Include="Interfaces\Services\IPreInstallService.cs" />
+    <Compile Include="Interfaces\Services\IMeterRecorder.cs" />
+    <Compile Include="Interfaces\Services\IRelativityOneService.cs" />
+    <Compile Include="Interfaces\Services\ITestDataExcelParser.cs" />
+    <Compile Include="Interfaces\Services\ITimeService.cs" />
+    <Compile Include="Models\Testing\MockBackupSet.cs" />
+    <Compile Include="Models\Testing\MockDatabaseChecked.cs" />
+    <Compile Include="Models\Testing\MockDbccServerResults.cs" />
+    <Compile Include="Models\Testing\MockHour.cs" />
+    <Compile Include="Models\Testing\MockServer.cs" />
+    <Compile Include="Models\Testing\TestBackupDbccData.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IBackupTestDataRepository.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IDatabasesCheckedTestDataRepository.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IDbccTestDataRepository.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IHourTestDataRepository.cs" />
+    <Compile Include="Interfaces\Testing\INoOpTask.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IReportCleanupRepository.cs" />
+    <Compile Include="Interfaces\Testing\Repositories\IServerTestDataRepository.cs" />
+    <Compile Include="Interfaces\Testing\ITestEventTypeProvider.cs" />
+    <Compile Include="Interfaces\Testing\Services\IReportCleanupService.cs" />
+    <Compile Include="Interfaces\Testing\Services\IServiceExecution.cs" />
+    <Compile Include="Interfaces\Testing\Services\ITestAgentRunner.cs" />
+    <Compile Include="Interfaces\Testing\Services\ITestDataSetupService.cs" />
+    <Compile Include="Interfaces\Testing\Services\ITestEventPrimer.cs" />
+    <Compile Include="Interfaces\Testing\Services\ITestPollingService.cs" />
+    <Compile Include="Interfaces\Week\IWeekTask.cs" />
+    <Compile Include="Interfaces\Queuing\IJobServer.cs" />
+    <Compile Include="Interfaces\Queuing\IQueuingConfiguration.cs" />
+    <Compile Include="Interfaces\Queuing\IQueuingService.cs" />
+    <Compile Include="Interfaces\Repositories\IAgentHistoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAuditAnalysisRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAuditRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAvailabilityGroupRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfigurationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDbRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEventRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IHourRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMaintenanceWindowRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMetricDataRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMetricRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoryScoreRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPerformanceSummaryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPrimarySqlServerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRelativityApplicationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISampleHistoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISearchAuditBatchRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISearchFolderRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IServerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISqlAuditRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISqlServerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITabRepository.cs" />
+    <Compile Include="Interfaces\Hours\IHourlyScoringLogic.cs" />
+    <Compile Include="Interfaces\CategoryScoring\ICategoryScoringLogic.cs" />
+    <Compile Include="Interfaces\Hours\IWeeklyScoringLogic.cs" />
+    <Compile Include="Interfaces\Repositories\IUptimeRatingsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserExperienceCacheRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserExperienceRatingsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserExperienceReportRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IViewCriteriaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IViewRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IWorkspaceRepository.cs" />
+    <Compile Include="Interfaces\Services\IBestInServiceReportingService.cs" />
+    <Compile Include="Interfaces\Services\IAppSettingsConfigurationService.cs" />
+    <Compile Include="Interfaces\Services\IConnectionFactory.cs" />
+    <Compile Include="Interfaces\Audits\IDataGridConditionBuilder.cs" />
+    <Compile Include="Interfaces\Audits\IDataGridWorkspaceAuditService.cs" />
+    <Compile Include="Interfaces\Services\IEmailNotificationService.cs" />
+    <Compile Include="Interfaces\Services\IHashConversionService.cs" />
+    <Compile Include="Interfaces\Services\IHttpClientFactory.cs" />
+    <Compile Include="Interfaces\DatabaseDeployment\IDatabaseMigratorFactory.cs" />
+    <Compile Include="Interfaces\Services\IKernelFactory.cs" />
+    <Compile Include="Interfaces\Services\ILogger.cs" />
+    <Compile Include="Interfaces\Services\ILogService.cs" />
+    <Compile Include="Interfaces\Services\IMaintenanceWindowModelService.cs" />
+    <Compile Include="Interfaces\Services\IPDBNotificationService.cs" />
+    <Compile Include="Interfaces\Services\IPrimarySqlServerService.cs" />
+    <Compile Include="Interfaces\Services\IProcessControlWrapper.cs" />
+    <Compile Include="Interfaces\Services\IQualityIndicatorConfigurationService.cs" />
+    <Compile Include="Interfaces\Services\IQualityIndicatorService.cs" />
+    <Compile Include="Interfaces\Services\IRefreshServerService.cs" />
+    <Compile Include="Interfaces\Services\IRelativityRoundHouseLogger.cs" />
+    <Compile Include="Interfaces\Services\IRoundHouseFileService.cs" />
+    <Compile Include="Interfaces\Services\IRoundHouseManager.cs" />
+    <Compile Include="Interfaces\Services\ISendScoreAlertsService.cs" />
+    <Compile Include="Interfaces\Services\ISqlScriptTokenService.cs" />
+    <Compile Include="Interfaces\Services\ISqlScriptTokenValueProvider.cs" />
+    <Compile Include="Interfaces\Services\ITimeout.cs" />
+    <Compile Include="Interfaces\Services\IPdbConfigurationService.cs" />
+    <Compile Include="Interfaces\Services\IVersionCheckService.cs" />
+    <Compile Include="Interfaces\Services\ITabService.cs" />
+    <Compile Include="Interfaces\Services\IWMIHelper.cs" />
+    <Compile Include="Interfaces\Workspace\IWorkspaceService.cs" />
+    <Compile Include="Models\AgentHistory.cs" />
+    <Compile Include="Models\ApplicationInstallResponse.cs" />
+    <Compile Include="Models\AuditServiceType.cs" />
+    <Compile Include="Models\Audits\DataGrid\DataGridAuditDetails.cs" />
+    <Compile Include="Models\Audits\DataGrid\DataGridAuditElement.cs" />
+    <Compile Include="Models\Audits\PastWeekEligibleSample.cs" />
+    <Compile Include="Models\BaseDW.cs" />
+    <Compile Include="Models\BISSummary\Grids\BackupDbccViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\BackupDbccViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\BackupDbccViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\EnvironmentCheckDatabaseFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\EnvironmentCheckDatabaseFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\EnvironmentCheckServerFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\EnvironmentCheckRecommendationFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\EnvironmentCheckServerFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\GridConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\HoursViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\HoursViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\HoursViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\LoadViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\LoadViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\LoadViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoverabilityIntegrityViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoverabilityIntegrityViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoverabilityIntegrityViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoveryObjectivesViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoveryObjectivesViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\RecoveryObjectivesViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\SearchViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\SearchViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\SearchViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\ServerViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\ServerViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\ServerViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\UptimeViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\UptimeViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\UptimeViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Grids\WaitsViewFilterConditions.cs" />
+    <Compile Include="Models\BISSummary\Grids\WaitsViewFilterOperands.cs" />
+    <Compile Include="Models\BISSummary\Grids\WaitsViewGrid.cs" />
+    <Compile Include="Models\BISSummary\Models\AlertConfiguration.cs" />
+    <Compile Include="Models\BISSummary\Models\BackupDbccGapInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\BackupDBCCMonitoringResults.cs" />
+    <Compile Include="Models\BISSummary\Models\BackupDBCCNearingViolation.cs" />
+    <Compile Include="Models\BISSummary\Models\CaseHourInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\BackupDbccMonitoringConfigurationSettings.cs" />
+    <Compile Include="Models\BISSummary\Models\DatabaseNearingViolation.cs" />
+    <Compile Include="Models\BISSummary\Models\DatabaseRpoScoreData.cs" />
+    <Compile Include="Models\BISSummary\Models\DatabaseRtoScoreData.cs" />
+    <Compile Include="Models\BISSummary\Models\DbccTargetInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\EnvironmentCheckDatabaseDetails.cs" />
+    <Compile Include="Models\BISSummary\Models\EnvironmentCheckRecommendation.cs" />
+    <Compile Include="Models\BISSummary\Models\EnvironmentCheckServerDetails.cs" />
+    <Compile Include="Models\BISSummary\Models\FileLatency.cs" />
+    <Compile Include="Models\BISSummary\Models\GapReportEntry.cs" />
+    <Compile Include="Models\BISSummary\Models\LookingGlassRunInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\MissedBackupIntegrityInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\NotificationSettings.cs" />
+    <Compile Include="Models\BISSummary\Models\PerformanceDashboardConfigurationSettings.cs" />
+    <Compile Include="Models\BISSummary\Models\QoSServerInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\QualityOfServiceModel.cs" />
+    <Compile Include="Models\BISSummary\Models\RecoverabilityIntegrityReportEntry.cs" />
+    <Compile Include="Models\BISSummary\Models\RecoverabilityIntegrityScoreInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\RecoveryObjectiveReportEntry.cs" />
+    <Compile Include="Models\BISSummary\Models\RecoveryObjectivesInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\ScoreChartModel.cs" />
+    <Compile Include="Models\BISSummary\Models\ScoreSummary.cs" />
+    <Compile Include="Models\BISSummary\Models\SystemInformation.cs" />
+    <Compile Include="Models\BISSummary\Models\SystemLoadForecast.cs" />
+    <Compile Include="Models\BISSummary\Models\SystemLoadServerHourInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\SystemLoadWaitsInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\UptimePercentageInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\UptimeReportHourInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\UserExperienceSearchUserInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\UserExperienceServerWorkspaceInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\UserExperienceWorkspaceHourInfo.cs" />
+    <Compile Include="Models\BISSummary\Models\ValidationResult.cs" />
+    <Compile Include="Models\BISSummary\Models\WorstRpoReportEntry.cs" />
+    <Compile Include="Models\BISSummary\Models\WorstRtoReportEntry.cs" />
+    <Compile Include="Models\BISSummary\Models\WorstUptimeDaysModel.cs" />
+    <Compile Include="Models\BISSummary\ViewColumns\BackupDbccViewColumns.cs" />
+    <Compile Include="Models\BISSummary\ViewColumns\RecoverabilityIntegrityViewColumns.cs" />
+    <Compile Include="Models\BISSummary\ViewColumns\RecoveryObjectivesViewColumns.cs" />
+    <Compile Include="Models\BISSummary\ViewModels\BackupDbccViewModel.cs" />
+    <Compile Include="Models\BISSummary\ViewModels\RecoverabilityIntegrityViewModel.cs" />
+    <Compile Include="Models\BISSummary\ViewModels\RecoveryObjectivesViewModel.cs" />
+    <Compile Include="Models\Choice.cs" />
+    <Compile Include="Models\ConfigurationAudit.cs" />
+    <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\Deployment\DeploymentSettings.cs" />
+    <Compile Include="Models\Deployment\StaticRoundHouseSettings.cs" />
+    <Compile Include="Models\EventLock.cs" />
+    <Compile Include="Models\EventResult.cs" />
+    <Compile Include="Models\EventSystemControl.cs" />
+    <Compile Include="Models\EventWorker.cs" />
+    <Compile Include="Models\GenericCredentialInfo.cs" />
+    <Compile Include="Models\HealthChecks\ApplicationHealth.cs" />
+    <Compile Include="Models\HealthChecks\ApplicationHealth2.cs" />
+    <Compile Include="Models\HealthChecks\BackupAndDBCCCheck.cs" />
+    <Compile Include="Models\HealthChecks\BaseServerHealth.cs" />
+    <Compile Include="Models\HealthChecks\BISIndicators.cs" />
+    <Compile Include="Models\HealthChecks\HardDiskHealth.cs" />
+    <Compile Include="Models\HealthChecks\HealthBase.cs" />
+    <Compile Include="Models\HealthChecks\KeyValue.cs" />
+    <Compile Include="Models\HealthChecks\KeyValueDesc.cs" />
+    <Compile Include="Models\HealthChecks\MeasureTypes.cs" />
+    <Compile Include="Models\HealthChecks\ProcesserHealth.cs" />
+    <Compile Include="Models\HealthChecks\RamHealth.cs" />
+    <Compile Include="Models\HealthChecks\SqlServerHealth.cs" />
+    <Compile Include="Models\HealthChecks\ValidateStatus.cs" />
+    <Compile Include="Models\LogEntryFull.cs" />
+    <Compile Include="Models\LogCategory.cs" />
+    <Compile Include="Models\LogLevel.cs" />
+    <Compile Include="Models\LogMessage.cs" />
+    <Compile Include="Models\LogSeverity.cs" />
+    <Compile Include="Models\LoopEventResult.cs" />
+    <Compile Include="Models\Meter.cs" />
+    <Compile Include="Models\MetricDataSources\AuditAnalysis.cs" />
+    <Compile Include="Models\MetricManagerExecutionStat.cs" />
+    <Compile Include="Models\MetricManagerExecutionInfo.cs" />
+    <Compile Include="Models\PDBNotification.cs" />
+    <Compile Include="Models\PopulateFactTableResult.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\Backup.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\BackupAllGap.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\BackupFullDiffGap.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\BackupType.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\CoverageMetricData.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\Dbcc.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\DbccGap.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\FrequencyMetricData.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\Gap.cs" />
+    <Compile Include="Models\RecoverabilityIntegrity\GapActivityType.cs" />
+    <Compile Include="Models\ScriptInstallation\DatabaseDirectoryInfo.cs" />
+    <Compile Include="Models\ScriptInstallation\ScriptInstallationMessage.cs" />
+    <Compile Include="Models\ScriptInstallation\ScriptInstallationResults.cs" />
+    <Compile Include="Models\SqlServerCredentialInfo.cs" />
+    <Compile Include="Models\Tab.cs" />
+    <Compile Include="Models\ProcessControl.cs" />
+    <Compile Include="Models\MigrationResultSet.cs" />
+    <Compile Include="Models\QualityIndicatorLevel.cs" />
+    <Compile Include="Models\Reports\UserExperienceSearch.cs" />
+    <Compile Include="Models\Reports\UserExperienceServer.cs" />
+    <Compile Include="Models\Reports\UserExperienceWorkspace.cs" />
+    <Compile Include="Models\SampleHistory.cs" />
+    <Compile Include="Models\SampleHistoryRange.cs" />
+    <Compile Include="Models\ServerCleanup.cs" />
+    <Compile Include="Models\SMTPSettings.cs" />
+    <Compile Include="Models\Audits\Audit.cs" />
+    <Compile Include="Models\MetricDataSources\UserExperience.cs" />
+    <Compile Include="Models\Audits\AuditQuery.cs" />
+    <Compile Include="Models\Audits\AuditQueryBatch.cs" />
+    <Compile Include="Models\Audits\DataGrid\DataGridGroupByEnum.cs" />
+    <Compile Include="Models\Audits\SearchAuditBatch.cs" />
+    <Compile Include="Models\Audits\ComplexityScoreComponent.cs" />
+    <Compile Include="Models\Audits\Search.cs" />
+    <Compile Include="Models\Audits\SearchAudit.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\GeneralCheckGrid.cs" />
+    <Compile Include="Models\FilterOperand.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventStatus.cs" />
+    <Compile Include="Models\EventType.cs" />
+    <Compile Include="Models\Hour.cs" />
+    <Compile Include="Models\JSMaintenanceWindowInput.cs" />
+    <Compile Include="Models\LogEntry.cs" />
+    <Compile Include="Models\MaintenanceWindow.cs" />
+    <Compile Include="Models\MaintenanceWindowDataTableQuery.cs" />
+    <Compile Include="Models\MaintenanceWindowReason.cs" />
+    <Compile Include="Models\Metric.cs" />
+    <Compile Include="Models\MetricData.cs" />
+    <Compile Include="Models\MetricDataSources\AgentUptime.cs" />
+    <Compile Include="Models\MetricDataSources\WebUptime.cs" />
+    <Compile Include="Models\MetricType.cs" />
+    <Compile Include="Models\CategoryScore.cs" />
+    <Compile Include="Models\CategoryScoreTypes.cs" />
+    <Compile Include="Models\RelativityConfigurationInfo.cs" />
+    <Compile Include="Models\ResourceServer.cs" />
+    <Compile Include="Models\SampleType.cs" />
+    <Compile Include="Models\Server.cs" />
+    <Compile Include="Models\ServerInfo.cs" />
+    <Compile Include="Models\ServerType.cs" />
+    <Compile Include="Models\Audits\SearchAuditBatchResult.cs" />
+    <Compile Include="Models\Audits\SearchAuditGroup.cs" />
+    <Compile Include="Models\Audits\UserExperienceRating.cs" />
+    <Compile Include="Models\Audits\ViewCriteria.cs" />
+    <Compile Include="Models\WorkspaceServicePair.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategorizedLogger.cs" />
+    <Compile Include="Services\CompositeLogger.cs" />
+    <Compile Include="Services\DisposableStopwatch.cs" />
+    <Compile Include="Services\QualityIndicatorConfigurationService.cs" />
+    <Compile Include="Services\TimeService.cs" />
+    <Compile Include="Toggles\DatabaseDeploymentDeparallelizationToggle.cs" />
+    <Compile Include="Toggles\DataGridAuditAnalysisToggle.cs" />
+    <Compile Include="Toggles\RecoverabilityIntegrityMetricSystemToggle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="ProjectSettings.ruleset" />
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\packages\Milyli.CodeAnalysis.2.0.1\tools\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\packages\Milyli.CodeAnalysis.2.0.1\tools\stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+			if exist "$(ProjectDir)\..\kCura.PDB.Service\MigratePerformance.zip" del "$(ProjectDir)\..\kCura.PDB.Service\MigratePerformance.zip"
+			"$(ProjectDir)..\packages\7ZipCLI.9.20.0\tools\7za.exe" a "$(ProjectDir)\..\kCura.PDB.Service\MigratePerformance.zip" "$(ProjectDir)..\kCura.PDB.DatabaseMigration\MigratePerformance\*"
+
+			if exist "$(ProjectDir)\..\kCura.PDB.Service\MigrateQoS.zip" del "$(ProjectDir)\..\kCura.PDB.Service\MigrateQoS.zip"
+			"$(ProjectDir)..\packages\7ZipCLI.9.20.0\tools\7za.exe" a "$(ProjectDir)\..\kCura.PDB.Service\MigrateQoS.zip" "$(ProjectDir)..\kCura.PDB.DatabaseMigration\MigrateQoS\*"
+
+			if exist "$(ProjectDir)\..\kCura.PDB.Service\MigrateResource.zip" del "$(ProjectDir)\..\kCura.PDB.Service\MigrateResource.zip"
+			"$(ProjectDir)..\packages\7ZipCLI.9.20.0\tools\7za.exe" a "$(ProjectDir)\..\kCura.PDB.Service\MigrateResource.zip" "$(ProjectDir)..\kCura.PDB.DatabaseMigration\MigrateResource\*"
+			
+			if exist "$(ProjectDir)\..\kCura.PDB.DatabaseMigration\MigrateTesting.zip" del "$(ProjectDir)\..\kCura.PDB.DatabaseMigration\MigrateTesting.zip"
+			"$(ProjectDir)..\packages\7ZipCLI.9.20.0\tools\7za.exe" a "$(ProjectDir)\..\kCura.PDB.DatabaseMigration\MigrateTesting.zip" "$(ProjectDir)..\kCura.PDB.DatabaseMigration\MigrateTesting\*"
+		</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

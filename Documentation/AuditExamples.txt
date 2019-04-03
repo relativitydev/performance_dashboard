@@ -1,0 +1,8 @@
+COUNT - 282
+Controls if the SQL "count" query is written to the History record. For each list that is generated, the system initially runs a "count" query to get the total number of records that fulfill the criteria. Setting this value to True writes the SQL query to the History record. Setting this value to False doesn’t write the SQL query to the History record.
+
+FULL - 283
+Controls whether the SQL query that gets the date to fill the rows on the current page is written to the History record. For each list page that is generated, the system initially runs a query to get the data to fill the rows on the current page. Setting this value to True writes the SQL query to the History record. Setting this value to False doesn't write the query to the History record.
+
+ID - 281
+Controls whether the SQL queries used to get a batch of Artifact IDs that fulfill the criteria and are needed to populate the current page in the list are written to the History record. Setting this value to True writes the SQL queries to the History record. Setting this value to False doesn't write the SQL queries to the History record.

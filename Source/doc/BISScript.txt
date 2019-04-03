@@ -1,0 +1,182 @@
+From: Scott Ellis <SEllis@kcura.com>
+Date: Mon, Mar 12, 2012 at 15:56
+Subject: Additional clarification on some BiS requirements.
+To: Jed Cassinelli <jed@milyli.com>, Steve Ankenbrandt <steve@milyli.com>
+Cc: "George T. Orr" <gorr@kcura.com>, Mike Kolek <mkolek@kcura.com>, Ryan Flint <rflint@kcura.com>
+
+
+Guys, here are some updated requirements for the BiS integration to Performance Dashboard project:
+
+BiS data graphs will be available  "On Demand," which is the ability to pull back custom date ranges, which we do require.
+
+We also had talked about having the indicator turn yellow if it is "close" to turning RED - unless anyone else has a better idea, I think that if a workspace is within 5 percentage points of failing on any given day, it should turn yellow.  There are several threshold levels ...I've created the CASE script that will set this value (see below).
+
+
+
+George had also mentioned in a meeting that, when someone clicks on a day that is bad, we should provide a little detail. It would probably be easiest to just put Error count, LRQ count, document count, and total active user for the day into the HTML alt tag, and maybe have  a javascript pop-up onClick that would display the same info (sometimes alt tags don't show as well as they should.)  I say Easiest, because these are data points that Performance Dashboard already collects. count (We already have a metric for users; let's pull it in, whatever is easiest to grab.  Peak users would be a good kpi.)
+
+
+
+USING the following test data (but with ISUNDERPERFORMINGDAY set to NULL), the following script appropriately marked each value.  :
+ISUNDERPERFORMINGDAY
+
+LRQPercent
+
+NonRelationalQueryCount
+
+DocumentCount
+
+RED
+
+15
+
+50
+
+1000000
+
+RED
+
+22.5
+
+50
+
+1000001
+
+RED
+
+32.5
+
+50
+
+3000001
+
+RED
+
+40
+
+50
+
+5000001
+
+YELLOW
+
+10
+
+50
+
+1000000
+
+YELLOW
+
+17.5
+
+50
+
+1000001
+
+YELLOW
+
+27.5
+
+50
+
+3000001
+
+YELLOW
+
+35
+
+50
+
+5000001
+
+GREEN
+
+9
+
+50
+
+1000000
+
+GREEN
+
+17
+
+50
+
+1000001
+
+GREEN
+
+27
+
+50
+
+3000001
+
+GREEN
+
+34
+
+50
+
+5000001
+
+
+
+
+CREATE TABLE [dbo].[BISRecord](
+     [ISUNDERPERFORMINGDAY] [nvarchar](6) NULL,
+     [LRQPercent] [decimal](18, 2) NULL,
+     [NonRelationalQueryCount] int NULL,
+     [DocumentCount] [int] NULL
+) ON [PRIMARY]
+
+UPDATE BISRecord set
+     ISUNDERPERFORMINGDAY  = (Select 'Color' = CASE
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 15 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount <= 1000000 THEN 'RED'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 22.5 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount between 1000001 and 3000000  THEN 'RED'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 32.5 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount between 3000001 and 5000000 THEN 'RED'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 40 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount >= 5000001 THEN 'RED'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 10 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount <= 1000000 THEN 'YELLOW'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 17.5 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount between 1000001 and 3000000  THEN 'YELLOW'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 27.5 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount between 3000001 and 5000000 THEN 'YELLOW'
+WHEN
+ISUNDERPERFORMINGDAY IS NULL AND
+LRQPercent >= 35 AND
+NonRelationalQueryCount >= 50 AND
+DocumentCount >= 5000001 THEN 'YELLOW'
+WHEN
+ISUNDERPERFORMINGDAY IS NOT NULL
+THEN NULL --in case someone accidentally runs this again...it will set them back to NULL. Rerun AGAIN to repopulate.
+ELSE 'GREEN'
+END)
+FROM BISRecord

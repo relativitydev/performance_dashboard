@@ -1,0 +1,287 @@
+﻿<BuildTools>
+  <BuildHelper>
+    <Projects>
+      <Build>
+        <Project path="Source\kCura.PDB.Agent\kCura.PDB.Agent.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Agent.Tests\kCura.PDB.Agent.Tests.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Core\kCura.PDB.Core.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Core.Tests\kCura.PDB.Core.Tests.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Data\kCura.PDB.Data.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Data.Tests\kCura.PDB.Data.Tests.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.EventHandler\kCura.PDB.EventHandler.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.EventHandler.Test\kCura.PDB.EventHandler.Test.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Service\kCura.PDB.Service.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Service.Tests\kCura.PDB.Service.Tests.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Tests.Common\kCura.PDB.Tests.Common.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>CommonAssemblyInfo</IgnoreRule>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.TrustBridge\kCura.PDB.TrustBridge.csproj">
+          <Platforms>
+            <Platform>AnyCPU</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDD.TrustDecipher\kCura.PDD.TrustDecipher.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDD.Web\kCura.PDD.Web.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <Publish>Local.pubxml</Publish>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDD.Web.Test\kCura.PDD.Web.Test.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Service.DataGrid\kCura.PDB.Service.DataGrid.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.Service.DataGrid.Tests\kCura.PDB.Service.DataGrid.Tests.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+        <Project path="Source\kCura.PDB.DependencyInjection\kCura.PDB.DependencyInjection.csproj">
+          <Platforms>
+            <Platform>x64</Platform>
+          </Platforms>
+          <IgnoreRules>
+            <IgnoreRule>TreatWarningsAsErrors</IgnoreRule>
+          </IgnoreRules>
+        </Project>
+      </Build>
+      <Ignore>
+        <Project path="vendor\*" />
+        <Project path="Source\kCura.PDB.Trust.Debug.crproj" />
+        <Project path="Source\kCura.PDB.Trust.Release.crproj" />
+        <Project path="Source\kCura.PDD.Debug.crproj" />
+        <Project path="Source\kCura.PDB.Service.Debug.crproj" />
+        <Project path="Source\kCura.PDB.Service.Release.crproj" />
+        <Project path="Source\kCura.PDD.Release.crproj" />
+        <Project path="Source\kCura.PDB.KeyGenerator\kCura.PDB.KeyGenerator.csproj" />
+        <Project path="Source\kCura.PDB.Service.Integration.Tests\kCura.PDB.Service.Integration.Tests.csproj" />
+        <Project path="Source\kCura.PDD.AdministrationInstaller\kCura.PDD.AdministrationInstaller.csproj" />
+        <Project path="Source\kCura.PDB.DatabaseMigration\kCura.PDB.DatabaseMigration.csproj" />
+        <Project path="Source\kCura.PDD.TrustDecipher\kCura.PDD.TrustDecipher.csproj" />
+      </Ignore>
+    </Projects>
+    <References>
+      <Maps />
+      <Adds />
+    </References>
+    <Rules>
+      <Rule name="CommonAssemblyInfo">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+          <Extension>.csproj</Extension>
+        </Extensions>
+        <XPath>Compile[contains(@Include, '..\Version\AssemblyInfo.')]</XPath>
+        <RuleType>Exists</RuleType>
+        <ErrorMessage>Not using the Common AssemblyInfo file. Please include it in the project.</ErrorMessage>
+      </Rule>
+      <Rule name="OptionExplicitOn">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+        </Extensions>
+        <XPath>OptionExplicit</XPath>
+        <RuleType>Equals</RuleType>
+        <Value>On</Value>
+        <ErrorMessage>Project has Option explicit turned off. Please turn this option on.</ErrorMessage>
+      </Rule>
+      <Rule name="OptionStrictOn">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+        </Extensions>
+        <XPath>OptionStrict</XPath>
+        <RuleType>Equals</RuleType>
+        <Value>On</Value>
+        <ErrorMessage>Project has Option strict turned off. Please turn this option on.</ErrorMessage>
+      </Rule>
+      <Rule name="OptionInfertOff">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+        </Extensions>
+        <XPath>OptionInfer</XPath>
+        <RuleType>Equals</RuleType>
+        <Value>Off</Value>
+        <ErrorMessage>Project has Option infer turned on. Please turn this option off.</ErrorMessage>
+      </Rule>
+      <Rule name="WarningLevel4">
+        <Extensions>
+          <Extension>.csproj</Extension>
+        </Extensions>
+        <XPath>WarningLevel</XPath>
+        <RuleType>Equals</RuleType>
+        <Value>4</Value>
+        <ErrorMessage>Project warning level is not set to 4. Please set warning level to 4.</ErrorMessage>
+      </Rule>
+      <Rule name="TreatWarningsAsErrors">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+          <Extension>.csproj</Extension>
+        </Extensions>
+        <XPath>TreatWarningsAsErrors</XPath>
+        <RuleType>Equals</RuleType>
+        <Value>true</Value>
+        <ErrorMessage>Project does not treat all warnings as errors. Please turn this option on.</ErrorMessage>
+      </Rule>
+      <Rule name="NugetRestore">
+        <Extensions>
+          <Extension>.vbproj</Extension>
+          <Extension>.csproj</Extension>
+        </Extensions>
+        <XPath>Target[contains(@Name, 'EnsureNuGetPackageBuildImports')]</XPath>
+        <RuleType>NotExists</RuleType>
+        <ErrorMessage>Do NOT restore nuget packages at project level, do this in the solution!</ErrorMessage>
+      </Rule>
+    </Rules>
+  </BuildHelper>
+  <TestRunner>
+    <DLLs>
+      <DLL type="x64">Source\kCura.PDB.Core.Tests\bin\Release\kCura.PDB.Core.Tests.dll</DLL>
+      <DLL type="x64">Source\kCura.PDB.Service.Tests\bin\Release\kCura.PDB.Service.Tests.dll</DLL>
+      <DLL type="x64">Source\kCura.PDB.Service.DataGrid.Tests\bin\Release\kCura.PDB.Service.DataGrid.Tests.dll</DLL>
+      <DLL type="x64">Source\kCura.PDB.Data.Tests\bin\Release\kCura.PDB.Data.Tests.dll</DLL>
+      <DLL type="x64">Source\kCura.PDB.Agent.Tests\bin\Release\kCura.PDB.Agent.Tests.dll</DLL>
+    </DLLs>
+  </TestRunner>
+  <RAPBuilder>
+    <Applications>
+      <Application name="Performance Dashboard">
+        <Destination>Applications\Performance Dashboard.rap</Destination>
+        <ApplicationSchema>ApplicationsXML\application.xml</ApplicationSchema>
+        <Assemblies>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\kCura.PDB.Dapper.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Hangfire.Core.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Hangfire.Ninject.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Hangfire.SqlServer.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Agent\bin\Release\kCura.PDB.Agent.dll</Assembly>
+          <Assembly>vendor\EmptyAssembly\kCura.PDB.Agent.Package.dll</Assembly>
+          <Assembly>vendor\EmptyAssembly\kCura.PDB.Agent.Trust.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\kCura.PDB.Core.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\kCura.PDB.Data.dll</Assembly>
+          <Assembly>Source\kCura.PDB.EventHandler\bin\Release\kCura.PDB.EventHandler.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\kCura.PDB.Service.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Ninject.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Ninject.Extensions.ChildKernel.dll</Assembly>
+		  <Assembly>vendor\SolutionReferences\NSerio.Trust.Common.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service\bin\Release\Owin.dll</Assembly>
+          <Assembly>vendor\RoundHouseDependencies.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service.DataGrid\bin\Release\kCura.PDB.Service.DataGrid.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service.DataGrid\bin\Release\kCura.AuditUI2.Services.Interface.dll</Assembly>
+          <Assembly>Source\kCura.PDB.Service.DataGrid\bin\Release\kCura.AuditUI2.Data.Contracts.dll</Assembly>
+          <Assembly>Source\kCura.PDB.DependencyInjection\bin\Release\kCura.PDB.DependencyInjection.dll</Assembly>
+        </Assemblies>
+        <ResourceFiles />
+        <CustomPages>
+          <CustomPage guid="7520b08a-a557-4ffe-9f47-789547540d9b">Source\Deployment\kCura.PDB.Web</CustomPage>
+        </CustomPages>
+      </Application>
+    </Applications>
+  </RAPBuilder>
+</BuildTools>

@@ -1,0 +1,8 @@
+Monitoring for backups and database consistency checks on instance {0} suggested one or more databases is at risk. Review the summary below for details. If the information below appears inaccurate, review your monitoring settings in Performance Dashboard.
+{1}
+{2}
+{3}
+
+This notification is not intended as a replacement for regular review of backups and consistency checks. As part of data loss prevention, partners are responsible for consistent database maintenance and monitoring.
+
+This is a daily alert from Performance Dashboard. Automatic notifications can be disabled via Performance Dashboard's configuration page.
