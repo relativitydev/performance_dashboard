@@ -1,0 +1,264 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="~/Script/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="~/Script/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="~/Script/polyfill.min.js"></script>
+    <script type="text/javascript" src="~/Script/vue.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/Components.css">
+    <link rel="stylesheet" type="text/css" href="~/Style/quality.css" />
+</head>
+<body>
+    <div id="qosApp">
+        <div v-if="loading" class="loading">
+            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+        </div>
+        <div class="navigation-bar">
+            <div class="nav-title-section">
+                <span>Quality of Service Report</span>
+            </div>
+            <div class="nav-icon-section">
+                <img v-if="hasAlert" id="SystemAlert" Visible="false" alt="Alert" src="~/Images/alert.png" v-bind:title="notification.Message" />
+                <img v-if="hasWarning" id="SystemWarning" Visible="False" alt="Warning" src="~/Images/warning.png" v-bind:title="notification.Message" />
+                <img alt="More Info" src="~/Images/infos.png" data-title title="Overall score indicates the performance of your environment from a wholistic standpoint.  The overall score determines your eligibility for the Best in Service program." />
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div v-if="hasError" class="row text-center text-danger">Error retrieving data. {{error}}</div>
+            <div class="row text-right icons print-exclude">
+                <a href="javascript:void(0)" v-on:click="printReport()" title="Print Report"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>
+                <a href="javascript:void(0)" v-on:click="saveReport('image')" title="Save Report as Image"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                <a href="javascript:void(0)" v-on:click="saveReport('pdf')" title="Save Report as PDF"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span></a>
+            </div>
+            <div id="mainReport">
+                <div class="row header">
+                    <div class="col-lg-6 col-md-6 qualityTitle">
+                        Quality of Service Report
+                        <div v-if="IsFraudDetected" style="display:inline-block">
+                            <a class="print-exclude" href="/Relativity/CustomPages/60a1d0a3-2797-4fb3-a260-614cbfd3fa0d/FCM.aspx" title="There is an issue with the fraud control module">
+                                <div class="fraudDetected"></div>
+                            </a>
+                        </div>
+                        <div class="headerGeneratedText">
+                            Generated {{report.DateGenerated}} for {{report.PartnerName}} on {{report.InstanceName}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 sampleRange">Sample Range<br />{{report.SampleRange}}</div>
+                    <div class="col-lg-1 col-md-1">
+                        <div class="headerDoughnutChart">
+                            <canvas id="qOverallChart" class="doughnutChart" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1">
+                        <div class="headerDoughnutChart">
+                            <canvas id="wOverallChart" class="doughnutChart" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:10px;">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="areaHeader">User Experience</div>
+                                <div class="areaDescription">This score is the evaluation of user experience. The most active hours across an entire quarter are analyzed. Certain types of user activities, long running queries and busy hours will impact this score.</div>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.UserExperience.PageUrl" target="_parent">
+                                    <canvas id="qUXChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.UserExperience.PageUrl" target="_parent">
+                                    <canvas id="wUXChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table threeColTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Server</th>
+                                            <th>Quarterly Score</th>
+                                            <th>Weekly Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="server in report.UserExperience.Servers" v-on:click="goToUrl(server.ServerUrl)" style="cursor:pointer">
+                                            <td>{{server.Name}}</td>
+                                            <td>{{server.QuarterlyScore}}</td>
+                                            <td>{{server.WeeklyScore}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="areaHeader">Infrastructure Performance</div>
+                                <div class="areaDescription">This score is the evaluation of CPU and RAM use of SQL and web servers during high stress. Complex queries, inadequate system resources and heavy traffic can reduce this score.</div>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.SystemLoad.PageUrl" target="_parent">
+                                    <canvas id="qInfraChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.SystemLoad.PageUrl" target="_parent">
+                                    <canvas id="wInfraChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table threeColTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Server</th>
+                                            <th>Quarterly Score</th>
+                                            <th>Weekly Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="server in report.SystemLoad.Servers" v-on:click="goToUrl(server.ServerUrl)" style="cursor:pointer">
+                                            <td>{{server.Name}}</td>
+                                            <td>{{server.QuarterlyScore}}</td>
+                                            <td>{{server.WeeklyScore}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="areaHeader">Recoverability & Integrity</div>
+                                <div class="areaDescription">Backups and DBCC checks are required for EDDS and all workspaces. Any gap of greater than 9 days is detected as a failure in the backup or DBCC policy.</div>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.Backup.PageUrl" target="_parent">
+                                    <canvas id="qRecoveryChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.Backup.PageUrl" target="_parent">
+                                    <canvas id="wRecoveryChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Activity</th>
+                                            <th>Overdue Databases</th>
+                                            <th>Frequency Score</th>
+                                            <th>Coverage Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="cursor:pointer" v-on:click="goToUrl(report.Backup.PageUrl)">
+                                            <td>Backups</td>
+                                            <td>{{report.Backup.MissedBackups}}</td>
+                                            <td>{{Number.isInteger(report.Backup.BackupFrequencyScore) ? report.Backup.BackupFrequencyScore : 'N/A' }}</td>
+                                            <td>{{Number.isInteger(report.Backup.BackupCoverageScore) ? report.Backup.BackupCoverageScore : 'N/A' }}</td>
+                                        </tr>
+                                        <tr style="cursor:pointer" v-on:click="goToUrl(report.Backup.PageUrl)">
+                                            <td>DBCC</td>
+                                            <td>{{report.Backup.MissedIntegrityChecks}}</td>
+                                            <td>{{Number.isInteger(report.Backup.DbccFrequencyScore) ? report.Backup.DbccFrequencyScore : 'N/A' }}</td>
+                                            <td>{{Number.isInteger(report.Backup.DbccCoverageScore) ? report.Backup.DbccCoverageScore : 'N/A' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Objective</th>
+                                            <th>Time</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="cursor:pointer" v-on:click="goToUrl(report.Backup.PageUrl)">
+                                            <td>Max Data Loss</td>
+                                            <td>{{report.Backup.MaxDataLossMinutes}} Minute(s)</td>
+                                            <td>{{Number.isInteger(report.Backup.RPOScore) ? report.Backup.RPOScore : 'N/A'}}</td>
+                                        </tr>
+                                        <tr style="cursor:pointer" v-on:click="goToUrl(report.Backup.PageUrl)">
+                                            <td>Time to Recover</td>
+                                            <td>{{report.Backup.TimeToRecoverHours}} hour(s)</td>
+                                            <td>{{Number.isInteger(report.Backup.RTOScore) ? report.Backup.RTOScore : 'N/A'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row text-danger text-center" v-if="!report.Backup.DBCCMonitoringEnabled"><b>DBCC monitoring is currently disabled. <br /> Your databases may be at risk of corruption.</b></div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="areaHeader">Uptime</div>
+                                <div class="areaDescription">This score is a reflection of system availability. Service providers should provide at least 98% uptime for their service.</div>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.Uptime.PageUrl" target="_parent">
+                                    <canvas id="qUptimeChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="pageLink" v-bind:href="report.Uptime.PageUrl" target="_parent">
+                                    <canvas id="wUptimeChart" class="doughnutChart" width="100" height="100"></canvas>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>Quarterly Uptime: {{+report.Uptime.UptimePercentage.toFixed(2)}}%</div>
+                                <div>Weekly Uptime: {{+report.Uptime.WeeklyUptimePercentage.toFixed(2)}}%</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Month</th>
+                                            <th>Hours Down</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="event in report.Uptime.DatesToReview" v-on:click="goToUrl(report.Uptime.PageUrl)" style="cursor:pointer">
+                                            <td>{{event.Date}}</td>
+                                            <td>{{event.HoursDown}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Script/ServiceQuality/serviceQualityApp.js"></script>
+    <script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Script/html2canvas.js"></script>
+    <script type="text/javascript" src="~/Script/jsPDF.js"></script>
+</body>
+</html>

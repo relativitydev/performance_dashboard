@@ -1,0 +1,15 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'DBCCTarget' AND TABLE_SCHEMA = N'EDDSDBO')
+BEGIN
+	CREATE TABLE [eddsdbo].[DBCCTarget]
+	(
+		[DbccTargetId] [int] IDENTITY(1,1) NOT NULL,
+		[ServerName] [nvarchar](150) NOT NULL,
+		[DatabaseName] [nvarchar](150) NOT NULL,
+		[Active] [bit] NOT NULL,
+		CONSTRAINT [PK_DbccTargetId] PRIMARY KEY CLUSTERED ([DbccTargetId] ASC)
+	)
+END
+GO

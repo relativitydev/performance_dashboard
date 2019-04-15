@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PDDModel">
+  <DataContextMoniker Name="/PDDModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="92cd6148-21ea-437f-89e6-a3c801cacd7f" absoluteBounds="0.5, 1.25, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/PDDModelDataContext/ServerDW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5ce0608-6d9b-4b39-8e0e-26f12efffbb5" absoluteBounds="0.51500000000000012, 1.71, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81db1eae-b693-44a2-a96e-cb3147669a53" absoluteBounds="0.5, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/PDDModelDataContext/ServerProcessorDW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad249e0e-fab2-4d78-a4ce-9c4a4916b280" absoluteBounds="0.51500000000000012, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a1b8e7c-203b-4ce1-bf08-916a13b20ec1" absoluteBounds="0.5, 6.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/PDDModelDataContext/SQLServerDW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4777d954-e73e-4a3e-8cdc-81ec9529ec98" absoluteBounds="0.51500000000000012, 6.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1382c9aa-5e75-4272-879b-723b7e6259b2" absoluteBounds="4, 1.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PDDModelDataContext/Measure" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55564384-86d5-4992-b14c-b6763e0e2fbe" absoluteBounds="4.0150000000000006, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d7c658a-6355-4986-8ff7-23db52315753" absoluteBounds="3.875, 4.125, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/PDDModelDataContext/ServerDiskDW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d372c9d-e3d0-41c8-86ae-5afdf19b74b6" absoluteBounds="3.8899999999999997, 4.5850000000000009, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

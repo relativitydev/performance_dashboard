@@ -1,0 +1,255 @@
+Workspace Analysis Logic flow
+	
+Get Audit Data
+	Parse XML for searches
+		? Test for Hash Join
+Compare against the view (in that hour)
+	Total runs of a search
+	Total runs for each search-user pair
+	Max runs by a single user
+Get all subsearches for a given search (TotalQTYSubSearches, TotalQTYUniqueSubSearches)
+
+SearchAuditType = 28, QueryText only comes from this type
+What do we need to know from a search?
+
+
+Fix bogus 'like' operator (when it should be a choice search, recategorize correctly [operator field in SSComplexity table, when ExtendedField.FieldTypeName in ('Multiple Choice', 'Single Choice')])
+	
+Get Total number of fields where index is enabled (from eddsdbo.field table where field.IsIndexEnabled = 1)
+
+
+QueryText and SearchText are two different things.  QueryText is parsed from the audit itself.  SearchText is parsed from the view table. (RSSD - Ran Saved Search Data?  Ran Sub Search Data?)
+
+
+NOTE: Probably want to have an equivelent to @VSRunScope but for the hour's batchGroup or something
+
+COMPONENTS OF THE COMPLEXITY SCORE - New C#
+=============================================
+# of "like" operators * 10
+	- Get Operators from ViewCriteria table
+	- Used BULLFROG previously
+totalWords in search value fields
+	- Get Value fields from ViewCriteria table
+	- Used BULLFROG previously
+	-- As well as the wordcount from parsed SearchText
+totalCharacters in parsed SearchText (from View table)
+	- Parse XML SearchText column from View table
++ 1 for dtSearches
+	- if any of the non-parsed SearchText string contains 'dtsearch'
+totalCharacters of dtSearch
+	- Parse XML SearchText column from View table
++ 1 for fullTextSearches
+	- Operator (from ViewCriteria table) is 'contains' OR (Check if the field is included in the full text search?)
+	- Parse XML SearchText column from View table
+		- XML Attribute contains SQLServer2005SearchProvider
+# of search folders * # of Non-like operators
+	- Query SearchFolder table
+	SELECT COUNT(folderArtifactID) 
+	FROM SearchFolder 
+	WHERE SearchArtifactID = SearchFolder.SearchArtifactID 
+	GROUP BY SearchArtifactID
+	- Get Operators from ViewCriteria table
+	
+# of subsearches
+	- Check if Value of Operator is a SubQuery, recursively parse searches
++ 1 for "in" or "contains" operator
+	- Get Operators from ViewCriteria table
+
+Do database hits last.  Try to break out as soon as possible.  
+Need to account for this in the ParsedSearchText:
+ 'The following searches contain invalid characters in their search text and will need to be fixed by removing the invalid characters from the SearchText column on the eddsdbo.[View] table.  Contact kCura Client Services for assistance as needed.'
+	
+COMPONENTS OF THE COMPLEXITY SCORE - WorkspaceAnalysis
+=============================================
+getIsLikePenalty [BULLFROG]
++ QTYConditionValueWords [BULLFROG]
++ searchTextLength [Say we're not using this for scoring when we totally are]
++ dtSearchTextLength 
++ isFullTextSearch 
++ IsDTsearch 
++ IsSQLSearch 
++ (IsSQLSearch*QTYFolderedSearch*QTYNonLikes) 
++ QTYOrderBy
+
+= getIsLikePenalty (Number of 'like' operators [USED BULLFROG FOR THIS WORK])
+This is set after the [Table: QoS_SSComplexity, Field: Value, ID: ViewCriteriaID] execution of BULLFROG
+- Count the number of 'like' operators in a single search artifact id.  Why was BULLFROG used for this work?
+;WITH getIsLikePenalty AS (
+	SELECT
+		ssc.ArtifactID,
+		COUNT(ssc.ArtifactID) * 10 gilpPenalty
+	FROM eddsdbo.QoS_SSComplexityAnalysis ssca WITH(NOLOCK)
+	RIGHT JOIN eddsdbo.QoS_SSComplexity ssc WITH(NOLOCK)
+		ON ssc.VRHID = ssca.VRHID
+			AND ssca.SearchArtifactID = ssc.ArtifactID
+	RIGHT JOIN eddsdbo.QoS_BullfrogIDCWords BIDCW WITH(NOLOCK)
+		ON ssc.VRHID = BIDCW.VRHID
+			AND ssc.viewCriteriaID = BIDCW.IDConsumable
+	INNER JOIN eddsdbo.QoS_BullfrogWork bfw WITH(NOLOCK)
+		ON ssc.VRHID = bfw.VRHID
+			AND BIDCW.KBWID = bfw.KBWID
+	WHERE ssc.VRHID = @VSRunScope
+		AND Operator = 'like'
+	GROUP BY ssc.ArtifactID
+	)
+
+= QTYConditionValueWords (Number of word conditions? [USED BULLFROG FOR THIS WORK])
+This is set after each execute of BULLFROG.  Both [Table: QoS_SSComplexity, Field: Value, ID: ViewCriteriaID] AND [Table: QoS_SSComplexityAnalysis, Field: ParsedSearchText, ID: SearchArtifactID]
+? Count the number of words for a given search Id
+
+;WITH getWordCountConditions AS (
+	SELECT
+		ssc.ArtifactID,
+		COUNT(ssc.ArtifactID) gwccCount
+	FROM eddsdbo.QoS_SSComplexityAnalysis ssca WITH(NOLOCK)
+	RIGHT JOIN eddsdbo.QoS_SSComplexity ssc WITH(NOLOCK) 
+		ON ssc.VRHID = ssca.VRHID 
+			AND ssca.SearchArtifactID = ssc.ArtifactID
+	RIGHT JOIN eddsdbo.QoS_BullfrogIDCWords BIDCW WITH(NOLOCK)
+		ON ssc.VRHID = BIDCW.VRHID
+			AND ssc.viewCriteriaID = BIDCW.IDConsumable -- (ViewCriteria/)
+	INNER JOIN eddsdbo.QoS_BullfrogWork bfw WITH(NOLOCK)
+		ON ssc.VRHID = BIDCW.VRHID
+			AND BIDCW.KBWID = bfw.KBWID
+	WHERE ssc.VRHID = @VSRunScope
+	GROUP BY ssc.ArtifactID
+)
+
+= searchTextLength
+UPDATE eddsdbo.QoS_SSComplexityAnalysis
+SET searchTextLength = LEN(ParsedSearchText)
+WHERE VRHID = @VSRunScope
+	AND ParsedSearchText IS NOT NULL
+	AND ParsedSearchText != 'The following searches contain invalid characters in their search text '
+		+ 'and will need to be fixed by removing the invalid characters from the SearchText column on the eddsdbo.[View] table.  Contact kCura Client Services for assistance as needed.'
+
+RSSDOutput is filled with the View.ArtifactID 
+INSERT View.ArtifactID, count(View.ArtifactID)
+FROM SearchAuditRows & SearchAuditRowsParsed (on AuditID) + View (on Rows.ArtifactID [ArtifactID of the Audit?])
+WHERE View.ArtifactID IS NOT NULL
+
+??? = dtSearchTextLength (Length of SSComplexityAnalysis ParsedSearchText when it's a dtSearch)
+ParsedSearchText comes from SearchText and is manipulated
+SearchText is parsed from the view table.
+
+= isFullTextSearch 
+WHEN Operator = 'contains' 
+OR WHEN SearchText LIKE '%SQLServer2005SearchProvider%'
+WHERE searchTextLength > 0
+
+= isDTSearch
+SearchText LIKE '%dtsearch%'
+
+= isSQLSearch
+Operator NOT IN ('IN', 'Contains')
+
+= QTYFolderedSearch		--TODO: look and see if the search is including subfolders or not.
+SELECT COUNT(folderArtifactID) 
+FROM SearchFolder 
+WHERE SearchArtifactID = SearchFolder.SearchArtifactID 
+GROUP BY SearchArtifactID
+
+? = QTYNonLikes
+SELECT COUNT(Operator)
+FROM eddsdbo.QoS_SSComplexity WITH(NOLOCK)
+WHERE Operator NOT IN ('IN', 'Contains', 'like')
+	AND Operator IS NOT NULL
+	AND eddsdbo.QoS_SSComplexityAnalysis.SearchArtifactID = eddsdbo.QoS_SSComplexity.ArtifactID
+
+? = QTYOrderBy
+SELECT COUNT(ViewID)
+	FROM eddsdbo.ViewOrder VO WITH(NOLOCK)
+	WHERE eddsdbo.QoS_SSComplexityAnalysis.SearchArtifactID = VO.ViewID
+	GROUP BY ViewID
+	
+=======================================
+COMPONENTS OF THE DEPENDANT TABLES
+=======================================
+--- QoS_SearchAuditRows ---
+Audit data where Action = 28 (Search).  Lifting relevant data from the AuditRecord table
+-AuditID
+-ArtifactID
+-Details (XML Text)
+-UserID
+-TimeStamp
+-Action
+-ExecutionTime
+-RequestOrigination (? not sure if still used)
+
+--- QoS_SearchAuditParsed ---
+Parsed Audit Data
+-SearchAuditID = Iterator from this hour/batch
+-AuditID 
+-DetailsParsed (QueryText parsed from XML data)
+-IsHashJoin (Test if QueryText contains '%hash join%')
+
+--- RSSDOutput ---
+INSERT View.ArtifactID, count(View.ArtifactID)
+FROM SearchAuditRows & SearchAuditRowsParsed (on AuditID) + View (on Rows.ArtifactID [AuditRecord.ArtifactID])
+WHERE View.ArtifactID IS NOT NULL
+GROUP BY View.ArtifactID
+
+Fields
+-ArtifactID = View.ArtifactID
+-TotalRuns = COUNT(View.ArtifactID) GROUP BY View.ArtifactID
+Additional Fields (Aggrigate of runs in the hour, check all the audits for this search ran)
+-MaxRunsBySingleUser
+-MaxRunsUser
+-userArtifactID
+
+--- SSComplexity --- 
+An entry per component of a search
+			
+Fields
+-viewCriteriaID = ViewCriteria.viewCriteriaID
+-ArtifactID (SearchArtifactID) = RSSOutput.ArtifactID/View.ArtifactID/ViewCriteria.ViewID/AuditRecord.ArtifactID
+-FullName = AuditUser.FullName
+-CreateOn = Artifact.CreatedOn
+-Value = ViewCriteria.Value
+-ArtifactViewFieldID = ViewCriteria.ArtifactViewFieldID/Field.ArtifactViewFieldID
+-ColumnName = Field.DisplayName
+-Operator = ViewCriteria.Operator
+-QueryHint = View.QueryHint
+-TextIdentifier = Artifact.TextIdentifier
+-SearchText = View.SearchText
+-SearchFieldTypeID = Field.FieldTypeID
+
+
+--- SSComplexityAnalysis ---
+An entry per unique VRHID, SearchArtifactID pair
+
+Fields
+-IsChild
+-SearchName
+-LongestRunTime
+-ShortestRunTime
+-TotalLRQRunTime
+-RelationalItemsIncluded (Field.FriendlyName)
+-ParsedSearchText (SSComplexity.SearchText xml parsed)
+-SearchTextLength (Length of the text from the view table)
+-IsFullTextSearch
+?-searchConditioniFTCLength
+-ConditionValue
+-QTYFullTextSearch
+-IsDTSearch
+-IsSQLSearch
+-QTYLikeOperators
+-QTYConditionValueWords
+-QTYItemsIniFTS (Total number of fields where index is enabled[always >= 1], set at the end, same for each search per hour)
+-QTYsearchTextWords
+-dtSearchTextLength
+-QTYFolderedSearch
+-QTYNonLikes
+-QTYOrderBy
+-QTYOrderByIndexed
+?-SearchFieldTypes
+-QTYIndexSearchFields
+-QTYSubSearches
+-TotalQTYSubSearches (all subsearches for a given search)
+-TotalQTYUniqueSubSearches (all unique subsearches for a given search)
+-LastQueryForm (SearchArtifactId of the last query)
+-LongestRunningQueryForm (SearchArtifactId of the longest running query)
+?-TotalRunsDateRange (Is this ever filled?)
+-totalSearchComplexityScore ( 0? += getIsLikePenalty + QTYConditionValueWords + searchTextLength + dtSearchTextLength + isFullTextSearch + IsDTsearch + IsSQLSearch + (IsSQLSearch*QTYFolderedSearch*QTYNonLikes) + QTYOrderBy)
+-NumErrored (total searches that contain <cancelled> tag in the Details)
+-NumCancelled (total searches that contain <ErrorMessage> tag in the Details)

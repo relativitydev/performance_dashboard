@@ -1,0 +1,43 @@
+Where QoS_SampleHistory is being used in each script
+
+== QoS_BuildandRateSample.sql ==
+
+	[Cleanup old data]
+Line 191 - Clean out data older than 180 days (DELETE)
+Line 388 - Wipe SampleHistory isActiveSample bools before we recalculate them.  
+
+	[Prepare Sample, mark sample hours]
+Then insert the top 33 active hours (+ any poison waits outside of those hours). [Insert only new hours to prevent duplicates]
+Then from the past week (7 days) worth of data
+	Update isActiveWeeklySample for the top 33 active hours (+ any poison waits outside of those hours)
+Then from those isActiveWeeklySample hours
+	Mark the top 33 most concurrent hours as isActiveWeekly4Sample
+
+	[???]
+If isEddsStandalone and eddsServerId has a value
+	Construct an EDDS server sample based on other samples?  Do we need to account for this?
+
+	[Determine we have the minimum requirements before penalizing]
+Require a minimum of 8 hours in the weekly sample before we penalize a server for UX/SL (User Experience, System Load)
+Line 542 - Require a minimum of 2 hours in the concurrency sample (isActiveWeekly4Sample) before we penalize a server for UX
+
+	[Seed the ratings table with this hour.  Initialize hour entry in QoS_Ratings.]
+Line 585 - Set the Top 4 Simple Long Running Query score to the average score of the SIMPLE score when concurrency in the system is high (Change to do in C#), Set score in QoS_Ratings
+Line 637 - Set UX Quarterly + Weekly scores in QoS_Ratings
+Line 682 - Update SystemLoad scores based on isActiveWeeklySample
+	
+	[Old FCM]
+Line 847 - Set hashes on SampleHistory table
+
+	[Output Report Data]
+Line 1002 - Create UX Server report data [Report data per server]
+	(ServerArtifactId, ServerName, WorkspaceArtifactId, WorkspaceName, Score, TotalLongRunning, TotalUsers, TotalSearchAudits, TotalNonSearchAudits, TotalAudits, TotalExecutionTime, SummaryDayHour, QoSHourId)
+Line 1067 - Create UX Search report data [Report data per search id]
+	(WorkspaceArtifactId, SearchArtifactId, SearchName, LastAuditId, UserArtifactId, UserName, TotalSearchExecutionTime, AverageSearchExecutionTime, TotalRuns (COUNT(QueryID)), PercentLongRunning, IsComplex, SummaryDayHour, QoSHourId)
+
+
+== QoS_ScoreHistory.sql ==
+== QoS_SystemLoadWaitsReport.sql ==
+== QoS_UserExperienceSearchReport.sql ==
+== QoS_UserExperienceServerReport.sql ==
+== QoS_UserExperienceWorkspaceReport.sql ==

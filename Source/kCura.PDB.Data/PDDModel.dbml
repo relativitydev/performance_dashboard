@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EDDSPerformance" Class="PDDModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=EDDSPerformance;Integrated Security=True" SettingsObjectName="kCura.PDB.Data.Properties.Settings" SettingsPropertyName="EDDSPerformanceConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="eddsdbo.ServerDW" Member="ServerDWs">
+    <Type Name="ServerDW">
+      <Column Name="ServerDWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RAMPagesPerSec" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="RAMPageFaultsPerSec" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="TotalPhysicalMemory" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="AvailableMemory" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="RAMPct" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="eddsdbo.ServerProcessorDW" Member="ServerProcessorDWs">
+    <Type Name="ServerProcessorDW">
+      <Column Name="ServerProcessorDWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CoreNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CPUProcessorTimePct" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="CPUName" Type="System.String" DbType="NVARCHAR(200) NULL" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="eddsdbo.SQLServerDW" Member="SQLServerDWs">
+    <Type Name="SQLServerDW">
+      <Column Name="SQLServerDWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SQLPageLifeExpectancy" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="LowMemorySignalState" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="eddsdbo.Measure" Member="Measures">
+    <Type Name="Measure">
+      <Column Name="MeasureID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MeasureCd" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDesc" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastDataLoadDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="eddsdbo.ServerDiskDW" Member="ServerDiskDWs">
+    <Type Name="ServerDiskDW">
+      <Column Name="ServerDiskDWID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiskNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiskAvgReadsPerSec" Storage="_DiskAvgSecPerRead" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="DiskAvgWritesPerSec" Storage="_DiskAvgSecPerWrite" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="DriveLetter" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="DiskFreeMegabytes" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" />
+      <Column Name="DiskSecPerRead" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+      <Column Name="DiskSecPerWrite" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+      <Column Name="FrequencyPerfTime" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+      <Column Name="DiskSecPerReadBase" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+      <Column Name="DiskSecPerWriteBase" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="eddsdbo.LoadLatencyHealthDWData" Method="LoadLatencyHealthDWData">
+    <Parameter Name="ProcessExecDate" Parameter="processExecDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="eddsdbo.GetRAMHealthData" Method="GetRAMHealthData">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeZoneOffset" Parameter="timeZoneOffset" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetRAMHealthDataResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ServerTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RAMPagesPerSec" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="RAMPageFaultsPerSec" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="RAMPct" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="eddsdbo.GetSQLServerSummaryData" Method="GetSQLServerSummaryData">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeZoneOffset" Parameter="timeZoneOffset" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSQLServerSummaryDataResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ServerTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SQLPageLifeExpectancy" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="eddsdbo.GetServerProcessorSummaryData" Method="GetServerProcessorSummaryData">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeZoneOffset" Parameter="timeZoneOffset" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetServerProcessorSummaryDataResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ServerCoreId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ServerTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CPUProcessorTimePct" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="eddsdbo.LoadDocumentHealthDWData" Method="LoadDocumentHealthDWData">
+    <Parameter Name="ProcessExecDate" Parameter="processExecDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="eddsdbo.GetServerDiskSummaryData" Method="GetServerDiskSummaryData">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeZoneOffset" Parameter="timeZoneOffset" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetServerDiskSummaryDataResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ServerDiskId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServerName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ServerTypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DiskNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DriveLetter" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="DiskAvgSecPerRead" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DiskAvgSecPerWrite" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="eddsdbo.GetLRQHealthQueries" Method="GetLRQHealthQueries" IsComposable="true">
+    <Parameter Name="ProcessExecDate" Parameter="processExecDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetLRQHealthQueriesResult">
+      <Column Name="dbLocation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TotalQry" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="TotalNRQry" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="LRQQry" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="NRLRQQry" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="eddsdbo.GetApplicationHealthData" Method="GetApplicationHealthData">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TimeZoneOffset" Parameter="timeZoneOffset" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetApplicationHealthDataResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CaseArtifactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WorkspaceName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DatabaseLocation" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MeasureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LRQCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AverageLatency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="eddsperf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eddsperf.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EDDSPerformance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EDDSPerformance.mdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EddsPerformanceExtra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EddsPerformanceExtra.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_RecoverabilityIntegritySummaryReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.recoverabilityintegritysummaryreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_RecoverabilityObjectivesReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.recoverabilityobjectivesreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="EddsDependentModifiedSprocs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\eddsdependentmodifiedsprocs.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="eddsdbo_QoS_RecoverabilityIntegrityReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_recoverabilityintegrityreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ReadDatabaseDbcc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateresource\8_storedprocedures\readdatabasedbcc.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_UptimeReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_uptimereport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0001_Create_MockHours" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0001_create_mockhours.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0002_Create_MockBackupSet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0002_create_mockbackupset.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0003_Create_MockDbccServerResults" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0003_create_mockdbccserverresults.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0004_Create_MockDatabasesChecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0004_create_mockdatabaseschecked.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0005_Create_MockServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0005_create_mockserver.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0006_Recreate_MockServer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0006_recreate_mockserver.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_0007_Recreate_MockHours" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migratetesting\4_update\0007_recreate_mockhours.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="QoS_ScoreHistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\qos_scorehistory.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_SystemLoadServerReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_systemloadserverreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_SystemLoadWaitsReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_systemloadwaitsreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_UserExperienceSearchReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_userexperiencesearchreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_UserExperienceServerReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_userexperienceserverreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_UserExperienceWorkspaceReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_userexperienceworkspacereport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="EVERYTIME_RecreateViews" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\7_views\everytime.recreateviews.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_BackupDBCCReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_backupdbccreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="eddsdbo_QoS_RecoveryObjectivesReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\kcura.pdb.databasemigration\migrateperformance\8_storedprocedures\eddsdbo.qos_recoveryobjectivesreport.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

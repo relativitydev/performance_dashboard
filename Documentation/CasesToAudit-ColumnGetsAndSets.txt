@@ -1,0 +1,58 @@
+ Files where CasesToAudit columns are modified, by specified columns
+ 
+ === IsActive
+   SET
+*	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_WorkspaceAnalysisManager.sql
+
+	QA Scripts\DataTweaker.sql
+	QA Scripts\DataTweaker.ToEncrypt.sql
+	QA Scripts\TheFraudmaker.sql
+   
+   GET
+	kCura.PDB.DatabaseMigration\MigratePerformance\10_RunAfterAllAnyTime\0000001_GenerateBaselineSnapshots.sql
++	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_LookingGlass_3.0.1.sql
+	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_QualityDataGenerator.sql
++	kCura.PDD.Model\Resources\EDDSPerformance\ClaimNextCaseHour.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\NextPendingHour.sql
+FCM	kCura.PDB.Integrity\Resources\ConsistencyCheck.sql
+FCM	kCura.PDB.Integrity\Resources\ReadTrustScores.sql
+
+
+	QA Scripts\DataTweaker.sql
+	QA Scripts\DataTweaker.ToEncrypt.sql
+	QA Scripts\FCMReset.sql
+	QA Scripts\SampleDataGenerator.sql
+	QA Scripts\TheFraudmaker.sql
+   
+  === IsCompleted
+	SET
+*	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_WorkspaceAnalysisManager.sql
++	kCura.PDD.Model\Resources\EDDSPerformance\MarkCaseHourCompleted.sql
+	
+	GET
+	kCura.PDB.DatabaseMigration\MigratePerformance\10_RunAfterAllAnyTime\0000001_GenerateBaselineSnapshots.sql
++	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_LookingGlass_3.0.1.sql
+FCM	kCura.PDB.DatabaseMigration\MigratePerformance\4_Update\0000058_GenerateRowHashes.sql
+FCM	kCura.PDB.Integrity\Resources\ConsistencyCheck.sql
+FCM	kCura.PDB.Integrity\Resources\ReadTrustScores.sql
++	kCura.PDD.Model\Resources\EDDSPerformance\ClaimNextCaseHour.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\FailingCaseHours.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\NextPendingHour.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\Reset_RegenerateSnapshots.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\SampleRange.sql
+
+	QA Scripts\DataTweaker.sql
+	QA Scripts\DataTweaker.ToEncrypt.sql
+	QA Scripts\FCMReset.sql
+	QA Scripts\TheFraudmaker.sql
+	
+=== IsFailedThisRun
+	SET
+	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_LookingGlass_3.0.1.sql
+	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_WorkspaceAnalysisManager.sql
+	kCura.PDD.Model\Resources\EDDSPerformance\MarkCaseHourCompleted.sql
+	
+	GET
+	kCura.PDB.DatabaseMigration\MigratePerformance\8_StoredProcedures\QoS_LookingGlass_3.0.1.sql
+	
+

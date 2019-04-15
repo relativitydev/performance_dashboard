@@ -1,0 +1,8 @@
+USE EDDSPerformance
+GO
+
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'TrustSendLog' AND COLUMN_NAME = 'QualityData')
+BEGIN
+	ALTER TABLE eddsdbo.TrustSendLog
+	ALTER COLUMN QualityData varchar(max)
+END

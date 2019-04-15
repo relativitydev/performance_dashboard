@@ -1,0 +1,2 @@
+ALTER TABLE Timmy DROP COLUMN dude
+;

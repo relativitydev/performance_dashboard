@@ -1,0 +1,12 @@
+USE [EDDSPerformance]
+
+IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'QoS_BackupHistory') 
+	AND NOT EXISTS(SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[eddsdbo].[QoS_BackupHistory]') AND name = N'IX_QoS_BackupHistory_BackupType')
+BEGIN
+	
+	CREATE NONCLUSTERED INDEX [IX_QoS_BackupHistory_BackupType] ON [eddsdbo].[QoS_BackupHistory]
+	(
+		[BackupType] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+	
+END

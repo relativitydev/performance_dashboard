@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4FE0B89-7C15-41BE-AA9F-5A94A1FF5999}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDB.Tests.Common</RootNamespace>
+    <AssemblyName>kCura.PDB.Tests.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.9.5.341.30\lib\net462\kCura.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.AuditUI2.Data.Contracts, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\kCura.AuditUI2.Data.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.AuditUI2.Services.Interface, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\kCura.AuditUI2.Services.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Injection, Version=1.0.8.0, Culture=neutral, PublicKeyToken=318fc9f898ce154d, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.Injection.9.5.341.30\lib\net462\kCura.Injection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.NUnit.Integration, Version=9.3.377.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.NUnit.Integration.9.3.377.8\lib\net45\kCura.NUnit.Integration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.5.292.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Rsapi.9.5.292.12\lib\kCura.Relativity.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.API, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.API.9.5.341.30\lib\net462\Relativity.API.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Audit.Elasticsearch, Version=12.11.1.54, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\kCura.AuditUI2.Services.12.11.1\lib\net45\Relativity.Audit.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Authentication.Interfaces, Version=9.5.341.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Authentication.Interfaces.9.5.341.30\lib\net462\Relativity.Authentication.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Kepler, Version=1.0.1.423, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.1.0.1.423\lib\net462\Relativity.Kepler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.Services.DataContracts, Version=9.6.46.136, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.DataContracts.9.6.46.136\lib\net462\Relativity.Services.DataContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.Interfaces, Version=9.6.46.136, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Services.Interfaces.9.6.46.136\lib\net462\Relativity.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Services.ServiceProxy, Version=1.0.1.423, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Relativity.Kepler.Client.1.0.1.423\lib\net462\Relativity.Services.ServiceProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Extensions\MockReturnsExtensions.cs" />
+    <Compile Include="Extensions\ServiceManagerExtension.cs" />
+    <Compile Include="MockTimeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelpers\CreateWorkspace.cs" />
+    <Compile Include="TestUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{b72f5674-7d0d-469c-ad9d-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data\kCura.PDB.Data.csproj">
+      <Project>{2ED961C8-45D1-4EBD-8E77-2BBD04FB9237}</Project>
+      <Name>kCura.PDB.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service\kCura.PDB.Service.csproj">
+      <Project>{613BFC9C-050B-4D42-BBC0-FAE722E1B37B}</Project>
+      <Name>kCura.PDB.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+USE EDDSQoS
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'eddsdbo' AND TABLE_NAME = 'QoS_FileStats') 
+BEGIN
+	CREATE TABLE eddsdbo.QoS_FileStats
+	(
+		FileStatsID INT IDENTITY(1,1),
+		DBName NVARCHAR(255),
+		ReadLatency BIGINT,
+		WriteLatency BIGINT,
+		LatencyScore DECIMAL(5,2),
+		IsDataFile BIT,
+		CONSTRAINT [PK_FileStatsID] PRIMARY KEY CLUSTERED 
+		(
+			[FileStatsID] ASC
+		)
+	)
+END

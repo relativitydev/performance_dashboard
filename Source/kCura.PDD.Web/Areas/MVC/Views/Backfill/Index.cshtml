@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Backfill</title>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="~/Script/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="~/Script/polyfill.min.js"></script>
+	<script type="text/javascript" src="~/Script/vue.min.js"></script>
+    <script type="text/javascript" src="~/Script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/Components.css">
+    <link rel="stylesheet" type="text/css" href="~/Style/AdministrationInstall.css" />
+</head>
+<body>
+    <div id="backfill">
+        <form id="DatabaseCredentialForm">
+            <div class="action-bar">
+                <div class="right" style="text-align: center">
+                    <a href="javascript:history.go(-1)" type="button" class="btn">Back</a>
+	                <a id="btnDownloadErrorLogs" v-on:click="downloadErrorLogs()" class="btn">Download Error Logs</a>
+	                <a id="btnDownloadFullLogs" v-on:click="downloadFullLogs()" class="btn">Download Full Logs</a>
+					<a id="btnRetryErroredEvents" v-if="status.ErrorEvents > 0" v-on:click="retryErrorEvents()" class="btn">Retry Error Events</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <div class="row logo-box-a">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 centerContent">
+                        <h4 class="logo-m relativity-size-adjust">
+                            <img src="~/Images/rsz_relativitylogo.png" />
+                            Performance Dashboard: <span class="pdb-step">Backfill Console</span>
+                            <img src="~/Images/infos.png" data-toggle="tooltip" data-placement="bottom"
+                                 title="For accurate scoring, Performance Dashboard must collect 7 days of historical data. Monitor backfill progress below." />
+                        </h4>
+                    </div>
+                </div>
+                <div v-if="hasError || loadingStatus" class="row logo-box-a vue-wait" id="NotifcationPane">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 centerContent">
+                        <div class="logo-m relativity-size-adjust">
+                            <div v-if="hasError" class="alert alert-danger" role="alert" id="ErrorAlert">
+                                <span id="ErrorAlertText">{{error}}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <transition name="fade">
+                                <div v-if="loadingStatus" class="alert alert-info" role="alert" id="InfoAlert">
+                                    <span id="InfoAlertText">Retry error events command sent.</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+                <div class="row logo-box-b">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 centerContent">
+                        <div id="GlassStatusPane" class="well pdb-well relativity-size-adjust">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <legend class="legend-transform-a">
+                                        Overview
+                                    </legend>
+                                    <div class="form-group">
+                                        <label for="sampleRange" class="col-lg-5 control-label" style="text-align: left !important; padding-top: 0 !important">Sample Range</label>
+                                        <div class="col-lg-7" style="text-align: right !important">
+                                            <span id="sampleRange">{{status.SampleRange}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sampleRange" class="col-lg-5 control-label" style="text-align: left !important; padding-top: 0 !important">
+                                            Run Status
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right !important">
+                                            <span id="status">{{status.SystemState}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastEventExecuted" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Last Event Executed
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="lastEventExecuted" class="control-label">{{status.LastEventExecuted}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numberOfPendingEvents" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Pending Events
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="numberOfPendingEvents" class="control-label">{{status.PendingEvents}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numberOfErrorEvents" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Error Events
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="numberOfErrorEvents" class="control-label">{{status.ErrorEvents}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sampleRange" class="col-lg-3 control-label" style="text-align: left !important; padding-top: 0 !important">Last Message</label>
+                                        <div class="col-lg-9" style="text-align: right !important">
+                                            <span id="lastMessage" style="display: block; word-wrap: break-word">{{status.LastMessage}}</span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div id="BackfillSettingsPane" class="well pdb-well relativity-size-adjust hidden-on-success">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <legend class="legend-transform-a">Backfill Progress</legend>
+                                    <div class="form-group">
+                                        <label for="runDuration" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Hours in Discovery Phase
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="These hours are currently being checked for workspace-level audits. Hours with activity will move to the analysis phase." />
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="awaitingDiscovery">{{status.HoursAwaitingDiscovery}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="runDuration" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Hours in Analysis Phase
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="In this phase, QoS Worker agents process audits for all active hours. To accelerate analysis, create additional QoS Worker agents. As each hour's analysis completes, it moves into the scoring phase." />
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="awaitingAnalysis">{{status.HoursAwaitingAnalysis}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="runDuration" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Hours in Scoring Phase
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Once every hour, the QoS Manager agent cycles through hours ready for scoring. The agent gathers analysis results, determines sample eligibility, and generates scores." />
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="awaitingScoring">{{status.HoursAwaitingScoring}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="runDuration" class="col-lg-5 control-label" style="text-align: left; padding-top: 0">
+                                            Hours Scored
+                                            <img src="~/Images/infos.png" height="11" data-toggle="tooltip" data-placement="bottom"
+                                                 title="Performance Dashboard has completed scoring for these hours. Once all hours are scored, the backfill is complete." />
+                                        </label>
+                                        <div class="col-lg-7" style="text-align: right">
+                                            <span id="hoursCompleted">{{status.HoursCompleted}}</span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="~/Script/Backfill/backfillApp.js"></script>
+</body>
+</html>

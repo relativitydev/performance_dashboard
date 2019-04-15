@@ -1,0 +1,18 @@
+USE [EDDSPerformance]
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'DataGridCache' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE [eddsdbo].[DataGridCache](
+		[WorkspaceId] [int] NOT NULL,
+		[StartHourToReadAuditsFromDataGrid] [int] NULL,
+	 CONSTRAINT [PK_DataGridCache] PRIMARY KEY CLUSTERED 
+	(
+		[WorkspaceId] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+	ALTER TABLE [eddsdbo].[DataGridCache]  WITH CHECK ADD  CONSTRAINT [FK_DataGridCache_Hours] FOREIGN KEY([StartHourToReadAuditsFromDataGrid])
+	REFERENCES [eddsdbo].[Hours] ([ID])
+
+	ALTER TABLE [eddsdbo].[DataGridCache] CHECK CONSTRAINT [FK_DataGridCache_Hours]
+END

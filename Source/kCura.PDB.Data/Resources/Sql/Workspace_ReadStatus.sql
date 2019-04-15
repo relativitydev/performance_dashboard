@@ -1,0 +1,1 @@
+﻿select top 1 [Status] from eddsdbo.WorkspaceUpgradeStatus where [ArtifactID] = @workspaceId

@@ -1,0 +1,73 @@
+CasesToAudit columns
+-IsActive
+-IsCompleted
+-IsFailedThisRun
+-Retry
+
+Mainly manipulated in QoS_WorkspaceAnalysisManager.sql, (Run VARSCAT and then) MarkCaseHourCompleted.sql, QoS_LookingGlass_3.0.1.sql
+
+--- QoS_WorkspaceAnalysisManager ---
+
+SELECT @beginDate = DATEADD(hh, 1, MAX(AuditStartDate))
+FROM eddsdbo.QoS_CasesToAudit WITH(NOLOCK);
+
+"Now populate QoS_CasesToAudit using the date dimension"
+SET @d = @beginDate;
+WHILE (@d < @endDate)
+BEGIN	
+	INSERT INTO EDDSDBO.QoS_CasesToAudit
+		(CaseArtifactID, AuditStartDate, ServerName, ServerID, DatabaseName, WorkspaceName, IsCompleted, IsFailedThisRun, Retry)
+	SELECT
+		EC.ArtifactID, QSD.quotidian, EC.DBLocation, EC.ServerID, 'EDDS' + CAST(EC.ArtifactID AS VARCHAR), EC.[Name], 0, 0, 0
+	FROM EDDS.EDDSDBO.ExtendedCase EC WITH (NOLOCK)
+	CROSS JOIN EDDSDBO.QoS_SourceDatetime QSD WITH(NOLOCK)
+	WHERE QSD.quotidian >= @d
+		AND QSD.quotidian >= DATEADD(HH, DATEDIFF(hh, 0, EC.CreatedOn), 0)
+		AND QSD.quotidian < DATEADD(dd, 7, @d)
+		AND QSD.quotidian < @endDate
+		AND EC.Name != '[RESTORE IN PROGRESS]'
+		AND EC.DeleteFlag = 0
+	ORDER BY QSD.quotidian, EC.DBLocation
+	OPTION (MAXDOP 1)
+	
+	SET @d = DATEADD(dd, 7, @d);
+END
+
+
+"Set IsActive for all active hours we found"
+UPDATE EDDSPerformance.eddsdbo.QoS_CasesToAudit
+	SET IsActive = 1
+	WHERE AuditStartDate IN (SELECT AuditStartDate FROM eddsdbo.QoS_ActiveHours)
+	AND CaseArtifactID = @inCaseArtifactID
+	AND IsActive IS NULL
+	
+"Anything that is still not set to active within our working range is automatically inactive"
+	UPDATE EDDSPerformance.eddsdbo.QoS_CasesToAudit
+	SET IsActive = 0, IsCompleted = 1
+	WHERE CaseArtifactID = @inCaseArtifactID
+	AND IsActive IS NULL
+	
+"Trying the above, this is the CATCH"
+BEGIN CATCH
+	UPDATE EDDSDBO.QoS_CasesToAudit
+	SET Retry = Retry + 1,
+		IsFailedThisRun = 1
+	WHERE DatabaseName = @DatabaseName
+		AND IsActive IS NULL
+		AND Retry < 5
+END CATCH
+
+--- LookingGlass ---
+
+UPDATE eddsdbo.QoS_CasesToAudit
+	SET IsFailedThisRun = 0
+	WHERE IsActive = 1
+	AND IsFailedThisRun = 1;
+
+--- MarkCaseHourCompleted ---
+
+UPDATE EDDSPerformance.eddsdbo.QoS_CasesToAudit
+SET IsCompleted = 1,
+	Retry = @Failed,
+	IsFailedThisRun = @Failed
+WHERE RowID = @CaseHourId

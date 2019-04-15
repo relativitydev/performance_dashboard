@@ -1,0 +1,23 @@
+USE [EDDSPerformance]
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'LRQCountDW' AND TABLE_SCHEMA = N'EDDSDBO')
+BEGIN
+	CREATE TABLE [eddsdbo].[LRQCountDW](
+		[LRQCountDWID] [int] IDENTITY(1,1) NOT NULL,
+		[MeasureDate] [date] NOT NULL,
+		[MeasureHour] [int] NOT NULL,
+		[CaseArtifactID] [int] NOT NULL,
+		[LRQCount] [int] NULL,
+		[CreatedOn] [datetime] NOT NULL,
+		[NRLRQCount] [int] NULL,
+		[TotalQCount] [int] NULL,
+		[TotalNRQCount] [int] NULL,
+		[totalQtime] [int] NULL,
+	 CONSTRAINT [PK_LRQCountDW] PRIMARY KEY CLUSTERED 
+	(
+		[LRQCountDWID] ASC
+	)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+END
+GO

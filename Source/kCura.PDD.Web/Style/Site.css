@@ -1,0 +1,78 @@
+﻿/**
+ * This file contains all of our default styles
+ * 
+ * Font Defaults........Sets up our font defaults
+ *
+ * Box-sizing...........Better default `box-sizing`.
+ * 
+ * Clear Utility........Resets floats
+ */
+
+/**********************************************
+ ** Font Defaults
+ **********************************************/
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+/**********************************************
+ ** Box-sizing Reset
+ **********************************************/
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+/**********************************************
+ ** Clear Utility class
+ **********************************************/
+.clear {
+    clear: both;
+}
+
+
+.passText{
+    color: green;
+    font-weight:bold;
+}
+
+.warnText {
+    color: #CACD00;
+    font-weight: bold;
+}
+
+.failText {
+    color: red;
+    font-weight: bold;
+}
+
+.noneText {
+    color: gray;
+    font-weight: bold;
+}
+
+.passBackground{
+    background-color: green;
+
+}
+.warnBackground {
+    background-color: #CACD00;
+}
+.failBackground{
+    background-color: red;
+}
+
+.noneBackground{
+    background-color: gray;
+}

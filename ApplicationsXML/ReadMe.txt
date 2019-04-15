@@ -1,0 +1,1 @@
+Place XML Schema files for RAP in here

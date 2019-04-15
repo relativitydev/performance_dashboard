@@ -1,0 +1,19 @@
+USE EDDSPerformance
+GO
+
+IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'QoS_GapSummary' AND TABLE_SCHEMA = N'EDDSDBO') 
+BEGIN
+	CREATE TABLE eddsdbo.QoS_GapSummary
+	(
+		ServerArtifactID INT NULL,
+		ServerName NVARCHAR(50) NULL,
+		DatabaseName NVARCHAR(50) NOT NULL,
+		WorkspaceName VARCHAR(50) NULL,
+		CaseArtifactID INT NOT NULL,
+		IsBackup BIT NOT NULL,
+		LastActivityDate DATETIME,
+		ResolutionDate DATETIME,
+		GapSize INT
+	)
+END
+GO

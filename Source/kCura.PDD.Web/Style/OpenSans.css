@@ -1,0 +1,8 @@
+﻿@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'), local('OpenSans'), url(../Fonts/googleOpenSans.woff) format('woff');
+}
+
+body, tr > td > nobr {
+    font-family: 'Open Sans', sans-serif !important;
+}

@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2FE3332-FC53-4FA0-9DF3-51766D4AEB23}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kCura.PDD.Web</RootNamespace>
+    <AssemblyName>kCura.PDD.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+    <DesktopBuildPackageLocation>obj\Debug\Package\kCura.PDB.Web.zip</DesktopBuildPackageLocation>
+    <DeployIisAppPath>Default Web Site/kCura.PDB.Web_deploy</DeployIisAppPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet />
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Charts.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Data.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Office.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.PivotGrid.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Printing.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.RichEdit.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Sparkline.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Utils.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxGauges.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxGauges.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxHtmlEditor.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxPivotGrid.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxScheduler.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxScheduler.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxSpellChecker.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxThemes.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.ASPxTreeList.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.Web.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraCharts.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Extensions">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraCharts.v13.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.UI">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraCharts.v13.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Web">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraCharts.v13.2.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Wizard">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraCharts.v13.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraEditors.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v13.2.Core">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraGauges.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraPrinting.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2.Design">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraPrinting.v13.2.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraReports.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2.Web">
+      <HintPath>..\..\Vendor\SolutionReferences\DevExpress.XtraReports.v13.2.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.WebApi, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.WebApi.6.2.1.0\lib\Net45\FluentValidation.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.20\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.20\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\Vendor\SolutionReferences\DotNetZip.1.9.2\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Data">
+      <HintPath>..\..\Vendor\binaries\kCura.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Data.RowDataGateway, Version=7.5.602.4, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Vendor\binaries\kCura.Data.RowDataGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client">
+      <HintPath>..\..\vendor\binaries\kCura.Relativity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Relativity.API">
+      <HintPath>..\..\vendor\binaries\Relativity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.CustomPages">
+      <HintPath>..\..\Vendor\binaries\Relativity.CustomPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Kepler, Version=1.0.1.409, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.1.0.1.409\lib\net462\Relativity.Kepler.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.Toggles, Version=1.0.0.64, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdministrationInstall.aspx" />
+    <Content Include="ApplicationPerformance.aspx" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Script\Chart.bundle.js" />
+    <Content Include="Script\Chart.bundle.min.js" />
+    <Content Include="Script\html2canvas.js" />
+    <Content Include="Script\jquery-3.3.1.js" />
+    <Content Include="Script\jquery-3.3.1.min.js" />
+    <Content Include="Script\jsPDF.js" />
+    <Content Include="Script\polyfill.min.js" />
+    <Content Include="Script\ServiceQuality\serviceQualityApp.js" />
+    <Content Include="Style\quality.css" />
+    <Content Include="ConfirmationPage.aspx" />
+    <Content Include="Controls\QueryDisplayControl.ascx" />
+    <Content Include="Controls\ServerHealthControl.ascx" />
+    <Content Include="FileLatencyReport.aspx" />
+    <Content Include="EnvironmentCheck.aspx" />
+    <Content Include="EnvironmentCheckServerInfo.aspx" />
+    <Content Include="Fonts\font.relativity-user-permissions-icons.css" />
+    <Content Include="Fonts\user-permissions.svg" />
+    <Content Include="Images\list_active_large.png" />
+    <Content Include="Images\list_inactive_large.png" />
+    <Content Include="MaintenanceWindows.aspx" />
+    <Content Include="RecoveryObjectives.aspx" />
+    <Content Include="GapSummary.aspx" />
+    <Content Include="Backup.aspx" />
+    <Content Include="Script\Backfill\backfillApp.js" />
+    <Content Include="Script\Chart.js" />
+    <Content Include="Script\jquery.dataTables.js" />
+    <Content Include="Script\jquery.spinner.min.js" />
+    <Content Include="Script\MaintenanceScheduler\maintenanceSchedulerApp.js" />
+    <Content Include="Script\MaintenanceWindows.js" />
+    <Content Include="Script\EnvironmentCheck.js" />
+    <Content Include="Script\InitDateTimePickers.js" />
+    <Content Include="Script\MorelessExpand.js" />
+    <Content Include="Script\Notifications\notificationsApp.js" />
+    <Content Include="Script\Configuration\configurationApp.js" />
+    <Content Include="Script\vue.js" />
+    <Content Include="Script\vue.min.js" />
+    <Content Include="Style\ConfirmationPage.css" />
+    <Content Include="Style\EnvironmentCheck.css" />
+    <Content Include="Waits.aspx" />
+    <Content Include="Script\bootstrap-multiselect.js" />
+    <Content Include="Style\bootstrap-multiselect.css" />
+    <Content Include="DbccTarget.aspx" />
+    <Content Include="Images\export_excel.png" />
+    <Content Include="Images\pivot_chart_active_large.png" />
+    <Content Include="Images\pivot_chart_inactive_large.png" />
+    <Content Include="Images\pivot_list_active_large.png" />
+    <Content Include="Images\pivot_list_inactive_large.png" />
+    <Content Include="Images\visibility_icon_active.png" />
+    <Content Include="QoS_DBCCLog.txt" />
+    <Content Include="Script\Chart.min.js" />
+    <Content Include="Script\jquery.spinner.js" />
+    <Content Include="Script\DbccTargets.js" />
+    <Content Include="Script\FCMReset.js" />
+    <Content Include="Script\jquery.datetimepicker.js" />
+    <Content Include="Script\Loading.js" />
+    <Content Include="Script\ScoreChartSetup.js" />
+    <Content Include="Script\VarscatDetails.js" />
+    <Content Include="Style\bootstrap-spinner.css" />
+    <Content Include="Style\jquery.datetimepicker.css" />
+    <Content Include="Style\Loading.css" />
+    <Content Include="SystemLoadServer.aspx" />
+    <Content Include="UserExperienceServer.aspx" />
+    <Content Include="UserExperienceHours.aspx" />
+    <Content Include="Style\UserExperienceSearch.css" />
+    <Content Include="UserExperienceSearch.aspx" />
+    <Content Include="Images\alert.png" />
+    <EmbeddedResource Include="Images\alert_red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Images\alert_red_trans.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\itemList_filter_active.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\move_first.png" />
+    <Content Include="Images\move_last.png" />
+    <Content Include="Images\move_next.png" />
+    <Content Include="Images\move_previous.png" />
+    <Content Include="Images\next_disabled.png" />
+    <Content Include="Images\previous_disabled.png" />
+    <Content Include="Images\print.png" />
+    <Content Include="Images\print_disabled.png" />
+    <Content Include="Images\rsz_relativitylogo_blue.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\save_disabled.png" />
+    <Content Include="Images\sort_asc.gif" />
+    <Content Include="Images\sort_desc.gif" />
+    <Content Include="Images\warning_blue.png" />
+    <Content Include="Script\bootstrap-switch.min.js" />
+    <Content Include="Script\DataTablesSetup.js" />
+    <Content Include="Script\jquery.dataTables.min.js" />
+    <Content Include="Script\placeholder.jquery.min.js" />
+    <Content Include="Style\BackupDBCC.css" />
+    <Content Include="Style\bootstrap-switch.min.css" />
+    <Content Include="Style\Components.css" />
+    <Content Include="Style\Form.css" />
+    <Content Include="Style\OpenSans.css" />
+    <Content Include="Style\PageLayout.css" />
+    <Content Include="Style\reset.css" />
+    <Content Include="Style\Site.css" />
+    <Content Include="Style\SystemLoad.css" />
+    <Content Include="Style\Tables.css" />
+    <Content Include="Style\Uptime.css" />
+    <Content Include="Style\UserExperience.css" />
+    <Content Include="Images\check.png" />
+    <Content Include="Images\warning.png" />
+    <Content Include="Images\rsz_relativitylogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\jquery.min.js" />
+    <Content Include="Script\UserExperience.js" />
+    <Content Include="Style\generate.png" />
+    <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\back.png" />
+    <Content Include="Images\back_arrow.png" />
+    <Content Include="Images\blank.png" />
+    <Content Include="Images\Chart_off.png" />
+    <Content Include="Images\Chart_on.png" />
+    <Content Include="Images\clear_filters.png" />
+    <Content Include="Images\clear_filters_disabled.png" />
+    <Content Include="Images\apply_filters.png" />
+    <Content Include="Images\apply_filters_disabled.png" />
+    <EmbeddedResource Include="Images\down-left-brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-left-gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-left-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-left-magic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-left-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-right-brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-right-gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-right-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-right-magic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down-right-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Images\first.png" />
+    <Content Include="Images\gear.png" />
+    <Content Include="Images\Grid_off.png" />
+    <Content Include="Images\Grid_on.png" />
+    <Content Include="Images\help_icon.png" />
+    <Content Include="Images\infos.png" />
+    <Content Include="Images\itemList_filter.png" />
+    <Content Include="Images\last.png" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\one.png" />
+    <Content Include="Images\previous.png" />
+    <Content Include="Images\relativity.png" />
+    <Content Include="Images\setting.png" />
+    <Content Include="Images\show_all.png" />
+    <Content Include="Images\sizeToFit.png" />
+    <EmbeddedResource Include="Images\up-left-brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-left-gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-left-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-left-magic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-left-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-right-brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-right-gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-right-green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-right-magic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\up-right-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Images\three.png" />
+    <Content Include="Images\two.png" />
+    <Content Include="Images\visibility_icon.png" />
+    <Content Include="Script\Backup.js" />
+    <Content Include="Script\AdministrationInstall.js" />
+    <Content Include="Script\bootstrap.min.js" />
+    <Content Include="Script\Uptime.js" />
+    <Content Include="Script\Cookie.js" />
+    <Content Include="Script\SystemLoad.js" />
+    <Content Include="Script\date.js" />
+    <Content Include="Script\DateFormat.js" />
+    <Content Include="Script\PreDefinedDateRanges.js" />
+    <Content Include="Script\ServerHealth.js" />
+    <Content Include="Script\BrowserDetect.js" />
+    <Content Include="ServerHealth.aspx" />
+    <Content Include="Style\bootstrap.min.css" />
+    <Content Include="Style\CommonStyle.css" />
+    <Content Include="Style\AdministrationInstall.css" />
+    <Content Include="Style\Styles.css" />
+    <Content Include="Uptime.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.Transform.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.Transform.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Base.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Increment.cs">
+      <Link>Increment.cs</Link>
+    </Compile>
+    <Compile Include="AdministrationInstall.aspx.cs">
+      <DependentUpon>AdministrationInstall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministrationInstall.aspx.designer.cs">
+      <DependentUpon>AdministrationInstall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationPerformance.aspx.cs">
+      <DependentUpon>ApplicationPerformance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplicationPerformance.aspx.designer.cs">
+      <DependentUpon>ApplicationPerformance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\MVC\Controllers\BackfillController.cs" />
+    <Compile Include="Areas\MVC\Controllers\ConfigurationController.cs" />
+    <Compile Include="Areas\MVC\Controllers\MaintenanceWindowSchedulerController.cs" />
+    <Compile Include="Areas\MVC\Controllers\NotificationsController.cs" />
+    <Compile Include="Areas\MVC\Controllers\ServiceQualityController.cs" />
+    <Compile Include="Areas\MVC\MVCAreaRegistration.cs" />
+    <Compile Include="ConfirmationPage.aspx.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmationPage.aspx.designer.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\DataTableSessionConstants.cs" />
+    <Compile Include="Controllers\BackfillController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\EnvironmentCheckController.cs" />
+    <Compile Include="Controllers\FileLatencyController.cs" />
+    <Compile Include="Controllers\MaintenanceWindowSchedulerController.cs" />
+    <Compile Include="Controllers\ServiceQualityController.cs" />
+    <Compile Include="Controllers\UptimeReportController.cs" />
+    <Compile Include="Controllers\UptimeController.cs" />
+    <Compile Include="Controllers\RecoveryObjectivesReportController.cs" />
+    <Compile Include="Controllers\RecoverabilityIntegrityController.cs" />
+    <Compile Include="Controllers\BackupDbccReportController.cs" />
+    <Compile Include="Controllers\RecoverabilityIntegrityReportController.cs" />
+    <Compile Include="Controllers\SystemLoadServersController.cs" />
+    <Compile Include="Controllers\SystemLoadWaitsController.cs" />
+    <Compile Include="Controllers\FilterResult.cs" />
+    <Compile Include="Controllers\UserExperienceSearchController.cs" />
+    <Compile Include="Controllers\UserExperienceServersController.cs" />
+    <Compile Include="Controllers\UserExperienceHoursController.cs" />
+    <Compile Include="Controls\QueryDisplayControl.ascx.cs">
+      <DependentUpon>QueryDisplayControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\QueryDisplayControl.ascx.designer.cs">
+      <DependentUpon>QueryDisplayControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServerHealthControl.ascx.cs">
+      <DependentUpon>ServerHealthControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ServerHealthControl.ascx.designer.cs">
+      <DependentUpon>ServerHealthControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Enum\EnvironmentCheckViewColumns.cs" />
+    <Compile Include="Enum\MaintenanceWindowViewColumns.cs" />
+    <Compile Include="Factories\AuthenticationServiceFactory.cs" />
+    <Compile Include="FileLatencyReport.aspx.cs">
+      <DependentUpon>FileLatencyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileLatencyReport.aspx.designer.cs">
+      <DependentUpon>FileLatencyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnvironmentCheck.aspx.cs">
+      <DependentUpon>EnvironmentCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnvironmentCheck.aspx.designer.cs">
+      <DependentUpon>EnvironmentCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enum\UptimeViewColumns.cs" />
+    <Compile Include="EnvironmentCheckServerInfo.aspx.cs">
+      <DependentUpon>EnvironmentCheckServerInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnvironmentCheckServerInfo.aspx.designer.cs">
+      <DependentUpon>EnvironmentCheckServerInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\AuthenticateUserAttribute.cs" />
+    <Compile Include="Filters\PromptWhenAdminScriptsNotDeployedAttribute.cs" />
+    <Compile Include="Filters\ValidateAjaxAntiForgeryTokenAttribute.cs" />
+    <Compile Include="Filters\AuthenticateSystemAdministratorAttribute.cs" />
+    <Compile Include="Models\BackfillStatus.cs" />
+    <Compile Include="Services\UrlHelper.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="MaintenanceWindows.aspx.cs">
+      <DependentUpon>MaintenanceWindows.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaintenanceWindows.aspx.designer.cs">
+      <DependentUpon>MaintenanceWindows.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceWindowValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MaintenanceWindowValidationMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BISSummary\EnvironmentCheckViewModel.cs" />
+    <Compile Include="Models\BISSummary\FileLatencyViewModel.cs" />
+    <Compile Include="Models\BISSummary\UptimeReportViewModel.cs" />
+    <Compile Include="RecoveryObjectives.aspx.cs">
+      <DependentUpon>RecoveryObjectives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecoveryObjectives.aspx.designer.cs">
+      <DependentUpon>RecoveryObjectives.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GapSummary.aspx.cs">
+      <DependentUpon>GapSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GapSummary.aspx.designer.cs">
+      <DependentUpon>GapSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BISSummary\SystemLoadWaitsViewModel.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\DevAuthenticationService.cs" />
+    <Compile Include="Services\ErrorHandlingService.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
+    <Compile Include="Services\IMaintenanceWindowSchedulingService.cs" />
+    <Compile Include="Services\IRequestService.cs" />
+    <Compile Include="Services\MaintenanceWindowModelService.cs" />
+    <Compile Include="Services\MaintenanceWindowSchedulingService.cs" />
+    <Compile Include="Services\RequestService.cs" />
+    <Compile Include="Validators\MaintenanceWindowDeleteValidator.cs" />
+    <Compile Include="Validators\MaintenanceWindowValidator.cs" />
+    <Compile Include="Waits.aspx.cs">
+      <DependentUpon>Waits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Waits.aspx.designer.cs">
+      <DependentUpon>Waits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DbccTarget.aspx.cs">
+      <DependentUpon>DbccTarget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DbccTarget.aspx.designer.cs">
+      <DependentUpon>DbccTarget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enum\SystemLoadViewColumns.cs" />
+    <Compile Include="Enum\UserExperienceViewColumns.cs" />
+    <Compile Include="Extensions\StringWriterExtensions.cs" />
+    <Compile Include="Handlers\SessionControllerHandler.cs" />
+    <Compile Include="Handlers\SessionRouteHandler.cs" />
+    <Compile Include="Models\BISSummary\ScoreChartViewModel.cs" />
+    <Compile Include="Models\BISSummary\SystemLoadServerViewModel.cs" />
+    <Compile Include="Models\DataTableResponse.cs" />
+    <Compile Include="Models\JQueryDataTableParamModel.cs" />
+    <Compile Include="Controllers\SystemLoadController.cs" />
+    <Compile Include="Services\DbccTargetService.cs" />
+    <Compile Include="SystemLoadServer.aspx.cs">
+      <DependentUpon>SystemLoadServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemLoadServer.aspx.designer.cs">
+      <DependentUpon>SystemLoadServer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserExperienceServer.aspx.cs">
+      <DependentUpon>UserExperienceServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserExperienceServer.aspx.designer.cs">
+      <DependentUpon>UserExperienceServer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BISSummary\UserExperienceServerViewModel.cs" />
+    <Compile Include="Models\BISSummary\UserExperienceHoursViewModel.cs" />
+    <Compile Include="UserExperienceHours.aspx.cs">
+      <DependentUpon>UserExperienceHours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserExperienceHours.aspx.designer.cs">
+      <DependentUpon>UserExperienceHours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BISSummary\UserExperienceSearchViewModel.cs" />
+    <Compile Include="Controllers\UserExperienceController.cs" />
+    <Compile Include="UserExperienceSearch.aspx.cs">
+      <DependentUpon>UserExperienceSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserExperienceSearch.aspx.designer.cs">
+      <DependentUpon>UserExperienceSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enum\ErrorMode.cs" />
+    <Compile Include="Models\BISSummary\LookingGlassInformation.cs" />
+    <Compile Include="PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\ScoreImageService.cs" />
+    <Compile Include="Mapper\BestInServiceMapper.cs" />
+    <Compile Include="Enum\AppHealthItems.cs" />
+    <Compile Include="Enum\ChartTypes.cs" />
+    <Compile Include="Enum\FileFormat.cs" />
+    <Compile Include="Enum\HealthControlType.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ApplicationHealthMapper.cs" />
+    <Compile Include="Models\AdministrationInstallationModel.cs" />
+    <Compile Include="Models\BISSummary\BackupViewModel.cs" />
+    <Compile Include="Models\BISSummary\QualityOfServiceViewModel.cs" />
+    <Compile Include="Models\BISSummary\UptimeViewModel.cs" />
+    <Compile Include="Models\InstallationStep.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerHealth.aspx.cs">
+      <DependentUpon>ServerHealth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServerHealth.aspx.designer.cs">
+      <DependentUpon>ServerHealth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IImageProvider.cs" />
+    <Compile Include="Services\ImageProvider.cs" />
+    <Compile Include="Reports\QualityOfServiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\QualityOfServiceReport.Designer.cs">
+      <DependentUpon>QualityOfServiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uptime.aspx.cs">
+      <DependentUpon>Uptime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Uptime.aspx.designer.cs">
+      <DependentUpon>Uptime.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kCura.PDB.Core\kCura.PDB.Core.csproj">
+      <Project>{B72F5674-7D0D-469C-AD9D-877623285607}</Project>
+      <Name>kCura.PDB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Data\kCura.PDB.Data.csproj">
+      <Project>{2ed961c8-45d1-4ebd-8e77-2bbd04fb9237}</Project>
+      <Name>kCura.PDB.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kCura.PDB.Service\kCura.PDB.Service.csproj">
+      <Project>{613bfc9c-050b-4d42-bbc0-fae722e1b37b}</Project>
+      <Name>kCura.PDB.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\googleOpenSans.woff" />
+    <Content Include="Fonts\user-permissions.eot" />
+    <Content Include="Fonts\user-permissions.ttf" />
+    <Content Include="Fonts\user-permissions.woff" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\MVC\Views\web.config" />
+    <Content Include="Areas\MVC\Views\Backfill\Index.cshtml" />
+    <Content Include="Areas\MVC\Views\Configuration\Index.cshtml" />
+    <Content Include="Areas\MVC\Views\MaintenanceWindowScheduler\Index.cshtml" />
+    <Content Include="Areas\MVC\Views\Notifications\Index.cshtml" />
+    <Content Include="Areas\MVC\Views\ServiceQuality\Index.cshtml" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\kCura DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalDevAH.pubxml" />
+    <None Include="Properties\PublishProfiles\QA.pubxml" />
+    <None Include="Properties\PublishProfiles\TZ 94 Publish.pubxml" />
+    <None Include="Properties\PublishProfiles\TZ Publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MaintenanceWindowValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MaintenanceWindowValidationMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\QualityOfServiceReport.resx">
+      <DependentUpon>QualityOfServiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <DnxInvisibleFolder Include="node_modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.targets" Condition="!Exists('$(VSToolsPath)\Web\Microsoft.Web.Publishing.targets')" />
+  <!-- <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /> -->
+  <!-- <Import Project="..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.12.0.4\tools\VSToolsPath\WebApplications\Microsoft.WebApplication.targets" Condition="false" /> -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50639</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="BeforeBuild">
+    <TransformXml Source="Web.Base.config" Transform="Web.$(Configuration).Transform.config" Destination="Web.config" />
+  </Target>
+</Project>

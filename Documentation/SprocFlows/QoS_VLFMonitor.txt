@@ -1,0 +1,7 @@
+QoS_VLFMonitor
+- [@serverName].EDDSQoS.eddsdbo.QoS_VLFServerMonitor (EXEC)
+- EDDSQoS.eddsdbo.LogAppend (EXEC)
+
+QoS_VLFServerMonitor
+- GetPrimarySqlServer (EXEC)
+- QoS_LogAppend (EXEC)
